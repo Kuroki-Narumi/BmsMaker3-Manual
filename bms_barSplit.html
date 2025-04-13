@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>小節の分割</h1>
+                <p>
+                    小節の分割を行う際に表示されるウィンドウです。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_barSplit.png" maps="
+                      1,  5,198, 29, bms/barSplit_first.html;
+                      1, 34,198, 29, bms/barSplit_maxCount.html;
+                      1, 72,198, 29, bms/barSplit_expression.html;
+                      1,101,198, 33, bms/barSplit_expression_buttons.html;
+                     57,141, 56, 25, bms/barSplit_decide.html;
+                    115,141, 82, 25, common/sub_cancel.html;">
+                </div>
+                <ul>
+                    <li>
+                        小節を2分割したいだけの場合は、「1本目の位置」に所望の分割位置を入力し、<b>「式」は空欄</b>で十分です。
+                    </li>
+                    <li>
+                        3分割以上したい場合には「式」を利用してください。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack" id="expression">
+                <h3>「式」の詳細</h3>
+                <ul>
+                    <li>
+                        式には以下の記号が使用可能です。
+                        <ul>
+                            <li>
+                                定数値(整数、小数、分数)
+                            </li>
+                            <li>
+                                四則演算記号(<span class="script">+ - * / %</span>)
+                            </li>
+                            <li>
+                                変数記号(6種類)
+                                <div class="script">
+                                    l - 元々の小節長<br>
+                                    f - 「1本目の位置」の値<br>
+                                    m - 「最大分割数」の値<br>
+                                    i - 現在の小節線番号(※下記参照)<br>
+                                    p - 1つ前の小節線の位置(初期値は f と同じ)<br>
+                                    q - 2つ前の小節線の位置(初期値は 0)<br>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        計算ループ
+                        <ul>
+                            <li>
+                                <span class="script">i</span>の初期値は、「1本目の位置」が<span class="script">0</span>の場合は<span class="script">1</span>、それ以外の場合は<span class="script">2</span>です。
+                            </li>
+                            <li>
+                                <span class="script">i</span>を<span class="script">1</span>ずつ増やしながら<span class="script">i = m - 1</span>まで繰り返し計算されます。
+                            </li>
+                            <li>
+                                計算結果が以下のいずれかとなった場合、<b>その計算結果は反映されず</b>、計算ループがその時点で打ち切られます。
+                                <ul>
+                                    <li>
+                                        1つ前の小節線の位置と同じかそれより小さい値になった場合
+                                    </li>
+                                    <li>
+                                        元々の小節長と同じかそれより大きい値になった場合
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        チートシート
+                        <ul>
+                            <li>
+                                等分割<br>
+                                <div class="script">
+                                    [全体の長さ] * i / m
+                                </div>
+                            </li>
+                            <li>
+                                一定間隔<br>
+                                <div class="script">
+                                    [間隔] * i
+                                </div>
+                            </li>
+                            <li>
+                                等比級数<br>
+                                <div class="script">
+                                    p + (p - q) * [公比]
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

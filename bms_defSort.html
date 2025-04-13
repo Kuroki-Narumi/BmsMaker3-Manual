@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>定義の整列</h1>
+                <p>
+                    定義リストの内容を最適化する機能です。
+                </p>
+                <ul>
+                    <li>
+                        未使用定義の削除と、空白詰めを含む並べ替えができます。
+                    </li>
+                    <li>
+                        BMSファイルの基数(≒最大定義数)を変更することもできます。
+                    </li>
+                    <li>
+                        Version 0.5.0 時点では<b>リネーム</b>や<b>未使用ファイルの削除</b>には未対応です。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_defSort.png" maps="
+                     11, 25,147, 25, bms/defSort_remove.html;
+                     11, 55,147, 25, bms/defSort_reduce.html;
+                     27, 81,130, 25, bms/defSort_sort.html;
+                     27,107,130, 25, bms/defSort_lnobj.html;
+                    169,  3, 91,139, bms/defSort_base.html;
+                      1,143,167,114, bms/defSort_multiDef.html;
+                    172,165, 85, 40, bms/defSort_execute.html;
+                    172,213, 85, 40, common/cancel_restore.html;">
+                </div>
+                <ul>
+                    <li>
+                        未使用定義は、全ての<a href="bms_flow.html">分岐枝</a>についても調査します。
+                    </li>
+                    <li>
+                        整列の完了後、コンソールに定義番号の変換結果が表示されます。<br>
+                        <img src="img/bms_defSort_result.png"/>
+                        <ul>
+                            <li>
+                                実際には何も変更されなかった場合、コンソールには<span class="script">DefSort had no effect.</span>と表示されます。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<h3>相関閾値</h3>
+<ul>
+    <li>
+        「自動チェック」でチェックする(同一の音とみなす)条件となる、<br>
+        各<b><a href="https://ja.wikipedia.org/wiki/%E6%B1%BA%E5%AE%9A%E4%BF%82%E6%95%B0" target="_blank">決定係数</a></b>の下限を指定します。<br>
+        <img src="img/bms_reduct_threshold.png">
+        <ul>
+            <li>
+                各項目の意味は、下の「関係一覧」の説明を参照してください。
+            </li>
+            <li>
+                決定係数は<span class="script">1</span>以下の実数です。<br>
+                <span class="script">1</span>に近いほど似ているとみなされます。
+            </li>
+            <li>
+                各項目の係数(複数チャンネルある場合はその平均)が<b>全て</b><br>
+                それぞれの指定値以上である場合に「削減」がチェックされます。
+            </li>
+            <li>
+                <span class="script">0</span>にした場合、その項目での判定を行いません。
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="https://github.com/mironak/BmsDefinitionReductor">BmsDefinitionReductor</a>と同等の条件にする場合は、<br>
+        「RMS」と「スペクトル重心」を<span class="script">0</span>にし、「波形」の値を<br>
+        BDRの「同一とみなす相関係数」と同様に設定します。
+    </li>
+</ul>

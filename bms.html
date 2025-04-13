@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>BMSモード</h1>
+                <p>
+                    BMSファイル(<span class="script">.bms .bme .bml .pms .pme</span>)を閲覧・編集するためのウィンドウです。
+                </p>
+                <ul>
+                    <li>
+                        <a href="http://ucn.tokonats.net/software/bmse/" target="_blank">BMSE</a>に近い操作感の、より高機能なBMSエディターです。
+                    </li>
+                    <li>
+                        <span class="script">#RANDOM</span>などの制御構造に<b>正式に</b>対応しています。
+                    </li>
+                    <li>
+                        「<a href="bms_slice.html">スライス</a>」など、BMS制作を補助する様々な<b>機能</b>が付属しています。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明セクションに飛びます。
+                <div class="image-map" src="img/window_bms.png" style="max-width: 640px;" maps="
+                       1, 31,1079,  67, #tab, link;
+                       1, 99, 799, 664, #main, link;
+                     800, 99, 280, 664, #rightPane, link;
+                "></div>
+            </div>
+            <div class="stack" id="tab">
+                <div class="common" src="common/tabArea.html"></div>
+                要素をクリックすると説明が表示されます。
+                <div style="display: grid; row-gap: 12px;">
+                    <div class="image-map" src="img/window_bms_tab_file.png" maps="
+                          1,  0, 25, 21, common/undo.html;
+                         26,  0, 25, 21, common/redo.html;
+                          1, 22, 71, 45, common/file_new.html;
+                         71, 22, 83, 45, common/file_open.html;
+                        154, 22, 96, 45, common/file_save.html;
+                        250, 22,137, 45, common/file_saveAs.html;
+                    "></div>
+                    <div class="image-map" src="img/window_bms_tab_edit.png" maps="
+                          1,  0, 25, 21, common/undo.html;
+                         26,  0, 25, 21, common/redo.html;
+                          1, 22, 75, 45, bms/ascend.html;
+                         81, 22, 91, 45, bms/edit_move.html;
+                        172, 22, 60, 45, bms/edit_add.html;
+                        237, 22, 78, 45, bms/cut.html;
+                        316, 22, 66, 45, bms/copy.html;
+                        382, 22, 79, 45, bms/paste.html;
+                        461, 22, 60, 45, bms/delete.html;
+                        526, 22,154, 45, bms/preview_select.html;
+                        680, 22, 81, 45, bms/preview_all.html;
+                        761, 22,105, 45, bms/preview_resume.html;
+                        866, 22,112, 45, bms/preview_setting.html;
+                    "></div>
+                    <div class="image-map" src="img/window_bms_tab_view.png" maps="
+                          1,  0, 25, 21, common/undo.html;
+                         26,  0, 25, 21, common/redo.html;
+                          1, 22,108, 45, bms/playByClick.html;
+                        114, 22, 91, 45, bms/style.html;
+                        205, 22,121, 45, bms/scratchPosition.html;
+                        331, 22, 96, 23, bms/lane_conductor.html;
+                        331, 45, 96, 22, bms/lane_bga.html;
+                        427, 22,172, 45, bms/lane_bgm.html;
+                        604, 22, 92, 45, bms/grid_quantize.html;
+                        696, 22, 73, 45, bms/grid_small.html;
+                        769, 22, 73, 45, bms/grid_large.html;
+                        847, 22,122, 45, bms/scale_y.html;
+                        969, 22,106, 45, bms/scale_x.html;
+                    "></div>
+                    <div class="image-map" src="img/window_bms_tab_function.png" maps="
+                          1,  0, 25, 21, common/undo.html;
+                         26,  0, 25, 21, common/redo.html;
+                          1, 22, 74, 45, bms/func_info.html;
+                         80, 22, 94, 45, bms/func_selection.html;
+                        172, 22, 99, 45, bms/func_keySort.html;
+                        276, 22, 94, 45, bms/func_sequential.html;
+                        370, 22, 80, 45, bms/func_slice.html;
+                        455, 22,108, 45, bms/func_defSort.html;
+                        562, 22,103, 45, bms/func_reduct.html;
+                        670, 22, 92, 45, bms/func_assemble.html;
+                    "></div>
+                    <div id="tab_terminal" src="img/window_bms_tab_terminal.png"></div>
+                </div>
+            </div>
+            <div class="stack" id="main">
+                <h2>譜面表示エリア</h2>
+                <ul>
+                    <li>
+                        配置されているノートを視覚的に確認・編集するエリアです。
+                    </li>
+                </ul>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/window_bms_main.png" maps="
+                      0,  0, 963, 14, bms/area_header.html;
+                      7, 14, 167,226, bms/area_conductor.html, center;
+                    181, 14,  83,226, bms/area_bga.html, center;
+                    271, 14, 223,226, bms/area_key.html, center;
+                    501, 14, 447,226, bms/area_bgm.html, center;
+                "></div>
+                <div>
+                    <h3>マウスによる操作</h3>
+                    <ul>
+                        <li>
+                            <b>ホイール</b>: スクロールと拡大率変更に使います。
+                            <ul>
+                                <li>
+                                    <span class="script">Shift</span>を押している場合は<b>水平方向</b>にスクロールします。
+                                </li>
+                                <li>
+                                    <span class="script">Ctrl</span>を押している場合は<b>縦スケール</b>を変更します。
+                                </li>
+                                <li>
+                                    <span class="script">Ctrl+Shift</span>を押している場合は<b>横スケール</b>を変更します。
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>左クリック</b>: 選択とノートの配置に使います。
+                            <ul>
+                                <li>
+                                    挙動は<b>編集モード</b>によって異なります。詳細は<a href="#tab">タブエリア</a>での説明を参照してください。
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>右クリック</b>: スクロールとコンテキストメニューに使います。
+                            <ul>
+                                <li>
+                                    <b>右ドラッグ</b>によって縦横にスクロールします。
+                                </li>
+                                <li>
+                                    右クリックの後、マウスを動かさずにボタンを離すとコンテキストメニューが開きます。<br>
+                                    <img src="img/window_bms_contextmenu.png">
+                                </li>
+                                <li>
+                                    <b>このノート</b>: ノートを右クリックしてメニューを開いた場合に選択可能となる項目です。
+                                    <div class="left-panel">
+                                        <img src="img/window_bms_contextmenu_note.png">
+                                        <ul>
+                                            <li>
+                                                1行目には、クリックされたノートの詳細が表示されます。
+                                            </li>
+                                            <li>
+                                                <b>指揮者レーン以外</b>のノートを右クリックした場合、そのノートの定義番号が<b>対応する定義リストにて選択されます</b>。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Edit.png" class="icon16"><b>編集</b>: <a href="bms_noteEdit.html">ノート編集ウィンドウ</a>を開きます。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Delete.png" class="icon16"><b>削除</b>: このノートを削除します。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Wave_Slice.png" class="icon16"><b>スライス</b>: このノートに定義されている音声ファイルを対象として、<a href="bms_slice.html">スライスウィンドウ</a>を開きます。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/HorizontalAlign_Stretch.png" class="icon16"><b>小節線を追加</b>: このノートの位置に小節線を追加し、この小節を2つに分割します。
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <br>
+                                <li>
+                                    <b>この小節</b>: 右クリックした小節に関するメニューです。
+                                    <div class="left-panel">
+                                        <img src="img/window_bms_contextmenu_bar.png">
+                                        <ul>
+                                            <li>
+                                                1行目には、クリックされた小節の番号が表示されます。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Selection.png" class="icon16"><b>全て選択</b>: この小節に含まれる全てのノートを選択状態にし、それ以外の選択状態を解除します。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Edit.png" class="icon16"><b>編集</b>: <a href="bms_barEdit.html">小節長編集ウィンドウ</a>を開きます。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Split.png" class="icon16"><b>分割</b>: <a href="bms_barSplit.html">小節分割ウィンドウ</a>を開きます。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Upload.png" class="icon16"><b>挿入</b>: この小節の<b>直前</b>に、長さ<span class="script">1</span>の小節を挿入します。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Download.png" class="icon16"><b>削除</b>: この小節を削除し、以降にある全てのオブジェクトの位置を、この小節の長さぶん手前に移動します。
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <br>
+                                <li>
+                                    <b>選択範囲</b>: 選択範囲に関するメニューです。
+                                    <div class="left-panel">
+                                        <img src="img/window_bms_contextmenu_selection.png">
+                                        <ul>
+                                            <li>
+                                                <img src="img/icons/Selection.png" class="icon16"><b>全て選択</b>: この譜面に含まれる<b>全てのノート</b>を選択状態にします。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Selection.png" class="icon16"><b>選択機能</b>: <a href="bms_selection.html">選択機能ウィンドウ</a>を開きます。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Cut.png" class="icon16"><b>切り取り</b>: 選択中のノートをクリップボードにコピーし、譜面から削除します。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Copy.png" class="icon16"><b>コピー</b>: 選択中のノートをクリップボードにコピーします。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Paste.png" class="icon16"><b>貼り付け</b>: クリップボードにコピーされているノーツを譜面に追加します。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Copy.png" class="icon16"><b>複製</b>: 選択中のノートをクリップボードにコピー<b>せず</b>、直接その場に追加します。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Delete.png" class="icon16"><b>削除</b>: 選択中のノートを譜面から削除します。
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="stack" id="rightPane">
+                <h2>情報ペイン</h2>
+                <ul>
+                    <li>
+                        編集中のBMSファイルの、ノート配置以外に関する情報を閲覧・編集するエリアです。
+                    </li>
+                    <li>
+                        カテゴリごとに<b>エキスパンダー</b>によってまとめられています。
+                        <ul>
+                            <li>
+                                エキスパンダーは<b>同時に2つまで</b>展開できます。
+                            </li>
+                            <li>
+                                3つ目のエキスパンダーを展開しようとすると、最初に展開したほうが閉じます。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        タブがあるカテゴリは、タブヘッダーの上で<b>マウスホイール回転</b>によっても表示するタブを切り替えられます。
+                    </li>
+                </ul>
+                要素をクリックすると説明ページに飛びます。
+                <div class="image-map" src="img/bms_rightPane.png" maps="
+                    4,  1,273,27, bms_header.html, link;
+                    4, 29,273,27, bms_definition.html, link;
+                    4, 57,273,27, bms_exDef.html, link;
+                    4, 85,273,27, bms_hidden.html, link;
+                    4,113,273,27, bms_problem.html, link;
+                    4,141,273,27, bms_flow.html, link;">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>グループ機能</h1>
+                <p>
+                    現在のトラックにおいて、グループ化を一括で行う機能です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/midi_group.png" maps="
+                      1, 27,231, 57, midi/group_target.html;
+                      1, 86,231,158, midi/group_mode.html;
+                     10,244,212, 25, midi/group_dechord.html;
+                      1,283,231, 58, midi/group_direction.html;
+                     76,344, 62, 40, midi/group_execute.html;
+                    146,344, 82, 40, common/cancel_restore.html;">
+                </div>
+                <ul>
+                    <li>
+                        <b>ノートグループ</b>は<a href="midi_pack.html">MIDI整理</a>の際に1個のノートとして扱われます。
+                    </li>
+                    <li>
+                        <a href="midi_keySwitch.html">キースイッチ</a>に指定された単独ノートは、いかなる場合にもグループ化の対象から除外されます。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack" id="example">
+                <h2>具体例</h2>
+                <ul>
+                    <li>
+                        画像はBMSツクール2のものですが、BmsMaker3でも挙動は同じです。
+                    </li>
+                </ul>
+                <table class="group">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="img/midi_group_0.png"/>
+                                <p>
+                                    元の並び
+                                </p>
+                            </td>
+                            <td>
+                                <img src="img/midi_group_5.png"/>
+                                <p>
+                                    <b>グループ数:2</b> / <b>上から</b><br>
+                                    ●上のグループのほうが個数が多い
+                                </p>
+                            </td>
+                            <td>
+                                <img src="img/midi_group_6.png"/>
+                                <p>
+                                    <b>グループ数:2</b> / <b>下から</b><br>
+                                    ●下のグループのほうが個数が多い
+                                </p>
+                            </td>
+                            <td>
+                                <img src="img/midi_group_7.png"/>
+                                <p>
+                                    <b>グループ数:3</b> / <b>上から</b><br>
+                                    ●右側の2つはグループ化されていない
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="img/midi_group_1.png"/>
+                                <p>
+                                    <b>個数:2</b> / <b>上から</b><br>
+                                    ●端数は一番下のグループ
+                                </p>
+                            </td>
+                            <td>
+                                <img src="img/midi_group_3.png"/>
+                                <p>
+                                    <b>個数:2</b> / <b>下から</b><br>
+                                    ●端数は一番上のグループ
+                                </p>
+                            </td>
+                            <td>
+                                <img src="img/midi_group_2.png"/>
+                                <p>
+                                    <b>個数:3</b> / <b>上から</b><br>
+                                </p>
+                            </td>
+                            <td>
+                                <img src="img/midi_group_4.png"/>
+                                <p>
+                                    <b>個数:4</b> / <b>下から</b><br>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

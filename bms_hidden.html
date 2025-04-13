@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>未表示ノーツ</h1>
+                <p>
+                    <a href="bms.html#main"><b>譜面表示エリア</b></a>に表示されていないノートの一覧です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                <img src="img/bms_hidden.png">
+                <ul>
+                    <li>
+                        ダブルプレイ譜面をスタイル<span class="script">Beat_7</span>で表示している場合などに未表示ノーツが発生します。
+                    </li>
+                    <li>
+                        未表示ノーツが存在する場合、エキスパンダーのヘッダー部分に<img src="img/icons/Caution.png" class="icon16">が表示されます。
+                    </li>
+                    <li>
+                        項目を選択すると、そのノートが存在する時間位置の付近にスクロールします。
+                        <ul>
+                            <div class="common" src="common/list_selection.html"></div>
+                        </ul>
+                    </li>
+                    <li>
+                        リスト上で<b>右クリック</b>すると、ノート配置に関するコンテキストメニューが開きます。
+                        <div class="left-panel">
+                            <img src="img/bms_hidden_menu.png">
+                            <ul>
+                                <li>
+                                    <img src="img/icons/Edit.png" class="icon16"><b>編集</b>: <a href="bms_noteEdit.html">ノート編集ウィンドウ</a>を開きます。
+                                </li>
+                                <li>
+                                    <img src="img/icons/Plus.png" class="icon16"><b>追加</b>: <a href="bms_noteEdit.html">ノート編集ウィンドウ</a>を開き、新たにノートを追加します。
+                                </li>
+                                <li>
+                                    <img src="img/icons/Delete.png" class="icon16"><b>削除</b>: このリストで選択されているノートを削除します。
+                                </li>
+                            </ul>
+                        </div>
+                        <ul>
+                            <li>
+                                「追加」はリストが空の状態でも行えます。
+                            </li>
+                            <li>
+                                このリストから「追加」することで、<b>「スタイル」で対応していない任意のレーンにノートを配置できます</b>。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

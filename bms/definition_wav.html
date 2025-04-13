@@ -1,0 +1,45 @@
+<h3>#WAV</h3>
+対象チャンネル: <span class="script">01 11-6Z D1-EZ</span>
+<ul>
+    <li>
+        楽曲演奏時に使われる音声ファイルの定義リストです。
+        <ul>
+            <li>
+                拡張子は<span class="script">.wav</span>を標準とし、<span class="script">.ogg</span>及び<span class="script">.mp3</span>が使用できます。
+            </li>
+            <li>
+                指定されたファイルが存在しない場合、互換拡張子のファイルがあるかを調べ、<br>
+                存在すれば、そのファイルを指定された音声として扱います。
+            </li>
+            <li>
+                「開く」によってファイルを選択した際、拡張子は<span class="script">.wav</span>に置換されます。
+            </li>
+        </ul>
+    </li>
+    <li>
+        項目の選択時、定義された音声ファイルが存在していれば、その内容を再生します。
+    </li>
+    <li>
+        定義番号<span class="script">00</span>は<b>地雷ノートの音声</b>として参照されます。
+        <ul>
+            <li>
+                譜面上に直接配置することはできません。
+            </li>
+        </ul>
+    </li>
+    <li>
+        コンテキストメニューは以下の通りです。<br>
+        <img src="img/bms_definition_wav_menu.png">
+        <ul>
+            <li>
+                <img src="img/icons/Wave_Slice.png" class="icon16"><b>スライス</b>: 定義されている音声ファイルを対象として、<a href="bms_slice.html">スライスウィンドウ</a>を開きます。
+            </li>
+            <li>
+                <img src="img/icons/NewWindow.png" class="icon16"><b>Waveビューで開く</b>: 定義されている音声ファイルを<a href="wave.html">Waveモード</a>で開きます。
+            </li>
+            <li>
+                その他の項目は、リスト下部にあるボタンと同一です。
+            </li>
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>ビューワー設定</h1>
+                <p>
+                    譜面のプレビューに使うビューワーを登録するウィンドウです。
+                </p>
+                <ul>
+                    <li>
+                        初回起動時点で、「<a href="https://mistyblue.info/mbmplay.html" target="_blank">mBMplay</a>」「<a href="http://ucn.tokonats.net/software/ubmplay/" target="_blank">uBMplay</a>」「<a href="https://bmsoffighters.net/lr2/" target="_blank">LR2</a>」「<a href="https://mocha-repository.info/download.php" target="_blank">beatoraja</a>」に対応したプリセットが用意されています。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_viewer.png" maps="
+                      5, 24,159,353, bms/viewer_list.html, center;
+                     22,377, 26, 22, common/list_add.html;
+                     48,377, 26, 22, common/list_delete.html;
+                     95,377, 26, 22, common/list_moveUp.html;
+                    121,377, 26, 22, common/list_moveDown.html;
+                    170, 26,247, 52, bms/viewer_name.html;
+                    170, 82,247, 52, bms/viewer_path.html;
+                    170,138,247, 52, bms/viewer_arg1.html;
+                    170,194,247, 52, bms/viewer_arg2.html;
+                    170,250,247, 60, bms/viewer_arg_special.html;
+                    243,355, 82, 40, common/sub_decide.html;
+                    333,355, 82, 40, common/sub_cancel.html;">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

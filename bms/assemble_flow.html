@@ -1,0 +1,46 @@
+<h3>制御構造</h3>
+<ul>
+    <li>
+        <span class="script">#RANDOM</span>及び<span class="script">#SWITCH</span>に対する措置を選択します。
+        <ul>
+            <li>
+                <b>自動</b>: デフォルトの乱数発生器により、ランダムな値を与えます。
+                <ul>
+                    <li>
+                        実際のゲームプレイ時に近い挙動です。
+                    </li>
+                    <li>
+                        アセンブルを実行する度に異なる結果が得られます。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>選択</b>: 制御フローが登場した場合、その都度分岐の番号を指定します。<br>
+                <img src="img/bms_assemble_input.png">
+                <ul>
+                    <li>
+                        分岐の内容を固定したい場合に利用します。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>シード値</b>: 「自動」と同じくランダム値を与えますが、そのシードを指定します。
+                <ul>
+                    <li>
+                        <b>シード</b>は任意の整数です。
+                    </li>
+                    <li>
+                        <b>同じシード</b>から作られる乱数は、常に同じ結果をもたらします。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>無視</b>: <span class="script">#RANDOM</span>及び<span class="script">#SWITCH</span>で囲まれた区間を無視します。
+            </li>
+        </ul>
+    </li>
+    <li>
+        いずれかの分岐に<a href="bms_flow.html"><b>降下</b></a>した状態でアセンブルする場合、<br>
+        降下中の分岐については固定で採用されます。
+    </li>
+</ul>

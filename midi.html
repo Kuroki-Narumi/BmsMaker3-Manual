@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>MIDIモード</h1>
+                <p>
+                    Standard Midi File(<span class="script">.mid</span>)を読み込み、その内容を解析・整理して、BMS用の音切りを行うためのウィンドウです。
+                </p>
+                <ul>
+                    <li>
+                        ここで「音切り」とは以下の手順を指し、その多くの段階がこのモードにおいて実行可能です。
+                        <ol>
+                            <li>
+                                キー音用の譜面データ(MIDIファイル)を参考に、<a href="midi_pack.html">同一の音を整理し、必要に応じて音高順に並べ替えるなどして、<b>整理済みMIDIファイル</b>を作成する</a>
+                            </li>
+                            <li>
+                                1.で作成したMIDIをDAWなどで読み込んで、スライス用の音声データ(WAVファイル)を書き出す
+                            </li>
+                            <li>
+                                2.で書き出した音声データに対し、1.の整理済みMIDIを用いて<a href="midi_slice.html">スライスマーカーを配置し、その配置に従って複数の音声データに分割する</a>
+                            </li>
+                            <li>
+                                3.で作成した分割済み音声それぞれを<a href="midi_bmsExport.html">BMSデータ(BMSファイル)上に定義し、元々の譜面を再現するようにノーツを配置する</a>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="midi_group.html">グループ化</a>や<a href="midi_scoreOptions.html">音切りに関わる設定</a>などの情報を保持できるように、このモードではBmsMaker3では独自形式<b>BM3Score Data</b>(<span class="script">.bm3scr</span>)にて管理します。<!-- 詳細は<a href="bm3scr.html">BM3Score ファイル</a>を参照してください。 -->
+                    </li>
+                    <li>
+                        Version 0.5 時点では、MIDIファイルそのものへの編集機能は<a href="midi_bulkEdit.html">一括編集</a>を除き未実装です。
+                        <ul>
+                            <li>
+                                MIDIの編集においては<a href="https://takabosoft.com/domino" target="_blank">Domino</a>という極めて完成度の高いフリーソフトが存在するため、ノーツの追加/削除やメタデータの編集などは、当面あちらをご利用ください。
+                            </li>
+                            <li>
+                                利便性に問題があるため、<a href="midi_bulkEdit.html">一括編集</a>以外にも簡易的な編集機能は追加する予定です。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明セクションに飛びます。
+                <div class="image-map" src="img/window_midi.png" style="max-width: 640px;" maps="
+                    1, 31,1162, 67, #tab, link;
+                    1, 99,1162,445, #main, link;
+                ">
+                </div>
+            </div>
+            <div class="stack" id="tab">
+                <div class="common" src="common/tabArea.html"></div>
+                要素をクリックすると説明が表示されます。
+                <div style="display: grid; row-gap: 12px;">
+                    <div class="image-map" src="img/window_midi_tab_file.png" maps="
+                          0,  0, 25, 21, common/undo.html;
+                         25,  0, 25, 21, common/redo.html;
+                          0, 22, 71, 45, common/file_new.html;
+                         70, 22, 83, 45, common/file_open.html;
+                        153, 22, 96, 45, common/file_save.html;
+                        249, 22,137, 45, common/file_saveAs.html;
+                        391, 22,119, 45, midi/tab_scoreOptions.html;
+                        510, 22, 69, 45, midi/tab_merge.html;
+                        579, 22, 93, 45, midi/tab_bulkEdit.html;
+                        677, 22, 96, 45, midi/tab_bmsExport.html;
+                    "></div>
+                    <div class="image-map" src="img/window_midi_tab_track.png" maps="
+                           0,  0, 25, 21, common/undo.html;
+                          25,  0, 25, 21, common/redo.html;
+                           0, 22,126, 45, midi/tab_trackOptions.html;
+                         126, 22, 76, 45, midi/trackMove.html;
+                         202, 22, 59, 45, midi/trackDelete.html;
+                         266, 22, 98, 45, midi/tab_keySwitch.html;
+                         364, 22, 94, 45, midi/tab_trackBulkEdit.html;
+                         463, 22,107, 45, midi/tab_group.html;
+                         570, 22,104, 45, midi/tab_marker.html;
+                         674, 22, 90, 22, midi/enchord.html;
+                         674, 44, 90, 23, midi/dechord.html;
+                         764, 22,111, 45, midi/autoGroup_multi.html;
+                         880, 22, 96, 45, midi/tab_pack.html;
+                         976, 22, 80, 45, midi/tab_slice.html;
+                    "></div>
+                    <div class="image-map" src="img/window_midi_tab_environment.png" maps="
+                          0,  0, 25, 21, common/undo.html;
+                         25,  0, 25, 21, common/redo.html;
+                          0, 22,138, 44, midi/tab_defaultOptions.html;
+                        138, 22,128, 44, midi/tab_sysex.html;
+                        266, 22,145, 44, midi/tab_ksPreset.html;
+                        416, 22, 65, 23, midi/view_background.html;
+                        416, 45, 65, 21, midi/view_line.html;
+                        481, 22, 95, 23, midi/view_onion.html;
+                        481, 45, 95, 21, midi/view_velocity.html;
+                        581, 22,122, 44, midi/scale_x.html;
+                        703, 22,106, 44, midi/scale_y.html;
+                    "></div>
+                    <div id="tab_terminal" src="img/window_midi_tab_terminal.png"></div>
+                </div>
+            </div>
+            <div class="stack" id="main">
+                <h2>メインエリア</h2>
+                <ul>
+                    <li>
+                        楽譜の内容を確認するエリアです。
+                    </li>
+                    <li>
+                        左から<b>トラックリスト</b>、<b>イベントリスト</b>、<b>譜面表示エリア</b>に分かれています。
+                    </li>
+                    <li>
+                        各エリアの境界をドラッグすることで、幅を変更することができます。
+                    </li>
+                </ul>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/window_midi_main.png" maps="
+                      0, 0, 140,300, midi/main_track.html, center;
+                    144, 0, 258,300, midi/main_event.html, center;
+                    407, 0, 709,300, midi/main_score.html, center;
+                "></div>
+                <div>
+                    <h3>マウスによる操作</h3>
+                    <ul>
+                        <li>
+                            <b>ホイール</b>: スクロールと拡大率変更に使います。
+                            <ul>
+                                <li>
+                                    何も押さずにホイールを回すと<b>水平方向</b>にスクロールします。
+                                </li>
+                                <li>
+                                    <span class="script">Shift</span>を押している場合は<b>垂直方向</b>にスクロールします。
+                                </li>
+                                <li>
+                                    <span class="script">Ctrl</span>を押している場合は<b>横スケール</b>を変更します。
+                                </li>
+                                <li>
+                                    <span class="script">Ctrl+Shift</span>を押している場合は<b>縦スケール</b>を変更します。
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>左クリック</b>: ノートの範囲選択に使います。
+                            <div class="common" src="common/selection_mode.html"></div>
+                            <ul>
+                                <li>
+                                    <span class="script">Ctrl</span>を押している間、<b>選択範囲の左右がノーツ境界にマッチ</b>します。
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>右クリック</b>: スクロールとコンテキストメニューに使います。
+                            <ul>
+                                <li>
+                                    <b>右ドラッグ</b>によって縦横にスクロールします。
+                                </li>
+                                <li>
+                                    右クリックの後、マウスを動かさずにボタンを離すとコンテキストメニューが開きます。<br>
+                                    <div class="left-panel">
+                                        <img src="img/window_midi_contextmenu_score.png">
+                                        <ul>
+                                            <li>
+                                                <img src="img/icons/Midi_Group.png" class="icon16"><b>マーカー編集</b>: <a href="midi_marker.html">マーカー編集ウィンドウ</a>を開きます。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Midi_Enchord.png" class="icon16"><b>グループ化</b>: 選択中の全てのノートを、一つのグループにまとめます。
+                                                <ul>
+                                                    <li>
+                                                        選択範囲にノートグループを含む場合、<b>そのグループも統合して</b>新たなグループにします。
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Midi_Dechord.png" class="icon16"><b>グループ解除</b>: 選択中の<b>全てのノートグループ</b>を解体します。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Midi_AutoGroup.png" class="icon16"><b>自動グループ化</b>
+                                                <ul>
+                                                    <li>
+                                                        選択中のノートグループと同じ配列となっている全ての<b>単独ノート</b>を、そのノートグループに置き換えます。
+                                                    </li>
+                                                    <li>
+                                                        自動グループ化によって作成された全てのグループは、<a href="midi_marker.html">マーカー編集</a>の状態が共有されます。
+                                                    </li>
+                                                    <li>
+                                                        複数のノートグループを選択している場合は、それぞれについて自動グループ化が適用されます。
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>キーの整列</h1>
+                <p>
+                    音声レーン(<b>演奏レーン</b>及び<b>BGMレーン</b>)のノーツをBGMレーンに整列する機能です。
+                </p>
+                <ul>
+                    <li>
+                        いわゆる<b>無配置譜面</b>を作成するのに利用できます。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_keySort.png" maps="
+                      5, 28,249, 25, bms/searchBar.html;
+                      5, 57,249,242, bms/keySort_defList.html, center;
+                    258, 98, 84, 25, bms/keySort_clear.html;
+                    258,131, 84, 50, bms/keySort_group.html;
+                    258,197, 84, 50, bms/keySort_group_auto.html;
+                    346, 28,249,271, bms/keySort_group_list.html, center;
+                    280,303,158,107, bms/keySort_target.html;
+                    440,304,124, 29, bms/keySort_lane.html;
+                    440,333,124, 25, bms/keySort_meta.html;
+                    443,367, 62, 40, bms/keySort_execute.html;
+                    513,367, 82, 40, common/cancel_restore.html;">
+                </div>
+            </div>
+            <div class="stack" style="display: none;">
+                <h3>「グループ自動設定」のアルゴリズム</h3>
+                <ol>
+                    <li>
+                        グループ分けには以下の状態を持つ<b>ツリー</b>を利用する。
+                        <ul>
+                            <li>
+                                <b>Key</b>: グループ名を表す文字列
+                            </li>
+                            <li>
+                                <b>Children</b>: グループ名をキー、子ツリーを値とする連想配列
+                            </li>
+                            <li>
+                                <b>IdList</b>: そのグループに所属する定義番号のリスト
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        (1st pass) ツリーを構築する。
+                        <ol>
+                            <li>
+                                各定義の内容について、以下のまとまりごとに分割し、文字列の配列(<b>キーリスト</b>)を作成する。
+                                <ul>
+                                    <li>
+                                        連続した数字<span class="script">0-9</span>
+                                    </li>
+                                    <li>
+                                        連続した<b>数字及び区切り文字<span class="script">- , . _</span>以外</b>の文字
+                                    </li>
+                                    <li>
+                                        <span class="script">v*l*o*(-*)[cdefgab]p</span> ※<span class="srcipt">*</span>は任意の数字
+                                        <ul>
+                                            <li>
+                                                <a href="https://mid2bms.net/" target="_blank">Mid2Bms</a>から出力されたスライス済みファイル名に対応するための処理です。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                分割した (定義番号, キーリスト) の組を、以下のルールに従ってツリーに追加する。
+                                <ul>
+                                    <li>
+                                        キーリストが空の場合、IdListにその定義番号を追加する。
+                                    </li>
+                                    <li>
+                                        キーリストが空でない場合、
+                                        <ul>
+                                            <li>
+                                                キーリストの先頭を取り出す(キーリストからは取り除く)。
+                                            </li>
+                                            <li>
+                                                自身のKeyと取り出した文字列を連結し、<b>子Key</b>とする。
+                                            </li>
+                                            <li>
+                                                その子KeyをKeyとして持つ子ツリーをChildrenから探す(無ければ追加する)。
+                                            </li>
+                                            <li>
+                                                その子ツリーに対して<b>2.</b>を再び行う。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        (2nd pass) ツリーを整理する。
+                        <ol>
+                            <li>
+                                自身の子ツリーそれぞれについて、以下を行う。
+                                <ul>
+                                    <li>
+                                        その子ツリーに対して<b>1.</b>を行う。
+                                    </li>
+                                    <li>
+                                        その子ツリーがさらなる子(孫ツリー)を持たず、かつIdListの要素数が<b>最小数</b>より少ない場合、<br>
+                                        その子ツリーのIdListの内容を自身のIdListに統合し、その子ツリーをChildrenから削除する。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                IdListの内容をソート(定義番号順に並べ替え)する。
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        (3rd pass) 定義番号とグループ番号の対応関係を作る。
+                        <ol>
+
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

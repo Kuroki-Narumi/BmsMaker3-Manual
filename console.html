@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>コンソールウィンドウ</h1>
+                <p>
+                    システムメッセージが表示されるウィンドウです。
+                    <ul>
+                        <li>
+                            コンソールウィンドウは、ウィンドウごとに個別に表示/非表示を切り替えられます。
+                        </li>
+                        <li>
+                            <a href="terminal.html">ターミナル</a>のコンソールには、全ての子ウィンドウのシステムメッセージが表示されます。
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/window_console.png" maps="
+                      0, 26,489,358, console/main.html, center;
+                    268,  0,108, 26, console/transparency.html;
+                    378,  0, 24, 26, console/taskbar.html;
+                    402,  0, 24, 26, console/topmost.html;
+                    ">
+                </div>
+                <ul>
+                    <li>
+                        メッセージエリアで右クリックするとメニューを開きます。
+                        <div class="left-panel">
+                            <img src="img/window_console_menu.png">
+                            <ul>
+                                <li>
+                                    <img src="img/icons/Copy.png" class="icon16"><b>ログのコピー</b>: 現在コンソールに表示されている<b>全ての</b>メッセージを、テキストとしてクリップボードにコピーします。
+                                </li>
+                                <li>
+                                    <img src="img/icons/Delete.png" class="icon16"><b>ログのクリア</b>: コンソールに表示されているシステムメッセージを<b>全て削除</b>します。
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

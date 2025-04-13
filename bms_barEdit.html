@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>小節長の編集</h1>
+                <p>
+                    小節長を変更する際に表示されるウィンドウです。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_barEdit.png" maps="
+                     1,  5,164, 55, bms/barEdit_length.html;
+                     1, 64,164,118, bms/barEdit_process.html;
+                    23,185, 56, 25, common/sub_decide.html;
+                    81,185, 82, 25, common/sub_cancel.html;">
+                </div>
+                <ul>
+                    <li>
+                        対象の小節が複数ある場合、「相対値」のチェック状態によって挙動が変わります。
+                        <ul>
+                            <li>
+                                具体例
+                                <ul>
+                                    <li>
+                                        小節<span class="script">#001</span>の元々の長さは<span class="script">1</span>
+                                    </li>
+                                    <li>
+                                        小節<span class="script">#002</span>の元々の長さは<span class="script">2</span>
+                                    </li>
+                                    <li>
+                                        「小節長」の指定は<span class="script">2</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                「相対値」をチェック<b>しなかった</b>場合
+                                <ul>
+                                    <li>
+                                        対象の全ての小節の長さが一律で<span class="script">2</span>になります。
+                                    </li>
+                                    <li>
+                                        この場合、元々の長さが<span class="script">2</span>である小節<span class="script">#002</span>は変更されません。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                「相対値」をチェックした場合
+                                <ul>
+                                    <li>
+                                        対象の小節の長さが、<b>元々の長さの<span class="script">2</span>倍</b>になります。
+                                    </li>
+                                    <li>
+                                        小節<span class="script">#001</span>の長さは<span class="script">2</span>になります。
+                                    </li>
+                                    <li>
+                                        小節<span class="script">#002</span>の長さは<span class="script">4</span>になります。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        「テンポ反映」をチェックした場合、長さが変更される各小節について、以下のような処理が行われます。
+                        <ul>
+                            <li>
+                                頭(小節内位置<span class="script">0</span>)にテンポノート(<span class="script">ch:08</span>)が存在しない場合、その時点のBPMに等しいテンポノートが挿入される。
+                            </li>
+                            <li>
+                                その小節内にある全てのテンポノートとストップノート(<span class="script">ch:09</span>)の値が、その小節長の変化率に合わせて変更される。
+                                <ul>
+                                    <li>
+                                        テンポノートについては、変更後の値がその時点の実際のBPMに等しい場合は削除されます。
+                                    </li>
+                                    <li>
+                                        ストップノートについては、変更後の値が<span class="script">1/192</span>の倍数でない場合<b>多くのBMSプレイヤーで正しい停止時間にならない</b>ため、<b style="color: #f44;">「テンポ反映」による伸縮は非推奨</b>です。
+                                    </li>
+                                    <li>
+                                        スクロールノート(<span class="script">ch:SC</span>)及びスピードノート(<span class="script">ch:SP</span>)は<b>変更されません</b>。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                次の小節の頭にテンポノートが存在しない場合、その時点の本来のBPMに等しいテンポノートが挿入される。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h3>「後処理」の具体例</h3>
+                小節<span class="script">#001</span>の長さを<span class="script">1</span>から<span class="script">1/2</span>に変更する場合の、各処理の結果です。
+                <div style="display: grid;
+                    grid-template-columns: repeat(5, max-content);
+                    column-gap: 6px;">
+                    <span style="text-align: center; font-weight: bold;">変更前</span>
+                    <span style="text-align: center; font-weight: bold;">トリム</span>
+                    <span style="text-align: center; font-weight: bold;">重ねる</span>
+                    <span style="text-align: center; font-weight: bold;">伸縮</span>
+                    <span style="text-align: center; font-weight: bold;">スライド</span>
+                    <img src="img/bms_barEdit_01.png">
+                    <img src="img/bms_barEdit_02.png">
+                    <img src="img/bms_barEdit_03.png">
+                    <img src="img/bms_barEdit_04.png">
+                    <img src="img/bms_barEdit_05.png">
+                    <p></p>
+                    <p style="line-height: 150%;">#001の2/4以降にあった<br>ノーツが削除された</p>
+                    <p style="line-height: 150%;">#001の2/4以降にあった<br>ノーツが#002へ移動した</p>
+                    <p style="line-height: 150%;">#001にあったノーツが<br>小節長に合わせて移動した</p>
+                    <p style="line-height: 150%;">#001:2/4以降にあった<br>ノーツが全て移動した<br>見た目上は移動していない</p>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

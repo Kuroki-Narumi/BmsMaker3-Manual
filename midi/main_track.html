@@ -1,0 +1,52 @@
+<h3>トラックリスト</h3>
+<ul>
+    <li>
+        この楽譜に含まれるトラックの一覧です。
+        <ul>
+            <li>
+                各項目は、上段にそのトラックの名前、下段にはトラックID、ポート番号、チャンネルが表示されます。
+            </li>
+            <li>
+                選択中の項目には<img src="img/icons/HeadRight.png" class="icon16"/>が表示されます。
+            </li>
+            <li>
+                トラックの並び順は、<a href="midi_bmsExport.html">BMS出力</a>における<b><span class="script">#WAV</span>定義リスト</b>の並び順に影響します。
+            </li>
+        </ul>
+    </li>
+    <li>
+        1つ目のトラックは<b>指揮者トラック</b>とみなされます。
+        <ul>
+            <li>
+                指揮者トラックは、そのタイトルが楽曲全体のタイトルになります。
+            </li>
+            <li>
+                「トラック」タブを表示中に指揮者トラックを選択すると「ファイル」タブに切り替わります。
+            </li>
+            <li>
+                テンポや拍子などの楽曲全体に関わるイベントは、この指揮者トラックに記述されます。
+            </li>
+        </ul>
+    </li>
+    <li>
+        「ファイル」タブを表示中に<b>2つ目以降</b>のトラックを選択すると「トラック」タブに切り替わります。
+    </li>
+    <li>
+        項目上で右クリックするとコンテキストメニューを開きます。<br>
+        <img src="img/window_midi_contextmenu_track.png"/>
+        <ul>
+            <li>
+                <img src="img/icons/Config.png" class="icon16"><b>トラックオプション</b>: <a href="midi_trackOptions.html">トラックオプション</a>を開きます。
+            </li>
+            <li>
+                <img src="img/icons/ArrowUp.png" class="icon16"><b>上に移動</b>: このトラックを一つ上に移動します。
+            </li>
+            <li>
+                <img src="img/icons/ArrowDown.png" class="icon16"><b>下に移動</b>: このトラックを一つ下に移動します。
+            </li>
+            <li>
+                <img src="img/icons/Delete.png" class="icon16"><b>削除</b>: このトラックを削除します。<b>トラックの追加はできません</b>。
+            </li>
+        </ul>
+    </li>
+</ul>

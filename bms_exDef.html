@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>拡張定義</h1>
+                <p>
+                    一部のBMSプレイヤーが独自に実装している<b>定義リスト</b>です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_exDef.png" maps="
+                      0, 46,108, 29, bms/exDef_exrank.html;
+                    108, 46, 80, 29, bms/exDef_text.html;
+                    188, 46, 89, 29, bms/exDef_argb.html;
+                      0, 21,110, 25, bms/exDef_swbga.html;
+                    110, 21,167, 27, bms/exDef_changeoption.html;
+                     75,430, 26, 22, bms/exDef_edit.html;
+                    101,430, 26, 22, bms/definition_clear.html;
+                    151,430, 26, 22, bms/definition_moveUp.html;
+                    177,430, 26, 22, bms/definition_moveDown.html;">
+                </div>
+                <ul>
+                    <div class="common" src="bms/definition_reference.html"></div>
+                    <li>
+                        (各リスト共通事項)
+                        <ul>
+                            <li>
+                                定義番号<span class="script">00</span>は編集可能ですが、ノートからは参照できません。
+                            </li>
+                            <div class="common" src="common/list_selection.html"></div>
+                            <li>
+                                項目上で右クリックすることで、コンテキストメニューを開きます。<br>
+                                <img src="img/bms_exDef_menu.png">
+                                <ul>
+                                    <li>
+                                        内容はリスト下部にあるボタンと同一です。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="bms_flow.html"><b>降下</b></a>中に親で定義されている項目は、その値が薄く表示されます。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        これらの定義に対応するノートを<b>譜面表示エリア</b>に表示することはできませんが、<br>
+                        <a href="bms_hidden.html">未表示ノーツ</a>への「追加」で対象レーンを選ぶことで、配置や編集が可能です。
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>アセンブル</h1>
+                <p>
+                    譜面のノート配置に従って定義された音声を統合し、1つのWAVファイルを作成する機能です。
+                </p>
+                <ul>
+                    <li>
+                        全てのノートを統合すれば、そのBMSの<b>完全な音源</b>を作成できます。
+                    </li>
+                    <li>
+                        一部のノートを統合し、いわば<b>グループ化</b>した新たなキー音を作ることもできます。
+                        <ul>
+                            <li>
+                                例えば、分割されていたアルペジオを低難度譜面1つにまとめるなどの目的で役に立ちます。
+                            </li>
+                            <li>
+                                全てのパートを音切りして譜面を作成したあと、不要なノーツだけを統合すれば、BGMを簡単に用意できます。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_assemble.png" maps="
+                     79, 26,154, 22, bms/assemble_mode.html;
+                      2, 52,135,109, bms/assemble_target.html;
+                      2,164,135, 57, bms/assemble_start.html;
+                      2,224,135,137, bms/assemble_flow.html;
+                    139, 51,168, 61, bms/assemble_gain.html;
+                    224, 76, 74, 25, bms/assemble_normalize.html;
+                    148,137,150, 25, bms/assemble_overlap.html;
+                    148,163,150, 25, bms/assemble_marker.html;
+                    148,189,150, 27, wave/bytes.html;
+                    148,221,150, 25, bms/assemble_view.html;
+                    205,270, 99, 40, bms/assemble_export.html;
+                    205,318, 99, 40, common/cancel_restore.html;
+                    ">
+                </div>
+            </div>
+            <div class="stack">
+                「選択範囲」をチェックすると、左半分の表示が切り替わります。
+                <div class="image-map" src="img/bms_assemble_selection.png" maps="
+                     88, 26,154, 22, bms/assemble_mode.html;
+                      2, 52,156,138, bms/assemble_replace.html;
+                    160, 51,168, 61, bms/assemble_gain.html;
+                    245, 76, 74, 25, bms/assemble_normalize.html;
+                    169,137,150, 25, bms/assemble_overlap.html;
+                    169,163,150, 25, bms/assemble_marker.html;
+                    169,189,150, 27, wave/bytes.html;
+                    169,221,150, 25, bms/assemble_view.html;
+                    226,261, 99, 40, bms/assemble_export2.html;
+                    226,309, 99, 40, common/cancel_restore.html;
+                    ">
+                </div>
+            </div>
+            <div class="stack" id="#tolerance">
+                <h3>相対時刻の許容誤差</h3>
+                <ul>
+                    <li>
+                        「許容誤差」が<span class="script">0</span>の場合、相対時刻の一致判定は<b>秒数基準で厳密に</b>行われます。
+                        <ul>
+                            <li>
+                                各ノートの位置は分数で管理されますが、秒数は小数(<a href="https://ja.wikipedia.org/wiki/%E5%80%8D%E7%B2%BE%E5%BA%A6%E6%B5%AE%E5%8B%95%E5%B0%8F%E6%95%B0%E7%82%B9%E6%95%B0" target="_blank">倍精度浮動小数点数</a>)で計算されます。
+                            </li>
+                            <li>
+                                この変換の際に誤差が発生しうるため、ごく僅かなノート配置のズレの他に、<br>
+                                <b>テンポ変化や小節長変化との兼ね合い</b>次第では「位置(分数)は同じはずなのに秒数(小数)は異なる」と判定される可能性があります。
+                            </li>
+                            <li>
+                                結果として「全て置き換え」の結果が想定と異なり、一部のシーケンスが置換されない場合があります。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="script">1ms</span>以上の場合、参照元となる選択範囲内の各相対時刻に対して、<b>前後に</b>指定値ぶんの猶予を設けます。
+                        <ul>
+                            <li>
+                                この猶予内に参照元と同じ定義番号のノートが存在する場合は、そのノートの相対時刻も一致するとみなして、置換対象にします。
+                            </li>
+                            <li>
+                                細かいテンポ変化の存在する譜面や、<a href="bms_sequential.html">連続配置</a>等によりグリッドを使わずに配置されたノートが含まれる譜面では、<br>
+                                この「許容誤差」に適当な数値を指定することで、想定通りの置換結果になる可能性があります。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="grid_9">
+                    <img src="img/bms_assemble_tolerance.png" style="grid-area: left; max-width: 300px;"/>
+                    <ul style="grid-area: content;">
+                        <li>
+                            具体例として、左図のようなノートシーケンスを仮定します。
+                            <ul>
+                                <li>
+                                    ①に対し、②は<span style="color: #f44">先頭ノート</span>の位置が異なり、残りのノートの<b>先頭からの相対位置</b>が同一となっています。
+                                </li>
+                                <li>
+                                    ①に対し、③は<span style="color: #f44">先頭ノート</span>の位置に加えて、<b style="color: #44f">2番目のノート</b><b>の相対位置</b>が<span class="script">1/384</span>だけずれています。
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            「許容誤差」が<span class="script">0</span>の場合、左図のような配置において「全て置き換え」は以下のように処理されます。
+                            <ul>
+                                <li>
+                                    ①を選択した場合、①と②がそれぞれ同じように置換され、③は置換されません。
+                                </li>
+                                <li>
+                                    ②を選択した場合も、①と②がそれぞれ同じように置換されます、③は置換されません。
+                                </li>
+                                <li>
+                                    ③を選択した場合は、③のみが置換され、①と②は置換されません。
+                                </li>
+                                <li>
+                                    例えばこの譜面の<span class="script">#BPM</span>が<span class="script">180</span>の場合、<b>384分音符1個</b>は約<span class="script">3.47ms</span>なので、<br>
+                                    「許容誤差」に<b><span class="script">4ms</span>以上を指定</b>すると、①②③の<b>全てが同時に置換</b>されるようになります。
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>キースイッチプリセット</h1>
+                <p>
+                    <a href="midi_keySwitch.html">トラックのキースイッチ指定</a>において、同じ音源向けの設定を異なるプロジェクト間で共有するための機能です。<br>
+                    ここで設定した項目が、トラックのキースイッチ指定の「プリセット」から選べるようになります。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/midi_ksPreset.png" maps="
+                      5,  5,162,378, midi/keySwitch_preset_list.html, center;
+                     28,387, 26, 22, common/list_add.html;
+                     60,387, 26, 22, common/list_moveUp.html;
+                     86,387, 26, 22, common/list_moveDown.html;
+                    118,387, 26, 22, midi/sysex_delete.html;
+                    171,  5,322,404, midi/keySwitch_view.html, center;
+                    497,  5,199,404, midi/keySwitch_list.html, center;
+                    708, 27,152, 25, midi/keySwitch_preset_name.html;
+                    752, 54, 67, 25, midi/keySwitch_preset_save.html;
+                    711,117,148, 26, midi/keySwitch_group.html;
+                    711,145,148,138, midi/keySwitch_mode.html;
+                    714,286, 56, 25, midi/keySwitch_apply.html;
+                    803,371, 61, 40, midi/keySwitch_preset_close.html;">
+                </div>
+            </div>
+            <div class="common" src="midi/keySwitch_details.html"></div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

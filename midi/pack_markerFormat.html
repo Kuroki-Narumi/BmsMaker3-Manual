@@ -1,0 +1,41 @@
+<h3>命名規則</h3>
+<ul>
+    <li>
+        マーカー名の形式を指定します。
+    </li>
+    <li>
+        実際のファイル名は<span class="script">[基本名][マーカー名].wav</span>となります。
+    </li>
+    <li>
+        以下の文字列は特定の文字列に変換されます。
+        <ul>
+            <li>
+                <b class="script">&lt;name&gt;</b> → 音名(<span class="script">C4</span>など)
+            </li>
+            <li>
+                <b class="script">&lt;nn&gt;</b> → ノートナンバー(<span class="script">0-127</span>)
+            </li>
+            <li>
+                <b class="script">&lt;vel&gt;</b> → ベロシティ(音の強さ、<span class="script">0-127</span>)
+            </li>
+            <li>
+                <b class="script">&lt;gate&gt;</b> → ゲート(音の長さ、<b>tick単位</b>)
+            </li>
+            <li>
+                <b class="script">&lt;idx&gt;</b> → ソート済みの通し番号(<span class="script">&lt;idx1,1&gt;</span>と同じ)
+            </li>
+            <li>
+                <b class="script">&lt;idxX,Y&gt;</b> → 最初が<span class="script">X</span>で<span class="script">Y</span>ずつ増加する通し番号
+            </li>
+            <li>
+                <b class="script">&lt;idxX,Y,Z&gt;</b> → <span class="script">&lt;idxX,Y&gt;</span>と同様に変換され、<span class="script">Z</span>桁に満たない分を<span class="script">0</span>で埋める
+            </li>
+        </ul>
+    </li>
+    <li>
+        変換後のマーカー名が被っている場合、2番目以降には区別のために末尾に番号が付加されます。
+    </li>
+    <li>
+        下のボタンを押すことで、命名規則のプリセットを適用します。
+    </li>
+</ul>

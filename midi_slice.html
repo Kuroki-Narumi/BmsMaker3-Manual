@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>スライス</h1>
+                <p>
+                    音声データを読み込み、<a href="midi_pack.html">MIDI整理</a>で作成したデータに従ってスライスする機能です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/midi_slice.png" maps="
+                      3,  3, 154, 34, wave/time.html;
+                      4, 41, 152, 22, wave/seekbar.html;
+                    159,  6,  36, 36, wave/skipLeft.html;
+                    195,  6,  36, 36, wave/playPause.html;
+                    231,  6,  36, 36, wave/stop.html;
+                    267,  6,  36, 36, wave/repeat.html;
+                    156, 44, 145, 22, wave/volume.html;
+                    304,  1, 116, 66, wave/range.html;
+                    425,  1, 138, 40, wave/marker_move.html;
+                    425, 41,  93, 26, wave/grid_time.html;
+                    518, 41,  99, 26, wave/grid_level.html;
+                    617, 41,  65, 26, wave/marker_line.html;
+                    682, 41,  79, 26, wave/marker_name.html;
+                    568,  1, 118, 40, midi/slice_trackMark.html;
+                    686,  1,  90, 40, midi/slice_slice.html;
+                    781,  1, 145, 36, midi/slice_title.html;
+                    781, 37, 145, 30, midi/slice_filename.html;
+                    931, 27, 121, 40, midi/slice_and_next.html;
+                      1, 67,1051,253, midi/slice_main.html, center;
+                    ">
+                </div>
+                <ul>
+                    <li>
+                        このウィンドウを開く際には、自動的に「トラックマーク」が実行されます。
+                    </li>
+                    <li>
+                        「トラックマーク」の際は、「開始位置の同期」を除いて音声データ側の音量チェックなどは行わず、機械的にマーカーを配置します。
+                        <ul>
+                            <li>
+                                音声データとMIDIのテンポが異なるなどの原因により、マーカーが音の位置から著しくずれる場合があるのでご注意ください。
+                            </li>
+                            <li>
+                                マーカーの位置はドラッグにより手動でも調整できます。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="common" src="midi/slice_options.html"></div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

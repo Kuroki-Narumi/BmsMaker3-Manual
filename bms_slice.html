@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>スライス</h1>
+                <p>
+                    読み込んだ音声ファイルを、BMS風のUIを使って分割する機能です。
+                </p>
+                <ul>
+                    <li>
+                        音声の波形と小節線を確認しながら、ノートの配置によってスライス位置を設定できます。
+                        <ul>
+                            <li>
+                                ノート配置の感覚は、恐らく<a href="https://excln.github.io/bmsone.html" target="_blank">BmsONE</a>にある程度近いかと思われます。<br>
+                                ただし、このアプリはVer 0.4 時点で<span class="script">.bmson</span>の編集には対応していません。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        スライスした音声ファイルを分割保存できます。
+                        <ul>
+                            <li>
+                                分割保存したそのデータをそのまま定義&配置することもできます。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        MIDIファイルを基準にスライスしたい場合は、<a href="wave_trackMark.html">Waveモード/トラックマーク</a>でマーカーを配置したうえで保存し、そのファイルを読み込んでください。
+                        <ul>
+                            <li>
+                                保存先のフォルダを適切に選べば、<a href="wave_slice.html">Waveモード/スライス</a>で分割保存したファイルをそのまま定義&配置に利用できます。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_slice.png" maps="
+                      7,  1,128,610, bms/slice_lane_wave.html, center;
+                    135,  1, 48,610, bms/slice_lane_apply.html, center;
+                    183,  1, 48,610, bms/slice_lane_cut.html, center;
+                    259,  1, 69, 40, bms/slice_open.html;
+                    328,  1,145, 40, bms/slice_save.html;
+                    259, 44,107, 38, bms/slice_edit_move.html;
+                    366, 44,107, 38, bms/slice_edit_add.html;
+                    259, 87,214, 30, bms/grid_quantize.html;
+                    259,117,107, 26, bms/grid_small.html;
+                    366,117,107, 26, bms/grid_large.html;
+                    259,148,113, 28, bms/slice_play.html;
+                    372,148,101, 28, bms/stop.html;
+                    259,185,214, 63, bms/slice_offset.html;
+                    259,251,214,117, wave/slice_leftProcess.html;
+                    259,372,214,117, wave/slice_rightProcess.html;
+                    259,490,214, 29, bms/slice_baseName.html;
+                    368,523,101, 36, bms/slice_export.html;
+                    284,567, 95, 40, bms/slice_execute.html;
+                    387,567, 82, 40, common/cancel_restore.html;">
+                </div>
+                <ul>
+                    <li>
+                        「機能」タブからこのウィンドウを開く場合、最初にスライスする音声ファイルを選ぶ必要があります。
+                    </li>
+                    <li>
+                        <b>マウスホイール</b>を回すことで<b>縦(時間)方向</b>にスクロールします。
+                        <ul>
+                            <li>
+                                <span class="script">Ctrl</span>を押している場合は<b>縦スケール</b>を変更します。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        ノートを選択/追加した後にカーソルキーの<span class="script">↑↓</span>を押すと、その直後/直前のノートを選択します。
+                        <ul>
+                            <li>
+                                この際、「クリックで再生」がチェックされていれば、選択されたノートの内容を再生します。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

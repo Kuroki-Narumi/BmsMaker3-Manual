@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>マーカー編集</h1>
+                <p>
+                    <a href="midi_group.html">グループ機能</a>などで作成したノートグループに対して、内部マーカーの位置や個数を編集する機能です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/midi_marker.png" maps="
+                      1, 1, 92, 38, midi/marker_grid.html;
+                     98, 1,134, 38, midi/marker_addRemove.html;
+                    232, 1, 65, 38, midi/marker_clear.html;
+                    297, 1, 92, 38, midi/marker_auto.html;
+                    394, 1,117, 38, midi/marker_autoGroup.html;
+                      1,39,657,265, midi/marker_main.html, center;
+                    516, 1, 62, 38, common/sub_decide.html;
+                    578, 1, 80, 38, common/sub_cancel.html;">
+                </div>
+                <ul>
+                    <li>
+                        ノートグループの内部マーカーは、<a href="midi_slice.html">スライス</a>の際に音切り用のマーカーとして機能します。
+                    </li>
+                    <li>
+                        <a href="midi_pack.html">MIDI整理</a>の際には、ノートの構成が完全に一致するグループ同士でも、<b>一つでもマーカーが異なれば不一致扱い</b>となります。
+                    </li>
+                    <li>
+                        各ノートグループは、<b>必ず</b>先頭にマーカーを持ちます。
+                        <ul>
+                            <li>
+                                「クリア」などでマーカーを全削除した場合も、先頭のマーカーは維持されます。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div>
+                    <h3>マウスによる操作</h3>
+                    <ul>
+                        <li>
+                            <b>ホイール</b>: スクロールと拡大率変更に使います。
+                            <ul>
+                                <li>
+                                    何も押さずにホイールを回すと<b>水平方向</b>にスクロールします。
+                                </li>
+                                <li>
+                                    <span class="script">Shift</span>を押している場合は<b>垂直方向</b>にスクロールします。
+                                </li>
+                                <li>
+                                    <span class="script">Ctrl</span>を押している場合は<b>横スケール</b>を変更します。
+                                </li>
+                                <li>
+                                    <span class="script">Ctrl+Shift</span>を押している場合は<b>縦スケール</b>を変更します。
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>左クリック</b>: カーソル移動と範囲選択に使います。
+                            <ul>
+                                <li>
+                                    クリックでその位置にカーソルを移動します。
+                                </li>
+                                <li>
+                                    <b>左ドラッグ</b>で範囲を選択します。<b>水平方向のみ</b>選択可能です。
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>右クリック</b>: スクロールに使います。
+                            <ul>
+                                <li>
+                                    <b>右ドラッグ</b>によって縦横にスクロールします。
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

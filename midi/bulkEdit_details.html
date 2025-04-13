@@ -1,0 +1,115 @@
+<div class="stack">
+    <h2>「操作」と「クォンタイズ」の詳細</h2>
+    <ul>
+        <li>
+            基本事項
+            <ul>
+                <li>
+                    数値は整数、分数、小数のいずれかで記入します(指数表記は不可)。「位置」と「長さ」については<span class="script">全音符 = 1</span>が単位になります。
+                </li>
+                <li>
+                    計算の対象とする「元々の位置」は、<b>楽譜の先頭(<span class="script">#000:0</span>)からの累計時間</b>になります。
+                </li>
+                <li>
+                    計算後の値は適切な範囲(下記)内に矯正されます。
+                    <ul>
+                        <li>
+                            「位置」「長さ」: <span class="script">0</span>以上
+                        </li>
+                        <li>
+                            「ベロシティ」: <b class="script">1</b>以上<span class="script">127</span>以下
+                        </li>
+                        <li>
+                            「NN」: <span class="script">0</span>以上<span class="script">127</span>以下
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            操作
+            <ul>
+                <li>
+                    数値のみを記入した場合は<span class="script">=X</span>と同じ挙動になります。
+                </li>
+                <li>
+                    算術記号<span class="script">=+-*/%&lt;&gt;</span>で始めた場合は、その記号に応じて変更後の値を計算します。
+                    <ul>
+                        <li>
+                            <b class="script">=X</b>: 値を<span class="script">X</span>にする
+                            <ul>
+                                <li>
+                                    「位置」に対する使用は推奨されません。
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b class="script">+X</b>: 値を<span class="script">X</span>だけ増やす
+                        </li>
+                        <li>
+                            <b class="script">-X</b>: 値を<span class="script">X</span>だけ減らす
+                        </li>
+                        <li>
+                            <b class="script">*X</b>: 値を<span class="script">X</span>倍にする
+                        </li>
+                        <li>
+                            <b class="script">/X</b>: 値を<span class="script">X</span>で割る
+                            <ul>
+                                <li>
+                                    ※<span class="script">/a/b</span>は「<b><span class="script">a/b</span>で割る</b>」という意味になります。「<span class="script">a</span>で割った後更に<span class="script">b</span>で割る」<b>ではない</b>ためご注意ください。
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b class="script">%X</b>: 値を<span class="script">X</span>で割った余りを新たな値とする
+                        </li>
+                        <li>
+                            <b class="script">&lt;X</b>: 値が<span class="script">X</span>より大きい場合は<span class="script">X</span>にする
+                        </li>
+                        <li>
+                            <b class="script">&gt;X</b>: 値が<span class="script">X</span>より小さい場合は<span class="script">X</span>にする
+                        </li>
+                        <li>
+                            算術記号は1つだけ指定可能です。複数の演算(<span class="script">*2+3</span>など)を同時に行うことはできません。
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            クォンタイズ
+            <ul>
+                <li>
+                    「位置」「長さ」については以下のように処理します。
+                    <ol>
+                        <li>
+                            元々の値(分数)を指定値(分数)で割る
+                        </li>
+                        <li>
+                            割った結果を小数に直したうえで<b>偶数丸め</b>を行う
+                            <ul>
+                                <li>
+                                    偶数丸めとは、基本的には四捨五入で、ちょうど中間(0.5)の場合は偶数になるように丸める方法です。
+                                </li>
+                                <li>
+                                    例えば<span class="script">3.5</span>は偶数丸めにより<span class="script">4</span>になり(切り上げ)、<span class="script">6.5</span>は<span class="script">6</span>になります(切り下げ)
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            丸めた結果(整数)に指定値(分数)を掛けて、その結果を新たな位置とする
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    「ベロシティ」は、クォンタイズの指定が整数に限られ、<b>切り上げ</b>処理となります。
+                    <ul>
+                        <li>
+                            例えば指定値が<span class="script">5</span>の場合、<span class="script">1-4</span>の範囲が<span class="script">5</span>に矯正されます。
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

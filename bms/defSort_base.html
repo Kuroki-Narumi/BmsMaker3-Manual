@@ -1,0 +1,18 @@
+<h3>基数の変更</h3>
+<ul>
+    <li>
+        「(none)」以外が指定されていれば、この譜面の定義基数<span class="script">#BASE</span>を、<br>
+        <b>可能であれば</b>指定されたものに変更します。
+    </li>
+    <li>
+        例えば「FF(16)」を選んでいたとしても、以下のような場合には変換されません。
+        <ul>
+            <li>
+                整列後の定義数が256以上である
+            </li>
+            <li>
+                <span class="script">#LNOBJ</span>に256番以降(<span class="script">ZZ</span>など)が指定されている
+            </li>
+        </ul>
+    </li>
+</ul>

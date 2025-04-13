@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>MIDI整理</h1>
+                <p>
+                    選択中のトラックのノートを整理し、<a href="midi_slice.html">スライスマーカー配置</a>用のMIDIファイルを書き出す機能です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/midi_pack.png" maps="
+                      5, 28,271, 27, midi/track_sideChain.html;
+                    287, 28,130, 27, midi/pack_useDefault.html;
+                     11, 83,189, 25, midi/pack_tempo.html;
+                     11,109,189, 29, midi/pack_msV.html;
+                     11,138,189, 29, midi/pack_targetCC.html;
+                     11,167,189, 29, midi/pack_afterMargin.html;
+                     11,196,189, 25, midi/pack_portamento.html;
+                     11,256,189, 52, midi/pack_filename.html;
+                     11,308,189, 29, midi/pack_headroom.html;
+                     11,337,189, 29, midi/pack_interval.html;
+                    220, 83,191, 82, midi/pack_markerFormat.html;
+                    221,171,189,121, midi/pack_order.html;
+                    220,293,191, 29, midi/pack_multiDef.html;
+                    220,322,191, 55, midi/pack_cutTail.html;
+                     93,391, 90, 40, midi/pack_export.html;
+                    191,391,136, 40, midi/pack_and_next.html;
+                    335,391, 82, 40, common/sub_cancel.html;">
+                </div>
+            </div>
+            <div class="stack" id="suffix">
+                <h2>命名規則の具体例</h2>
+                <ul>
+                    <li>
+                        全ての例について、「基本名」を<span class="script">Kick_</span>とした場合の結果です。
+                    </li>
+                    <li>
+                        変換の結果<b>全く同じ名前</b>が複数生成される場合は、譜面上での出現順に、<span class="script">Kick_A</span>, <span class="script">Kick_A_2</span>, <span class="script">Kick_A_3</span>, ... というふうに<b>末尾に番号が追加</b>されます。 
+                    </li>
+                    <li>
+                        <a href="midi_group.html">ノートグループ</a>に対する<span class="script">&lt;name&gt; &lt;nn&gt; &lt;vel&gt;</span>は、<b>先頭のノートの情報のみ</b>が反映されます。
+                        <ul>
+                            <li>
+                                <span class="script">&lt;gate&gt;</span>はそのノートグループ全体の長さに変換されます。
+                            </li>
+                            <li>
+                                グループ内に複数のマーカーがある場合、全てのマーカーが同じ名前になりえるため、ぶつ切りを行うトラックの場合は<b>通し番号(<span class="script">&lt;idx&gt;</span>)</b>を含めることを推奨します。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+                <ul>
+                    <li>
+                        <span class="script">&lt;name&gt;</span>
+                        <ul>
+                            <li>
+                                音名に変換されます。
+                            </li>
+                            <li>
+                                ノートナンバーに応じて<span class="script">C1</span>、<span class="script">D#5</span>などに変換されます。<b>♭表記はありません</b>。
+                            </li>
+                            <li>
+                                例
+                                <ul>
+                                    <li>
+                                        <span class="script">&lt;name&gt;</span> → <span class="script">Kick_C4</span>, <span class="script">Kick_D#4</span>, <span class="script">Kick_C-1</span>, ...
+                                    </li>
+                                    <li>
+                                        <span class="script">N&lt;name&gt;</span> → <span class="script">Kick_NC4</span>, <span class="script">Kick_ND#4</span>, <span class="script">Kick_NC-1</span>, ...
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="script">&lt;nn&gt;</span>
+                        <ul>
+                            <li>
+                                ノートナンバー(0-127)に変換されます。
+                            </li>
+                            <li>
+                                例
+                                <ul>
+                                    <li>
+                                        <span class="script">&lt;nn&gt;</span> → <span class="script">Kick_60</span>, <span class="script">Kick_63</span>, <span class="script">Kick_0</span>, ...
+                                    </li>
+                                    <li>
+                                        <span class="script">N&lt;nn&gt;</span> → <span class="script">Kick_N60</span>, <span class="script">Kick_N63</span>, <span class="script">Kick_N0</span>, ...
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="script">&lt;vel&gt;</span>
+                        <ul>
+                            <li>
+                                ベロシティ(音の強さ、0-127)に変換されます。
+                            </li>
+                            <li>
+                                例
+                                <ul>
+                                    <li>
+                                        <span class="script">&lt;vel&gt;</span> → <span class="script">Kick_100</span>, <span class="script">Kick_80</span>, <span class="script">Kick_90</span>, ...
+                                    </li>
+                                    <li>
+                                        <span class="script">V&lt;vel&gt;</span> → <span class="script">Kick_V100</span>, <span class="script">Kick_V80</span>, <span class="script">Kick_V90</span>, ...
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="script">&lt;gate&gt;</span>
+                        <ul>
+                            <li>
+                                ゲート(音の長さ)に変換されます。
+                            </li>
+                            <li>
+                                例
+                                <ul>
+                                    <li>
+                                        <span class="script">&lt;gate&gt;</span> → <span class="script">Kick_48</span>, <span class="script">Kick_24</span>, <span class="script">Kick_24_2</span>, ...
+                                    </li>
+                                    <li>
+                                        <span class="script">G&lt;gate&gt;</span> → <span class="script">Kick_G48</span>, <span class="script">Kick_G24</span>, <span class="script">Kick_G24_2</span>, ...
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="script">&lt;idx&gt;</span>
+                        <ul>
+                            <li>
+                                通し番号に変換されます。(<span class="script">&lt;idx1,1&gt;</span>と同じ)
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="script">&lt;idxX,Y&gt;</span>
+                        <ul>
+                            <li>
+                                <span class="script">X</span>から始まり<span class="script">Y</span>ずつ増加する通し番号に変換されます。
+                            </li>
+                            <li>
+                                そのトラックが必要とする定義数に応じて自動的に桁数が決まり、<b>桁数が足りないぶんは<span class="script">0</span>で埋められます</b>。
+                            </li>
+                            <li>
+                                例
+                                <ul>
+                                    <li>
+                                        <span class="script">&lt;idx1,1&gt;</span> → <span class="script">Kick_01</span>, <span class="script">Kick_02</span>, <span class="script">Kick_03</span>, ...
+                                    </li>
+                                    <li>
+                                        <span class="script">&lt;idx2,1&gt;</span> → <span class="script">Kick_02</span>, <span class="script">Kick_03</span>, <span class="script">Kick_04</span>, ...
+                                    </li>
+                                    <li>
+                                        <span class="script">&lt;idx1,6&gt;</span> → <span class="script">Kick_01</span>, <span class="script">Kick_07</span>, <span class="script">Kick_13</span>, ...
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="script">&lt;idxX,Y,Z&gt;</span>
+                        <ul>
+                            <li>
+                                <span class="script">&lt;idxX,Y&gt;</span>と同様ですが、<span class="script">Z</span>桁に満たないぶんを<span class="script">0</span>で埋めます。
+                            </li>
+                            <li>
+                                <b>途中で桁数が変わる</b>可能性があるため、エクスプローラーなどでの表示順に影響する場合があります。
+                            </li>
+                            <li>
+                                例
+                                <ul>
+                                    <li>
+                                        <span class="script">&lt;idx1,1,2&gt;</span> → <span class="script">Kick_01</span>, <span class="script">Kick_02</span>, <span class="script">Kick_03</span>, ...
+                                    </li>
+                                    <li>
+                                        <span class="script">&lt;idx2,1,3&gt;</span> → <span class="script">Kick_002</span>, <span class="script">Kick_003</span>, <span class="script">Kick_004</span>, ...
+                                    </li>
+                                    <li>
+                                        <span class="script">&lt;idx1,1,1&gt;</span> → <span class="script">Kick_1</span>, <span class="script">Kick_2</span>, ... <span class="script">Kick_9</span>, <span class="script">Kick_10</span>, ...
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        複合した例
+                        <ul>
+                            <li>
+                                <span class="script">&lt;nn&gt;_&lt;vel&gt;_&lt;gate&gt;</span> → <span class="script">Kick_60_100_48</span>, <span class="script">Kick_63_80_24</span>, <span class="script">Kick_0_90_24</span>, ...
+                            </li>
+                            <li>
+                                <span class="script">n&lt;nn&gt;_v&lt;vel&gt;_g&lt;gate&gt;</span> → <span class="script">Kick_n60_v100_g48</span>, <span class="script">Kick_n63_v80_g24</span>, <span class="script">Kick_n0_v90_g24</span>, ...
+                            </li>
+                            <li>
+                                <span class="script">&lt;idx&gt;_n&lt;nn&gt;v&lt;vel&gt;g&lt;gate&gt;</span> → <span class="script">Kick_01_n60v100g48</span>, <span class="script">Kick_02_n63v80g24</span>, <span class="script">Kick_03_n0v90g24</span>, ...
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

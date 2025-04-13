@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>一括編集(トラック)</h1>
+                <p>
+                    クォンタイズや位置調整など、細かい編集を一括で行う機能です。<br>
+                    <a href="midi_bulkEdit.html">一括編集</a>のトラック個別版です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/midi_trackBulkEdit.png" maps="
+                      1,  1,224, 61, midi/bulkEdit_target.html;
+                      1, 62,224, 85, midi/bulkEdit_range.html;
+                      1,147,224, 86, midi/bulkEdit_type.html;
+                      1,233,224, 62, midi/bulkEdit_number.html;
+                    235, 53, 54,143, midi/bulkEdit_header.html;
+                    289, 27, 64,169, midi/bulkEdit_process.html;
+                    353, 27, 92,169, midi/bulkEdit_quantize.html;
+                    322,198,126, 23, midi/bulkEdit_remove.html;
+                    299,251, 62, 40, midi/bulkEdit_execute.html;
+                    369,251, 82, 40, common/cancel_restore.html;">
+                </div>
+            </div>
+            <div class="common" src="midi/bulkEdit_details.html"></div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

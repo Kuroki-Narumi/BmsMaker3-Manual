@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>ヘッダー</h1>
+                <p>
+                    BMSファイルの基本情報を記述する<b>ヘッダー</b>を表示するエリアです。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="left-panel" style="grid-template-columns: auto auto auto 1fr;">
+                    <div class="image-map" src="img/bms_header.png" maps="
+                        1, 56,276, 29, bms/header_genre.html;
+                        1, 85,276, 58, bms/header_title.html;
+                        1,143,276, 58, bms/header_artist.html;
+                        1,210,276, 29, bms/header_bpm.html;
+                        1,239,276, 29, bms/header_playlevel.html;
+                        1,268,276, 58, bms/header_difficulty.html;
+                        1,326,276, 29, bms/header_total.html;
+                        1,355,276, 29, bms/header_rank.html;
+                        1,393,276, 29, bms/header_lnobj.html;
+                        1,422,276, 29, bms/header_lnmode.html;">
+                    </div>
+                    <div class="image-map" src="img/bms_header_2.png" maps="
+                        1, 56,276, 29, bms/header_preview.html;
+                        1, 94,276,115, bms/header_stagefile.html;
+                        1,218,276,114, bms/header_banner.html;
+                        1,341,276,114, bms/header_backbmp.html;">
+                    </div>
+                    <div class="image-map" src="img/bms_header_3.png" maps="
+                          1, 56,276, 29, bms/header_player.html;
+                          1, 83,276, 29, bms/header_base.html;
+                          1,110,276, 29, bms/header_comment.html;
+                          1,139,276, 29, bms/header_defexrank.html;
+                          1,175,276,258, bms/header_other.html, center;
+                         49,433, 26, 22, bms/header_other_add.html;
+                         75,433, 26, 22, bms/header_other_edit.html;
+                        101,433, 26, 22, common/list_duplicate.html;
+                        151,433, 26, 22, common/list_moveUp.html;
+                        177,433, 26, 22, common/list_moveDown.html;
+                        203,433, 26, 22, common/list_delete.html;">
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        3つのタブで構成されますが、表示領域の高さが足りない場合、「基本」タブが「基本」と「プレイ」に分裂します。
+                    </li>
+                    <li>
+                        各ヘッダーの値部分をクリックすると<b>編集モード</b>になります。<br>
+                        <img src="img/bms_header_edit.png">
+                        <ul>
+                            <li>
+                                <img src="img/icons/Check_Green.png" class="icon16"><b>確定</b>: 編集を確定します。
+                            </li>
+                            <li>
+                                <img src="img/icons/Cross_Red.png" class="icon16"><b>キャンセル</b>: 編集を破棄します。アンドゥ履歴は増えません。
+                            </li>
+                            <li>
+                                <img src="img/icons/Delete.png" class="icon16"><b>クリア</b>: テキストボックスを空にします。
+                            </li>
+                            <li>
+                                デフォルト値のあるヘッダーや、<a href="bms_flow.html"><b>降下</b></a>中に親で定義されているヘッダーは、その値が薄く表示されます。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        数値を指定するヘッダー(<span class="script">#BPM</span>など)は、値の上で<b>マウスホイールを回す</b>ことで、その値を<span class="script">1</span>ずつ変更できます。
+                    </li>
+                    <li>
+                        コンボボックスで指定するヘッダー(<span class="script">#RANK</span>など)は、コンボボックスの上で<b>マウスホイールを回す</b>ことでも変更できます。
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

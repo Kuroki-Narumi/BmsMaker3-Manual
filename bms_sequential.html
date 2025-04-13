@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>連続配置</h1>
+                <p>
+                    定義番号のリストを指定し、その順番に従ってノートを一定間隔で配置する機能です。
+                </p>
+                <ul>
+                    <li>
+                        一定のリズムで配置されるドラムシーケンスなどを一度に配置する際に便利です。
+                    </li>
+                    <li>
+                        ぶつ切りされた音声を、その長さに応じて自動的に配置することもできます。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_sequential.png" maps="
+                      5, 28,263, 25, bms/searchBar.html;
+                      5, 57,263,216, bms/sequential_defList.html, center;
+                    272,120, 56, 25, bms/sequential_add.html;
+                    272,157, 56, 25, bms/sequential_remove.html;
+                    332, 28,263,245, bms/sequential_sequenceList.html, center;
+                    413,249, 26, 23, common/list_moveUp.html;
+                    439,249, 26, 23, common/list_moveDown.html;
+                    489,249, 26, 23, common/list_delete.html;
+                      2,281,198, 90, bms/sequential_position.html;
+                    202,281,198, 90, bms/sequential_lane.html;
+                    410,302,179, 25, bms/sequential_sound.html;
+                    410,328,179, 30, bms/sequential_interval.html;
+                    443,375, 62, 40, bms/sequential_execute.html;
+                    513,375, 82, 40, common/cancel_restore.html;">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

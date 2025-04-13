@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>選択機能</h1>
+                <p>
+                    条件を設定して選択を行う機能です。
+                </p>
+                <ul>
+                    <li>
+                        1画面に収まりきらないような範囲(例えば、曲全体)を一括で選択したい場合に利用できます。
+                    </li>
+                    <li>
+                        ノートの選択以外に、対象の定義番号を一括で変更することもできます。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_selection.png" maps="
+                      2, 27,160, 81, bms/selection_target.html;
+                      1,110,160, 87, bms/selection_bar.html;
+                      1,202,160, 62, bms/selection_id.html;
+                    164, 27,306,286, bms/selection_lane.html, center;
+                    472, 27,153,125, bms/selection_type.html;
+                    472,156,153,157, bms/selection_process.html;
+                    532,  1, 54, 26, bms/selection_execute.html;
+                    ">
+                </div>
+                <ul>
+                    <li>
+                        基本的には<a href="http://ucn.tokonats.net/software/bmse/" target="_blank">BMSE</a>の同様の機能に近いものです。
+                    </li>
+                    <li>
+                        このウィンドウは<b>ノンモーダル</b>です。すなわち、このウィンドウを開いた状態で、他の作業を行うことができます。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack" id="operation">
+                <h3>「処理」の詳細</h3>
+                <ul>
+                    <li>
+                        置換
+                        <ul>
+                            <li>
+                                <b>定義番号</b>(2桁の英数字)を記入した場合、条件に該当するノートの定義番号をそれに変更します。
+                                <ul>
+                                    <li>
+                                        <b>指揮者レーン</b>のノーツなど、定義番号と無関係のノートは、この処理については<b>何もしません</b>。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                算術記号<span class="script">+-*/%&lt;&gt;</span>で始めて、半角数字を記入した場合、条件に該当するノート全て(非定義型含む)の内容を<b>その記号に応じて変化</b>させます。
+                                <ul>
+                                    <li>
+                                        <span class="script">+5</span>と入力した場合
+                                        <ul>
+                                            <li>
+                                                定義番号を持つノートは、その番号が 5 増加します。(例: <span class="script">08</span>→<span class="script">0D</span>)
+                                            </li>
+                                            <li>
+                                                非定義型ノートは、その値が 5 増加します。(例: BPM指定<span class="script">130</span>→<span class="script">135</span>)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="script">/2</span>と入力した場合
+                                        <ul>
+                                            <li>
+                                                定義番号を持つノートは、その番号が半分(切り捨て)になります。(例: <span class="script">0D</span>→<span class="script">06</span>)
+                                            </li>
+                                            <li>
+                                                非定義型ノートは、その値が半分になります。(例: BPM指定<span class="script">135</span>→<span class="script">67.5</span>)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="script">&lt;20</span>と入力した場合
+                                        <ul>
+                                            <li>
+                                                定義番号を持つノートのうち、<b>定義番号 20 (基数36の場合<span class="script">0J</span>)を超えるものは定義番号が 20 になります</b>。
+                                            </li>
+                                            <li>
+                                                非定義型ノートは、<b>その値が 20 を超える場合には 20 に矯正</b>されます。(例: BPM指定<span class="script">120</span>→<span class="script">20</span>)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        定義番号は、計算後<span class="script">1</span>から最大定義番号(通常は<span class="script">1295</span>)の間に矯正されます。
+                                    </li>
+                                    <li>
+                                        算術記号は1つだけ指定可能です。複数の演算(<span class="script">*2+3</span>など)を同時に行うことはできません。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        移動 / クォンタイズ
+                        <ul>
+                            <li>
+                                基本事項
+                                <ul>
+                                    <li>
+                                        数値は<span class="script">全音符 = 1</span>とした整数、分数、小数のいずれかで記入します(指数表記は不可)。
+                                    </li>
+                                    <li>
+                                        計算の対象とする「元々の位置」は、<b>対象のうち最初のノートの位置を<span class="script">0</span>とした相対位置</b>になります。
+                                    </li>
+                                    <li>
+                                        いずれの場合も、計算後の位置が<span class="script">#000:0</span>より前になる場合は<span class="script">#000:0</span>に矯正されます。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                移動
+                                <ul>
+                                    <li>
+                                        数値のみを記入した場合、入力値を<b>先頭からのオフセット</b>とみなして、条件に該当する<b>全てのノートをそこへ移動</b>します。
+                                        <ul>
+                                            <li>
+                                                この使用法は極めて<b>非実用的</b>です。基本的には算術記号を伴って指定することになります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        算術記号<span class="script">+-*/%&lt;&gt;</span>で始めた場合は、その記号に応じて条件に該当する全てのノートの位置を変更します。
+                                        <ul>
+                                            <li>
+                                                <b class="script">+ -</b>: オフセット
+                                                <ul>
+                                                    <li>
+                                                        <b class="script">+</b>の場合は後方(上)に、<b class="script">-</b>の場合は前方(下)に移動します。
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <b class="script">* / %</b>: 伸縮と剰余
+                                                <ul>
+                                                    <li>
+                                                        <b>対象のうち最初のノート</b>は移動しません。
+                                                    </li>
+                                                    <li>
+                                                        ※<span class="script">/a/b</span>は「<b><span class="script">a/b</span>で割る</b>」という意味になります。「<span class="script">a</span>で割った後更に<span class="script">b</span>で割る」<b>ではない</b>ためご注意ください。
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <b class="script">&lt;&gt;</b>: 位置の矯正
+                                                <ul>
+                                                    <li>
+                                                        対象のうち、相対位置が範囲外となるノートを、指定された相対位置に移動します。
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                算術記号は1つだけ指定可能です。複数の演算(<span class="script">*2+3</span>など)を同時に行うことはできません。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                クォンタイズ
+                                <ul>
+                                    <li>
+                                        対象のノートの位置を、指定値の倍数となるように移動します。
+                                    </li>
+                                    <li>
+                                        具体的な手順
+                                        <ol>
+                                            <li>
+                                                元々の位置(分数)を指定値(分数)で割る
+                                            </li>
+                                            <li>
+                                                割った結果を小数に直したうえで<b>偶数丸め</b>を行う
+                                                <ul>
+                                                    <li>
+                                                        偶数丸めとは、基本的には四捨五入で、ちょうど中間(0.5)の場合は偶数になるように丸める方法です。
+                                                    </li>
+                                                    <li>
+                                                        例えば<span class="script">3.5</span>は偶数丸めにより<span class="script">4</span>になり(切り上げ)、<span class="script">6.5</span>は<span class="script">6</span>になります(切り下げ)
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                丸めた結果(整数)に指定値(分数)を掛けて、その結果を新たな位置とする
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

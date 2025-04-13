@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>ターミナル</h1>
+                <p>
+                    「BmsMaker3」の基底ウィンドウです。
+                </p>
+                <ul>
+                    <li>
+                        このアプリを直接起動した場合は、最初にこのウィンドウが表示されます。
+                    </li>
+                    <li>
+                        ターミナルは一度に一つだけ起動できます。
+                        <ul>
+                            <li>
+                                コマンドライン引数無しで「BmsMaker3.exe」を実行すると、2回目以降は何も起こりません。
+                            </li>
+                            <li>
+                                「プログラムから開く」や「BmsMaker3.exe」へのドラッグ&ドロップなどにより起動した場合は、直接そのファイルに対応したモードのウィンドウが開きます。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        このウィンドウに外部からファイルをドラッグ&ドロップすると、それがBmsMaker3で開けるファイルの場合は、それに対応したモードのウィンドウを開きます。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/window_terminal.png" maps="
+                    255, 31, 70,27, terminal/version.html;
+                      1,127,110,40, terminal/new.html;
+                    111,127,110,40, terminal/open.html;
+                    221,127,110,40, terminal/language.html;
+                    343,133, 42,34, terminal/config.html;">
+                </div>
+            </div>
+            <div class="stack" id="config">
+                <h2>裏面</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/window_terminal_ura.png" maps="
+                      1, 31,128,45, terminal/console.html;
+                    129, 31,128,45, terminal/manual.html;
+                    257, 31,128,45, terminal/update.html;
+                    161, 76,224,26, terminal/hide.html;
+                    161,102,224,25, terminal/show.html;
+                      1,127,110,40, terminal/new.html;
+                    111,127,110,40, terminal/open.html;
+                    221,127,110,40, terminal/language.html;
+                    343,133, 42,34, terminal/config_ura.html;
+                    ">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

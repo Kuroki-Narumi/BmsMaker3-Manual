@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>制御構造</h1>
+                <p>
+                    <span class="script">#RANDOM</span>及び<span class="script">#SWITCH</span>によるランダム分岐の一覧です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                <ul>
+                    <li>
+                        <span class="script">#RANDOM</span>は、楽曲読み込み時に与えられるランダムな値に従って譜面の内容を分岐し、<br>
+                        <b>プレイする度に変化する譜面</b>を実現するための機構です。
+                    </li>
+                    <li>
+                        1個以上の制御構造が存在する場合、エキスパンダーのヘッダー部分に<img src="img/icons/Attention.png" class="icon16">が表示されます。
+                    </li>
+                    <li>
+                        <b style="color: #f44;">注意事項</b>
+                        <ul>
+                            <li>
+                                このアプリでは<a href="https://hitkey.nekokan.dyndns.info/cmdsJP.htm" target="_blank">BMS command memo</a>を参考に、全ての制御構造(<span class="script">#RANDOM #SETRANDOM #IF #ELSEIF #ELSE #SWITCH #SETSWITCH #CASE #DEF</span>)を実装し、<br>
+                                入れ子の制御構造にも無制限に対応していますが、<br>
+                                <b>ほとんどのBMSプレイヤーは<span class="script">#RANDOM #SETRANDOM #IF</span>しか実装しておらず、入れ子の制御構造にも対応していません。</b>
+                                <ul>
+                                    <li>
+                                        実際のプレイ時はもちろん、プレビューにおいても正常に反映されない可能性が高いため、ご注意ください。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                このアプリでは、<span class="script">#ELSEIF</span>が含まれるBMSを正常に解釈できますが、エディタで<span class="script">#ELSEIF</span>を追加することはできません。
+                                <ul>
+                                    <li>
+                                        単純に<span class="script">#IF</span>で全く同じことができるので、不要と判断しオミットしています。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <b>分岐枝内での小節長編集は非推奨</b>です。
+                                <ul>
+                                    <li>
+                                        ver0.4現在、実装上の都合により、分岐枝内で小節長を変更した際の見た目が、実際のBMSプレイヤーで処理される内容とは異なります。
+                                    </li>
+                                    <li>
+                                        <a href="bms_assemble.html">アセンブル</a>においては、本来と異なる結果になりえるためご注意ください。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+                <img src="img/bms_flow.png">
+                <ul>
+                    <li>
+                        各構造は<b>ツリー形式</b>で表示されます。
+                    </li>
+                    <li>
+                        項目上で右クリックすることで、コンテキストメニューを開きます。<br>
+                        <img src="img/bms_flow_menu.png">
+                        <ul>
+                            <li>
+                                <img src="img/icons/Plus.png" class="icon16"><b>追加</b>: 選択中の構造と同じ階層、またはその子階層に、新たに構造を追加します。
+                            </li>
+                            <li>
+                                <img src="img/icons/HeadRight.png" class="icon16"><b>降下</b>: 枝(<span class="script">#IF</span>など)に対して選択可能で、その枝に<b>降下</b>します。
+                                <ul>
+                                    <li>
+                                        <b>降下</b>すると、その枝の内容を<b>譜面表示エリア</b>と<b>情報ペイン</b>に反映します。
+                                        <ul>
+                                            <li>
+                                                それぞれのエリアにおいて、親から継承された要素(ノート配置やヘッダーの内容など)は<b>薄く表示</b>されます。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        降下している枝の左には<img src="img/icons/HeadRight.png" class="icon16">が表示されます。
+                                    </li>
+                                    <li>
+                                        降下状態で<img src="img/icons/HeadLeft.png" class="icon16">を押すと、階層を1段階<b>上昇</b>します。
+                                    </li>
+                                    <li>
+                                        同じ親の別の枝(上の画像でいうと「分岐1」と「分岐2」など)に降下する場合、一度その階層まで<b>上昇</b>し、改めてその分岐に<b>降下</b>します。
+                                    </li>
+                                    <li>
+                                        親が異なる枝(上の画像でいうと「分岐1」と「分岐2-1」など)に降下する場合、<b>以前の降下状態を維持したまま</b>更に降下します。
+                                        <ul>
+                                            <li>
+                                                すなわち、親が異なれば、それぞれ異なる枝に同時に降下できます。
+                                            </li>
+                                            <li>
+                                                文章での説明は難しいので、実際に試して挙動を確認してください。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="img/icons/Edit.png" class="icon16"><b>編集</b>: この構造の内容を編集します。
+                            </li>
+                            <li>
+                                <img src="img/icons/Delete.png" class="icon16"><b>削除</b>: この構造を削除します。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

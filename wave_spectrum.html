@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>スペクトラムウィンドウ</h1>
+                <p>
+                    音声スペクトル(周波数ごとの強度)を表示するためのサブウィンドウです。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                <img src="img/wave_spectrum.png"/>
+                <ul>
+                    <li>
+                        <b>左ドラッグ</b>でウィンドウ自体を移動します。
+                    </li>
+                    <li>
+                        ウィンドウが非アクティブの場合、背景が半透明になります。
+                    </li>
+                    <li>
+                        このウィンドウには、<a href="wave.html">メインウィンドウ</a>のカーソル位置周辺のスペクトルが逐次描画されます。
+                        <ul>
+                            <li>
+                                実際に流れている音ではなく<b>波形データそのもの</b>を計算に使うため、再生中でなくともカーソルを移動すればこのウィンドウの波形は更新されます。
+                            </li>
+                            <li>
+                                <a href="https://ja.wikipedia.org/wiki/%E9%AB%98%E9%80%9F%E3%83%95%E3%83%BC%E3%83%AA%E3%82%A8%E5%A4%89%E6%8F%9B" target="_blank">高速フーリエ変換</a>による周波数分析を行うため、区間の幅が低周波数領域では広く、高周波数領域では狭くなります。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        右クリックするとメニューを開きます。
+                        <div class="left-panel">
+                            <img src="img/wave_spectrum_menu.png">
+                            <ul>
+                                <li>
+                                    <b>表示範囲</b>: 縦軸(音量レベル)の表示範囲を変更できます。単位は<span class="script">dB</span>です。
+                                </li>
+                                <li>
+                                    <b>感度</b>: 表示する波形に過去のデータを反映する割合です。<span class="script">1-20</span>の20段階で指定します。
+                                    <ul>
+                                        <li>
+                                            感度が高いほど「その瞬間」のスペクトルを反映するため、再生時に波形が激しく動きます。
+                                        </li>
+                                        <li>
+                                            感度が低いほど「長時間」のスペクトルを反映するため、再生時は波形が緩やかに動きます。
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

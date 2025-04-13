@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>定義</h1>
+                <p>
+                    プレイ時に参照される音声や映像、及び各小節の長さについての<b>定義リスト</b>です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="left-panel" style="grid-template-columns: auto auto auto 1fr;">
+                    <div class="image-map" src="img/bms_definition.png" maps="
+                          3, 51,272,379, bms/definition_wav.html, center;
+                         21,430, 26, 22, bms/stop.html;
+                         62,430, 26, 22, bms/definition_open.html;
+                         88,430, 26, 22, bms/definition_edit.html;
+                        114,430, 26, 22, bms/definition_clear.html;
+                        164,430, 26, 22, bms/definition_moveUp.html;
+                        190,430, 26, 22, bms/definition_moveDown.html;">
+                    </div>
+                    <div class="image-map" src="img/bms_definition_2.png" maps="
+                          3, 51,272,242, bms/definition_bmp.html, center;
+                          3,321,272,133, bms/definition_bmp_preview.html;
+                         62,293, 26, 22, bms/definition_open.html;
+                         88,293, 26, 22, bms/definition_edit.html;
+                        114,293, 26, 22, bms/definition_clear.html;
+                        164,293, 26, 22, bms/definition_moveUp.html;
+                        190,293, 26, 22, bms/definition_moveDown.html;">
+                    </div>
+                    <div class="image-map" src="img/bms_definition_3.png" maps="
+                          3, 51,272,379, bms/definition_bar.html, center;
+                         94,430, 26, 22, bms/definition_bar_edit.html;
+                        132,430, 26, 22, bms/definition_bar_merge.html;
+                        158,430, 26, 22, bms/definition_bar_split.html;">
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        定義番号が共有されるもの(<span class="script">#BMP</span>と<span class="script">#BGA</span>など)は、それぞれ1つのリストに統合されています。
+                        <ul>
+                            <li>
+                                定義の内容に<a href="#prefix"><b>特殊プレフィックス</b></a>を付加することで、そのタイプの定義であると解釈されます。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        (各リスト共通事項)
+                        <ul>
+                            <div class="common" src="common/list_selection.html"></div>
+                            <li>
+                                項目上で右クリックすることで、コンテキストメニューを開きます。
+                                <ul>
+                                    <li>
+                                        内容はタブによって異なるので、それぞれの説明を参照してください。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="bms_flow.html"><b>降下</b></a>中に親で定義されている項目は、その値が薄く表示されます。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="stack" id="prefix">
+                <h3>特殊プレフィックス</h3>
+                <ul>
+                    <li>
+                        定義の内容を特定の文字列から始めることで、定義ヘッダ(<span class="script">#WAV</span>の部分)の種類を変えることができます。
+                    </li>
+                    <div class="common" src="bms/definition_reference.html"></div>
+                    <li>
+                        <span class="script">#WAV</span>の特殊プレフィックス
+                        <ul>
+                            <li>
+                                <span class="script">&lt;EXWAV&gt;</span>
+                                <ul>
+                                    <li>
+                                        定義ヘッダを<span class="script">#EXWAV</span>に変換します。(<a href="https://hitkey.nekokan.dyndns.info/cmdsJP.htm#EXWAVXX" target="_blank">参考</a>)
+                                        <div class="left-panel" style="grid-template-columns: repeat(3, max-content);">
+                                            <span>　変換前(エディタ上)</span>
+                                            <span>→</span>
+                                            <span>　変換後(保存時)</span>
+                                            <span class="script">#WAV01 &lt;EXWAV&gt; pvf pan volume freq filename</span>
+                                            <span>→</span>
+                                            <span class="script">#EXWAV01 pvf pan volume freq filename</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="script">#BMP</span>の特殊プレフィックス
+                        <ul>
+                            <li>
+                                <span class="script">&lt;BGA&gt;</span>
+                                <ul>
+                                    <li>
+                                        定義ヘッダを<span class="script">#BGA</span>に変換します。(<a href="https://hitkey.nekokan.dyndns.info/cmdsJP.htm#BGAXX" target="_blank">参考</a>)
+                                        <div class="left-panel" style="grid-template-columns: repeat(3, max-content);">
+                                            <span>　変換前(エディタ上)</span>
+                                            <span>→</span>
+                                            <span>　変換後(保存時)</span>
+                                            <span class="script">#BMP02 &lt;BGA&gt; id x1 y1 x2 y2 dx dy</span>
+                                            <span>→</span>
+                                            <span class="script">#BGA02 id x1 y1 x2 y2 dx dy</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="script">&lt;@BGA&gt;</span>
+                                <ul>
+                                    <li>
+                                        定義ヘッダを<span class="script">#@BGA</span>に変換します。(<a href="https://hitkey.nekokan.dyndns.info/cmdsJP.htm#ATBGAXX" target="_blank">参考</a>)
+                                        <div class="left-panel" style="grid-template-columns: repeat(3, max-content);">
+                                            <span>　変換前(エディタ上)</span>
+                                            <span>→</span>
+                                            <span>　変換後(保存時)</span>
+                                            <span class="script">#BMP03 &lt;@BGA&gt; id sx sy w h dx dy</span>
+                                            <span>→</span>
+                                            <span class="script">#@BGA03 id sx sy w h dx dy</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="script">&lt;EXBMP&gt;</span>
+                                <ul>
+                                    <li>
+                                        定義ヘッダを<span class="script">#EXBMP</span>に変換します。(<a href="https://hitkey.nekokan.dyndns.info/cmdsJP.htm#EXBMPXX" target="_blank">参考</a>)
+                                        <div class="left-panel" style="grid-template-columns: repeat(3, max-content);">
+                                            <span>　変換前(エディタ上)</span>
+                                            <span>→</span>
+                                            <span>　変換後(保存時)</span>
+                                            <span class="script">#BMP04 &lt;EXBMP&gt; a,r,g,b filename</span>
+                                            <span>→</span>
+                                            <span class="script">#EXBMP04 a,r,g,b filename</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

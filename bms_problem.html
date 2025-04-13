@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>問題</h1>
+                <p>
+                    <a href="bms.html#main"><b>譜面表示エリア</b></a>で発生している問題の一覧です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                <img src="img/bms_problem.png">
+                <ul>
+                    <li>
+                        問題があるノートは強調表示されます。<img src="img/note_problem.png">
+                    </li>
+                    <li>
+                        問題がある場合、エキスパンダーのヘッダー部分に<img src="img/icons/Caution.png" class="icon16">が表示されます。
+                    </li>
+                    <li>
+                        項目を選択すると、そのノートが存在する時間位置の付近にスクロールします。
+                    </li>
+                    <li>
+                        「問題」には<span class="script">#000ノート</span>、<span class="script">ノーツの重複</span>、<span class="script">不正なメタノート</span>、<span class="script">単独のLN終端</span>の4種類があります。
+                        <ul>
+                            <li>
+                                <b>#000ノート</b>: 小節<span class="script">#000</span>に可視(及び地雷、LN終端)のノートが存在します。
+                                <ul>
+                                    <li>
+                                        素朴な実装のBMSプレイヤーでは、楽曲開始<b>直後</b>にノートが降ってくることになるため、不親切な譜面になります。
+                                    </li>
+                                    <li>
+                                        基本的には<span class="script">#000</span>には可視ノートは配置せず、少なくとも<b>4拍</b>の空白を用意するべきです。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <b>ノーツの重複</b>: 同じ位置、同じレーンに複数のノーツが存在します。
+                                <ul>
+                                    <li>
+                                        ノートの<b>複製</b>や<b>移動</b>の結果発生することがあります。
+                                    </li>
+                                    <li>
+                                        BMSの規格において、ノートの重複は特に文法違反とはなりませんが、実際のプレイ時には一般に、<br>
+                                        重なっているノートはそのうち1つしか判定が発生しないため、<b>絶対に取ることができないノート</b>となります。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <b>不正なメタノート</b>: メタノート(不可視、地雷、LN終端)が不適切なレーンに存在しています。
+                                <ul>
+                                    <li>
+                                        演奏レーンに配置されていたノートを一括でBGMレーンに移動した場合などに発生します。
+                                    </li>
+                                    <li>
+                                        このアプリで開いている限り、ノートの種類は保存されますが、<br>
+                                        「ファイルを保存」する際に、それら不正なメタノートは全て<b>通常のノートに変換されます</b>。
+                                    </li>
+                                    <li>
+                                        結果として意図しない音が鳴る可能性が生じるため、不正なメタノートは削除するべきです。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <b>単独のLN終端</b>: 対応するロング始端ノートがありません。
+                                <ul>
+                                    <li>
+                                        そのレーンの最初のノートがロング終端であるか、ロング終端が連続で配置された場合に発生します。
+                                    </li>
+                                    <li>
+                                        単独のロング終端が実際のプレイ時にどう解釈されるかはBMSプレイヤー次第ですが、<br>
+                                        恐らく通常のノートとして処理されるでしょう。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

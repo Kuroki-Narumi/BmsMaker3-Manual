@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>定義の削減</h1>
+                <p>
+                    異なる名前で内容が同一の音声ファイルを検出し、定義数を削減する機能です。
+                </p>
+                <ul>
+                    <li>
+                        サンプルを直接並べたパートは<a href="midi.html">MIDI</a>による音切りが難しく、ぶつ切りに頼りがちですが、<br>
+                        それによってかさんだ定義数をある程度減らすことができます。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_reduct.png" maps="
+                      1, 24,239, 33, bms/reduct_id.html;
+                    244, 28, 56, 25, bms/reduct_analyze.html;
+                    313, 28, 79, 25, bms/reduct_threshold.html;
+                    400, 28, 94, 25, bms/reduct_auto.html;
+                      5, 62,221,258, bms/reduct_source.html, center;
+                    234, 62,441,258, bms/reduct_relation.html, center;
+                    238, 86, 29,233, bms/reduct_relation_id.html, center;
+                    268, 86, 65,233, bms/reduct_relation_wave.html, center;
+                    334, 86, 68,233, bms/reduct_relation_rms.html, center;
+                    403, 86, 85,233, bms/reduct_relation_centroid.html, center;
+                    489, 86, 99,233, bms/reduct_relation_eval.html, center;
+                    589, 86, 31,233, bms/reduct_relation_reduct.html, center;
+                    523,328, 62, 40, bms/reduct_execute.html;
+                    593,328, 82, 40, bms/reduct_cancel.html;">
+                </div>
+                <ul>
+                    <li>
+                        音源には<b>ジェネレーター系</b>(波形を直接編集するもの)と<b>サンプラー系</b>がありますが、<br>
+                        前者は同じ音程・長さ・強さでも毎回異なる波形となることが多いので、この機能による定義削減には向きません。
+                        <ul>
+                            <li>
+                                基本的には<b>サンプラー系</b>音源、もしくは単に<b>サンプルを直接並べた</b>ようなパートに適しています。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="bms_flow.html">ランダム分岐</a>内でしか定義されていない音声がある場合、解析と削減がうまくいかない場合があるため、<br>
+                        基本的には分岐譜面を作るより<b>前</b>に実行してください。
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

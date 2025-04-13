@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>SysExプレフィクス</h1>
+                <p>
+                    <a href="midi_pack.html">MIDI整理</a>において、同一性判定に含めたいシステムエクスクルーシブメッセージを設定する機能です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/midi_sysex.png" maps="
+                      5,  5,203,274, midi/sysex_list.html, center;
+                     49,279, 26, 22, common/list_add.html;
+                     81,279, 26, 22, common/list_moveUp.html;
+                    107,279, 26, 22, common/list_moveDown.html;
+                    139,279, 26, 22, midi/sysex_delete.html;
+                    208,  1,311, 33, midi/sysex_name.html;
+                    208, 34,311, 33, midi/sysex_prefix.html;
+                    452,261, 63, 40, midi/sysex_close.html;">
+                </div>
+                <ul>
+                    <li>
+                        SysExプレフィクスは、特定種類のメッセージを<b>コントロールチェンジ</b>と同じように扱い、「MIDI整理」における同一性判定に影響するようにします。
+                    </li>
+                    <li>
+                        同じプレフィクス(前方一致)を持つSysExは、それぞれ<b>同じ種類</b>のコントロールチェンジとみなされます。
+                        <ul>
+                            <li>
+                                例: プレフィクス<span class="script">41-10-45-12</span>が登録されている場合
+                                <ul>
+                                    <li>
+                                        SysEx<span class="script">41-10-45-12-10-01</span>やSysEx<span class="script">41-10-45-12-16-01</span>が、同じ「種類」(<span class="script">41-10-45-12</span>)で異なる「値」(<span class="script">10-01</span>や<span class="script">16-01</span>)のコントロールチェンジとみなされます。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        これらは次に同じ「種類」のSysExが来るまで持続し、異なる「値」が適用されていれば同じノートも異なる判定となります。
+                        <ul>
+                            <li>
+                                例えば以下のような並びである場合、BmsMaker3は以下のように判断します。<br>
+                                <img src="img/midi_sysex_example.png"/>
+                                <ul>
+                                    <li>
+                                        1つ目のノート(<span class="script">C4</span>)には種類<span class="script">41-10-42-12</span>のSysExが値<span class="script">00-F7</span>として適用されている。
+                                    </li>
+                                    <li>
+                                        2つ目(<span class="script">D4</span>)及び3つ目(<span class="script">E4</span>)には同じ種類のSysExが値<span class="script">74-65-73-74-F7</span>として適用されている。
+                                    </li>
+                                    <li>
+                                        4つ目のノート(<span class="script">D4</span>)には同じ種類のSysExが値<span class="script">32-61-F7</span>として適用されている。
+                                    </li>
+                                    <li>
+                                        2つ目と4つ目は同じ音高(<span class="script">D4</span>)、ベロシティ(<span class="script">100</span>)、長さ(<span class="script">1/4</span>)であるが、適用されているSysExの値が異なるため、<a href="midi_pack.html">MIDI整理</a>においては異なるノートとして扱われる。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

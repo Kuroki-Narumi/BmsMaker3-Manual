@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>Waveモード</h1>
+                <p>
+                    音声ファイル(<span class="script">.wav</span>など)を閲覧するためのウィンドウです。
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://www.ffmpeg.org/" target="_blank">FFmpeg</a>を同梱しているため、<span class="script">.wav</span>以外にも一部音声ファイルも開くことができます。
+                        <ul>
+                            <li>
+                                詳細は下記「<a href="#format">フォーマットについて</a>」を参照してください。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Version 0.5 時点では、<b>波形の編集機能は未実装</b>です。
+                        <ul>
+                            <li>
+                                将来的には音量調節や簡単なエフェクト処理などの機能を追加する予定です。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Wave(<span class="script">.wav</span>)ファイルとして保存する場合、<b>スライスマーカー</b>の情報が追加されます。
+                        <ul>
+                            <li>
+                                マーカーの情報はいくつかのチャンクに跨って保存されますが、DAWなどでは読み込めない可能性が高いためご了承ください。
+                            </li>
+                            <li>
+                                こちらで<a href="wave_trackMark.html">トラックマーク</a>を行ったものを<a href="bms_slice.html">BMSモード/スライス</a>で開くことで、スムーズにぶつ切りを行うことができます。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明セクションに飛びます。
+                <div class="image-map" src="img/window_wave.png" style="max-width: 640px;" maps="
+                    1, 31,976, 96, #tab, link;
+                    1,128,976,328, #main, link;
+                "></div>
+            </div>
+            <div class="stack" id="tab">
+                <div class="common" src="common/tabArea.html"></div>
+                要素をクリックすると説明が表示されます。
+                <div style="display: grid; row-gap: 12px;">
+                    <div class="image-map" src="img/window_wave_tab_general.png" maps="
+                          0,  0, 25, 21, common/undo.html;
+                         25,  0, 25, 21, common/redo.html;
+                          3, 27,154, 34, wave/time.html;
+                          4, 65,152, 22, wave/seekbar.html;
+                        159, 30, 36, 36, wave/skipLeft.html;
+                        195, 30, 36, 36, wave/playPause.html;
+                        231, 30, 36, 36, wave/stop.html;
+                        267, 30, 36, 36, wave/repeat.html;
+                        156, 68,145, 22, wave/volume.html;
+                        304, 24,116, 70, wave/range.html;
+                        425, 22, 84, 37, wave/file_open.html;
+                        509, 22,137, 37, wave/file_saveAs.html;
+                        646, 22,144, 37, wave/bytes.html;
+                        425, 59,365, 37, wave/info.html;
+                        795, 22, 92, 44, wave/spectrum.html;
+                        887, 22, 90, 44, wave/tagInfo.html;
+                        795, 66, 92, 30, wave/grid_time.html;
+                        887, 66, 90, 30, wave/grid_level.html;
+                    "></div>
+                    <div class="image-map" src="img/window_wave_tab_marker.png" maps="
+                          0,  0, 25, 21, common/undo.html;
+                         25,  0, 25, 21, common/redo.html;
+                          0, 22,121, 45, wave/tempo.html;
+                        121, 22, 90, 45, wave/grid.html;
+                        216, 22, 75, 23, wave/marker_line.html;
+                        216, 45, 75, 22, wave/marker_name.html;
+                        296, 22,133, 45, wave/marker_move.html;
+                        434, 22,127, 45, wave/marker_addRemove.html;
+                        561, 22, 88, 45, wave/marker_auto.html;
+                        649, 22, 63, 45, wave/marker_clear.html;
+                        717, 22,107, 45, wave/func_trackMark.html;
+                        824, 22, 80, 45, wave/func_slice.html;
+                    "></div>
+                    <div id="tab_terminal" src="img/window_wave_tab_terminal.png"></div>
+                </div>
+            </div>
+            <div class="stack" id="main">
+                <h2>波形表示エリア</h2>
+                <ul>
+                    <li>
+                        開いている音声の波形を表示するエリアです。
+                        <ul>
+                            <li>
+                                左チャンネルは<b style="color: #f44;">赤</b>、右チャンネルは<b style="color: #44f;">青</b>で表示され、
+                                両者が重なる部分は<b style="color: #f4f;">マゼンタ</b>になります。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="img/window_wave_viewer.png"/>
+                <div>
+                    <h3>マウスによる操作</h3>
+                    <ul>
+                        <li>
+                            <b>ホイール</b>: スクロールと拡大率変更に使います。
+                            <ul>
+                                <li>
+                                    <b>マウスホイール</b>を回すことで<b>横(時間)方向</b>にスクロールします。
+                                    <ul>
+                                        <li>
+                                            <span class="script">Ctrl</span>を押している場合は<b>横スケール</b>を変更します。
+                                        </li>
+                                        <li>
+                                            <span class="script">Ctrl</span>を押しながら<b>ホイールをダブルクリック</b>すると、横スケールをリセットします。
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>ホイールボタン</b>を押すことで<b>縦(レベル)スケール</b>を変更します。
+                                    <ul>
+                                        <li>
+                                            ボタンを押しながらマウスを上下に動かすと、移動量に合わせて拡大/縮小します。
+                                        </li>
+                                        <li>
+                                            <b>ホイールをダブルクリック</b>すると、縦スケールをリセットします。
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>左クリック</b>: カーソルの移動と範囲選択に使います。
+                            <ul>
+                                <li>
+                                    波形表示エリアを<b>左クリック</b>すると、その位置に<b>カーソル</b>を移動します。
+                                    <ul>
+                                        <li>
+                                            カーソルは音声の再生位置を表します。
+                                        </li>
+                                        <li>
+                                            再生中に左クリックすると、その位置から改めて再生します。
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>左ドラッグ</b>によって範囲選択を行います。
+                                    <ul>
+                                        <li>
+                                            再生の際、カーソルの元々の位置が選択範囲の末尾より左側だった場合は、再生位置が選択範囲の末尾に到達すると、再生が停止され、カーソルが選択範囲の先頭に移動します。
+                                        </li>
+                                        <li>
+                                            再生中は範囲選択できません。
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b><span class="script">Ctrl</span>を押しながら左クリック</b>すると、クリックした位置の<b>直前のマーカー</b>から<b>直後のマーカー</b>までの区間を範囲選択します。
+                                    <ul>
+                                        <li>
+                                            クリックした位置より前にマーカーが存在しない場合は、音声の先頭から選択されます。
+                                        </li>
+                                        <li>
+                                            クリックした位置より後にマーカーが存在しない場合は、音声の末尾まで選択されます。
+                                        </li>
+                                        <li>
+                                            再生中に<span class="script">Ctrl</span>を押しながら左クリックすると、そのマーカー範囲を再生します。
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b><span class="script">Ctrl</span>を押しながら左ドラッグ</b>すると、マーカーが選択されている場合、そのマーカーの位置を移動します。
+                                    <ul>
+                                        <li>
+                                            マーカーの移動は、その直後のマーカー(「まとめて移動」の場合は音声の末尾)の手前までに制限されます。
+                                        </li>
+                                        <li>
+                                            再生中は移動できません。
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>右クリック</b>: スクロールに使います。
+                            <ul>
+                                <li>
+                                    <b>右ドラッグ</b>によって横(時間)方向にスクロールします。
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="stack" id="format">
+                <h2>フォーマットについて</h2>
+                <ul>
+                    <li>
+                        BmsMaker3は<a href="https://www.ffmpeg.org/" target="_blank">FFmpeg</a>を同梱しています。
+                    </li>
+                    <li>
+                        Version 0.7.0 時点で、以下のファイルのデコード/エンコードに対応しています。
+                        <ul>
+                            <li>
+                                <a href="https://ja.wikipedia.org/wiki/WAV" target="_blank">WAV</a><span class="script">.wav .wave</span>
+                            </li>
+                            <li>
+                                <a href="https://ja.wikipedia.org/wiki/Vorbis" target="_blank">OGG Vorbis</a><span class="script">.ogg</span>
+                            </li>
+                            <li>
+                                <a href="https://ja.wikipedia.org/wiki/MP3" target="_blank">MP3</a><span class="script">.mp3</span>
+                            </li>
+                            <li>
+                                <a href="https://ja.wikipedia.org/wiki/FLAC" target="_blank">FLAC</a><span class="script">.flac</span>
+                            </li>
+                            <li>
+                                <a href="https://ja.wikipedia.org/wiki/AIFF" target="_blank">AIFF</a><span class="script">.aiff</span>
+                            </li>
+                            <li>
+                                <a href="https://ja.wikipedia.org/wiki/AAC" target="_blank">AAC ADTS</a><span class="script">.aac</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>「名前をつけて保存」の挙動</h3>
+                <ul>
+                    <li>
+                        保存形式が<span class="script">.wav</span>の場合
+                        <ul>
+                            <li>
+                                デコード済み音声データをそのままPCM形式で保存します。
+                            </li>
+                            <li>
+                                編集中のスライスマーカーを含む、<span class="script">.wav</span>由来の各メタデータは保持されます。
+                            </li>
+                            <li>
+                                <span class="script">.ogg</span>など<b>別形式に由来するメタデータは失われる</b>と考えてください。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        開いているファイルが<span class="script">.ogg</span>で、保存形式も<span class="script">.ogg</span>の場合
+                        <ul>
+                            <li>
+                                元々のファイルの内容をそのまま保存します。
+                            </li>
+                            <li>
+                                コメントリストに変更がある場合は、その変更が反映されます。
+                            </li>
+                            <li>
+                                スライスマーカーは原則として<b>保持されません</b>。
+                                <ul>
+                                    <li>
+                                        <span class="script">LoopStart</span>と<span class="script">LoopEnd</span>という名前のマーカーがある場合は、それぞれ<span class="script">LOOPSTART</span>および<span class="script">LOOPLENGTH</span>というタグのコメントに変換されます。
+                                    </li>
+                                    <li>
+                                        このコメントは<a href="https://rpgmakerofficial.com/" target="_blank">RPGツクールシリーズ</a>において、BGMのループ再生用のマーカーとして利用されていました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        それ以外の場合
+                        <ul>
+                            <li>
+                                <a href="wave_encode.html">エンコードウィンドウ</a>を開き、確定した場合に指定された形式への<b>エンコード</b>を行います。
+                            </li>
+                            <li>
+                                スライスマーカーは原則として<b>保持されません</b>。
+                            </li>
+                            <li>
+                                開いたファイルとエンコード先が同一形式の場合は、基本的にはメタデータは維持されますが、エンコーダの仕様により一部失われる場合もあります。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
