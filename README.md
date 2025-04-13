@@ -6,6 +6,6 @@
 詳細はオンラインマニュアルを参照してください。<br/>
 https://kuroki-narumi.github.io/BmsMaker3-Manual/<br/>
 <br/>
-Releaseからリリースの一覧を確認できます。
+Releasesからリリースの一覧を確認できます。
 - ※2025/04/13時点で、BmsMaker3 は<b>オープンソースではありません。</b>
-- Releaseの「Source Code」に含まれるのはマニュアルのHTMLリソースであり、BmsMaker3のソースコードではありません。
+- Releasesの「Source Code」に含まれるのはマニュアルのHTMLリソースであり、BmsMaker3のソースコードではありません。
