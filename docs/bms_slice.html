@@ -45,29 +45,40 @@
                 <h2>説明</h2>
                 要素をクリックすると説明が表示されます。
                 <div class="image-map" src="img/bms_slice.png" maps="
-                      7,  1,128,610, bms/slice_lane_wave.html, center;
-                    135,  1, 48,610, bms/slice_lane_apply.html, center;
-                    183,  1, 48,610, bms/slice_lane_cut.html, center;
-                    259,  1, 69, 40, bms/slice_open.html;
-                    328,  1,145, 40, bms/slice_save.html;
-                    259, 44,107, 38, bms/slice_edit_move.html;
-                    366, 44,107, 38, bms/slice_edit_add.html;
-                    259, 87,214, 30, bms/grid_quantize.html;
-                    259,117,107, 26, bms/grid_small.html;
-                    366,117,107, 26, bms/grid_large.html;
-                    259,148,113, 28, bms/slice_play.html;
-                    372,148,101, 28, bms/stop.html;
-                    259,185,214, 63, bms/slice_offset.html;
-                    259,251,214,117, wave/slice_leftProcess.html;
-                    259,372,214,117, wave/slice_rightProcess.html;
-                    259,490,214, 29, bms/slice_baseName.html;
-                    368,523,101, 36, bms/slice_export.html;
-                    284,567, 95, 40, bms/slice_execute.html;
-                    387,567, 82, 40, common/cancel_restore.html;">
+                      7,  1,128,435, bms/slice_lane_wave.html, center;
+                    135,  1, 48,435, bms/slice_lane_apply.html, center;
+                    183,  1, 48,435, bms/slice_lane_cut.html, center;
+                    259,  1, 69, 38, bms/slice_open.html;
+                    328,  1,145, 38, bms/slice_save.html;
+                    576,  1, 69, 38, bms/slice_close.html;
+                    259, 44,113, 38, bms/slice_play.html;
+                    372, 44, 80, 38, bms/stop.html;
+                    452, 44, 97, 38, bms/slice_edit_move.html;
+                    549, 44, 96, 38, bms/slice_edit_add.html;
+                    259, 87,193, 34, bms/grid_quantize.html;
+                    259,121, 97, 33, bms/grid_small.html;
+                    356,121, 96, 33, bms/grid_large.html;
+                    452, 87,193, 67, bms/slice_offset.html;
+                    259,159,188,121, wave/slice_leftProcess.html;
+                    447,159,198,121, wave/slice_rightProcess.html;
+                    266,304,179, 29, bms/slice_baseName.html;
+                    348,338, 90, 40, bms/slice_export.html;
+                    461,302,104, 81, bms/slice_replace.html;
+                    569,338, 62, 40, bms/slice_execute.html;
+                    ">
                 </div>
                 <ul>
                     <li>
-                        「機能」タブからこのウィンドウを開く場合、最初にスライスする音声ファイルを選ぶ必要があります。
+                        「機能」タブまたはショートカットキー(<span class="script">Ctrl+8</span>)からこのウィンドウを開く場合、その前にスライスする音声ファイルを選ぶ必要がありますが、<br>
+                        以下の状態では自動的に音声ファイルが読み込まれた状態になります。
+                        <ul>
+                            <li>
+                                <a href="bms.html#main">譜面表示エリア</a>で、実際に音声ファイルが存在する定義番号の音声ノートが<b>1個だけ</b>選択されている
+                            </li>
+                            <li>
+                                上記以外で、<a href="bms_definition.html"><span class="script">#WAV</span>定義リスト</a>がアクティブ(選択項目が<span style="color: #8bf;">青っぽく</span>なる)かつ実際に音声ファイルが存在する定義が選択されている
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <b>マウスホイール</b>を回すことで<b>縦(時間)方向</b>にスクロールします。
