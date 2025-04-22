@@ -11,6 +11,57 @@
             <ul>
                 <li>
                     <details open>
+                        <summary class="a-like">Version 0.7.2 (2025/04/22)</summary>
+                        <ul>
+                            <li>
+                                機能追加
+                                <ul>
+                                    <li>
+                                        <a href="borwse.html">Browseモード</a><span style="color: #f44;">(※2025/04/22時点でリンク先無効)</span>に「一括音量変更」を追加しました。
+                                    </li>
+                                    <li>
+                                        <a href="borwse.html">Browseモード</a>の一括編集機能に「対象」の選択項目を追加しました。
+                                </ul>
+                            </li>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        <a href="terminal.html">ターミナル</a>において、「開く」のドロップダウンリスト(最近使ったファイル)の各項目に、それを開くモードをアイコンで表示するようにしました。
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、新たにノートを配置する際、そのノートが<b>ロングノート終端</b>であれば定義番号が<span class="script">00</span>でも配置できるようにしました。
+                                    </li>
+                                    <li>
+                                        <a href="bms_keySort.html">BMSモード/キーの整列</a>において、ノートを選択せずに開いた際、「対象」が「BGM+選択範囲」だった場合は「全て」に変更されるようにしました。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、特定条件下で<span class="script">.wav</span>プレビューが機能しない不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms_slice.html">BMSモード/スライス</a>において、<span class="script">#000:0</span>よりも前(下)にスライスを追加しようとするとエラーが発生する不具合を修正しました。
+                                        <ul>
+                                            <li>
+                                                この修正に伴い、<a href="bms.html">BMSモード</a>及び<a href="bms_slice.html">BMSモード/スライス</a>ではカーソルが<span class="script">#000:0</span>よりも前(下)には移動できなくなりました。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="midi_trackOptions.html">Midiモード/トラックオプション</a>などの「マーキング/命名規則」において、日本語(default)選択時に表記が消えていた不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
+                    <details open>
                         <summary class="a-like">Version 0.7.1 (2025/04/18)</summary>
                         <ul>
                             <li>

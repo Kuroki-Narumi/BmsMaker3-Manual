@@ -29,11 +29,13 @@
                         <ul>
                             <li>
                                 このアプリでは<a href="https://hitkey.nekokan.dyndns.info/cmdsJP.htm" target="_blank">BMS command memo</a>を参考に、全ての制御構造(<span class="script">#RANDOM #SETRANDOM #IF #ELSEIF #ELSE #SWITCH #SETSWITCH #CASE #DEF</span>)を実装し、<br>
-                                入れ子の制御構造にも無制限に対応していますが、<br>
-                                <b>ほとんどのBMSプレイヤーは<span class="script">#RANDOM #SETRANDOM #IF</span>しか実装しておらず、入れ子の制御構造にも対応していません。</b>
+                                入れ子の制御構造にも無制限に対応していますが、<b>ほとんどのBMSプレイヤーは<span class="script">#RANDOM #SETRANDOM #IF</span>しか実装しておらず、入れ子の制御構造にも対応していません。</b>
                                 <ul>
                                     <li>
                                         実際のプレイ時はもちろん、プレビューにおいても正常に反映されない可能性が高いため、ご注意ください。
+                                    </li>
+                                    <li>
+                                        また、構文解析に再帰関数を用いているため、<b>あまりにネストが深すぎる</b>(目安:6000)と<span class="script">StackOverflow</span>というエラーが発生する場合があります。
                                     </li>
                                 </ul>
                             </li>

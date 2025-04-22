@@ -18,10 +18,67 @@
                         <a href="http://ucn.tokonats.net/software/bmse/" target="_blank">BMSE</a>に近い操作感の、より高機能なBMSエディターです。
                     </li>
                     <li>
-                        <span class="script">#RANDOM</span>などの制御構造に<b>正式に</b>対応しています。
+                        <b>ほぼ任意の分解能</b>に対応しています。
+                        <ul>
+                            <li>
+                                BmsMaker3では、読み込んだBMSのノート位置や小節長などの情報は全て<b>分数形式</b>で保持します。
+                            </li>
+                            <li>
+                                移動の最小単位となる「分解能」は指定する必要があるものの、その分解能の値は事実上無制限となっています。
+                            </li>
+                            <li>
+                                <b>29分音符</b>や<b>7分音符と13分音符のポリリズム</b>などといったエキセントリックな配置も可能です。
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        「<a href="bms_slice.html">スライス</a>」など、BMS制作を補助する様々な<b>機能</b>が付属しています。
+                        ほとんどのメタデータを、GUIを通して設定可能です。
+                        <ul>
+                            <li>
+                                主流の本体で参照されるほとんどの<a href="bms_header.html">ヘッダー</a>
+                            </li>
+                            <li>
+                                <a href="bms_definition.html">基本的な定義</a>リストの編集に加えて、<a href="bms_exDef.html">ほとんど使われないような特殊な定義リスト</a>も参照可能
+                            </li>
+                            <li>
+                                譜面エディタ上に表示できない「非対応チャンネル」に存在するノーツも<a href="bms_hidden.html">一覧で確認可能</a>
+                            </li>
+                            <li>
+                                問題のあるノートが存在する場合は<a href="bms_problem.html">一覧で確認可能</a>
+                            </li>
+                            <li>
+                                <span class="script">#RANDOM</span>などの制御構造に<a href="bms_flow.html">正式に対応</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        BMS制作を補助する様々な<b>機能</b>が付属しています。
+                        <ul>
+                            <li>
+                                <b><a href="bms_info.html">情報</a></b>: キーごとのノート数や演奏時間を分析する
+                            </li>
+                            <li>
+                                <b><a href="bms_selection.html">選択機能</a></b>: ノートをまとめて選択したり一括で変更したりする
+                            </li>
+                            <li>
+                                <b><a href="bms_keySort.html">キーの整列</a></b>: ファイル名ごとに定義をグループ化し、グループごとにBMSレーンに整列する
+                            </li>
+                            <li>
+                                <b><a href="bms_sequential.html">連続配置</a></b>: ぶつ切り音声などをその音声の長さに応じた間隔で自動配置できる
+                            </li>
+                            <li>
+                                <b><a href="bms_slice.html">スライス</a></b>: 1つの<span class="script">.wav</span>音声を複数の定義に分割し、その分割間隔に従って配置できる
+                            </li>
+                            <li>
+                                <b><a href="bms_defSort.html">定義の整列</a></b>: 未使用の定義の削除、定義リストの空欄の圧縮、定義<b>基数</b>の変更など
+                            </li>
+                            <li>
+                                <b><a href="bms_reduct.html">定義の削減</a></b>: 同じ内容の<span class="script">.wav</span>ファイルが複数あるかを検出し、それらの重複を取り除く
+                            </li>
+                            <li>
+                                <b><a href="bms_assemble.html">アセンブル</a></b>: 「スライス」とは逆に、複数のノートを1つの<span class="script">.wav</span>音声に統合し、必要に応じて置換を行う
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
