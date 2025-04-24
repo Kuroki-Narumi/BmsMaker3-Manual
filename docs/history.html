@@ -9,6 +9,49 @@
     <body>
         <div class="content">
             <ul>
+                <li style="display: none;">
+                    <details open>
+                        <summary class="a-like">Version 0.7.3 (2025/04/**)</summary>
+                        <ul>
+                            <li>
+                                機能追加
+                                <ul>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        「プログラムから開く」などからBmsMaker3が非対応のファイルを開こうとした場合、エラーではなく警告を表示して終了するように修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>と<a href="midi.html">Midiモード</a>において、スケールの値をコンボボックスから変更した際、スクロール位置が荒ぶる不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>と<a href="midi.html">Midiモード</a>において、マウスホイールによるスクロールの挙動を変更しました。
+                                        <ul>
+                                            <li>
+                                                基本的には「画面のおよそ半分を一度にスクロールする」という挙動ですが、その移動単位が「スケール」の整数倍となるように調整しました。
+                                            </li>
+                                            <li>
+                                                結果として、4/4拍子の譜面であれば、一度のスクロール量がおおむね1小節の長さと同じとなります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms_defSort.html">BMSモード/定義の整列</a>などにおける文字列比較の方式を自然順(Windows Explorerなどの並び順と同じ)に変更しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
                 <li>
                     <details open>
                         <summary class="a-like">Version 0.7.2 (2025/04/22)</summary>
@@ -17,10 +60,11 @@
                                 機能追加
                                 <ul>
                                     <li>
-                                        <a href="borwse.html">Browseモード</a><span style="color: #f44;">(※2025/04/22時点でリンク先無効)</span>に「一括音量変更」を追加しました。
+                                        <a href="borwse.html">Browseモード</a>に「一括音量変更」を追加しました。
                                     </li>
                                     <li>
                                         <a href="borwse.html">Browseモード</a>の一括編集機能に「対象」の選択項目を追加しました。
+                                    </li>
                                 </ul>
                             </li>
                             <li>
@@ -68,7 +112,7 @@
                                 機能追加
                                 <ul>
                                     <li>
-                                        <a href="borwse.html">Browseモード</a><span style="color: #f44;">(※2025/04/18時点でリンク先無効)</span>に「一括エンコード」「一括デコード」を追加しました。
+                                        <a href="borwse.html">Browseモード</a>に「一括エンコード」「一括デコード」を追加しました。
                                         <ul>
                                             <li>
                                                 フォルダ内の音声ファイルを一括で「<span class="script">.wav</span>から<span class="script">.ogg</span>に変換」及び「<span class="script">.ogg</span>から<span class="script">.wav</span>に変換」できるようになりました。
@@ -101,7 +145,7 @@
                     </details>
                 </li>
                 <li>
-                    <details open>
+                    <details>
                         <summary class="a-like">Version 0.7.0 (2025/04/13)</summary>
                         <ul>
                             <li>
@@ -122,7 +166,7 @@
                                                 Version 0.7.0 時点では、音声のデコード及びエンコードにFFmpegの各APIが利用されます。
                                                 <ul>
                                                     <li>
-                                                        <a href="wave.html">Waveモード</a>、<a href="midi_slice.html">MIDIモード/スライス</a>、<a href="bms_slice.html">BMSモード/スライス</a>など、音声ファイルを開くあらゆる場所で、<span class="script">.flac</span>などいくつかの音声形式が選べるようになりました。
+                                                        <a href="wave.html">Waveモード</a>、<a href="midi_slice.html">Midiモード/スライス</a>、<a href="bms_slice.html">BMSモード/スライス</a>など、音声ファイルを開くあらゆる場所で、<span class="script">.flac</span>などいくつかの音声形式が選べるようになりました。
                                                     </li>
                                                     <li>
                                                         <a href="wave.html">Waveモード</a>では、対応する各音声形式へのエンコードも可能になりました。
@@ -145,7 +189,7 @@
                                 不完全な機能追加
                                 <ul>
                                     <li>
-                                        新たに<a href="borwse.html">Browseモード</a><span style="color: #f44;">(※2025/04/13時点でリンク先無効)</span>が追加されていますが、以下の機能しか実装されていません。 
+                                        新たに<a href="borwse.html">Browseモード</a>が追加されていますが、以下の機能しか実装されていません。 
                                         <ul>
                                             <li>
                                                 フォルダを開き、コンテンツを一覧する
@@ -221,10 +265,10 @@
                                 不具合修正
                                 <ul>
                                     <li>
-                                        <a href="midi_trackOptions.html">MIDIモード/トラックオプション</a>などの「サイドチェイン」選択ボタンにおいて、ボタン上の表示が正しくない不具合を修正しました。
+                                        <a href="midi_trackOptions.html">Midiモード/トラックオプション</a>などの「サイドチェイン」選択ボタンにおいて、ボタン上の表示が正しくない不具合を修正しました。
                                     </li>
                                     <li>
-                                        <a href="midi_bmsExport.html">MIDIモード/BMS出力</a>において、テンポが整数でない場合に正しく反映されない不具合を修正しました。
+                                        <a href="midi_bmsExport.html">Midiモード/BMS出力</a>において、テンポが整数でない場合に正しく反映されない不具合を修正しました。
                                     </li>
                                 </ul>
                             </li>
@@ -251,7 +295,7 @@
                                         <a href="bms.html">BMSモード</a>において、「グリッド」関連のサブメニューにあるラジオボタンをクリックした場合、サブメニューの挙動がおかしくなる不具合を修正しました。
                                     </li>
                                     <li>
-                                        <a href="midi.html">MIDIモード</a>において、拍子の変化があった場合に各ノートの位置の計算がおかしくなる不具合を修正しました。
+                                        <a href="midi.html">Midiモード</a>において、拍子の変化があった場合に各ノートの位置の計算がおかしくなる不具合を修正しました。
                                     </li>
                                 </ul>
                             </li>
@@ -309,7 +353,7 @@
                                 不具合修正
                                 <ul>
                                     <li>
-                                        <a href="midi_trackOptions.html">MIDIモード/トラックオプション</a>などのドロップダウン式のサブメニューにおいて、特定の操作を行うとサブメニューが消えずに残る不具合を修正しました。
+                                        <a href="midi_trackOptions.html">Midiモード/トラックオプション</a>などのドロップダウン式のサブメニューにおいて、特定の操作を行うとサブメニューが消えずに残る不具合を修正しました。
                                     </li>
                                     <li>
                                         <a href="bms_barEdit.html">BMSモード/小節長編集</a>の「スライド」処理において、小節長を縮める場合にノートの位置が正しく変更されない不具合を修正しました。
@@ -331,7 +375,7 @@
                                         <a href="bms.html">BMSモード</a>において、Versoin 0.6.2 以降、「アンドゥ」や「降下」などを行った際にもスクロール位置が下端へ移動していた不具合を修正しました。
                                     </li>
                                     <li>
-                                        <a href="midi_trackOptions.html">MIDIモード/トラックオプション</a>などのドロップダウン式のサブメニューを表示した状態で、<span class="script">Alt+Tab</span>などによりウィンドウを切り替えると、そのサブメニューが消えなくなる不具合を修正しました。
+                                        <a href="midi_trackOptions.html">Midiモード/トラックオプション</a>などのドロップダウン式のサブメニューを表示した状態で、<span class="script">Alt+Tab</span>などによりウィンドウを切り替えると、そのサブメニューが消えなくなる不具合を修正しました。
                                     </li>
                                 </ul>
                             </li>
@@ -347,10 +391,10 @@
                                 不具合修正
                                 <ul>
                                     <li>
-                                        <a href="midi_bulkEdit.html">MIDIモード/一括編集</a>において、MIDI整理を行った<b>後に</b>一括編集を行っても、MIDI整理によって作成されるMIDIファイルが一括編集の前の状態を参照していた不具合を修正しました。
+                                        <a href="midi_bulkEdit.html">Midiモード/一括編集</a>において、MIDI整理を行った<b>後に</b>一括編集を行っても、MIDI整理によって作成されるMIDIファイルが一括編集の前の状態を参照していた不具合を修正しました。
                                     </li>
                                     <li>
-                                        <a href="midi_pack.html">MIDIモード/MIDI整理</a>において、「発音時間を基準にする」際の発音時間の計算が誤っていた不具合を修正しました。
+                                        <a href="midi_pack.html">Midiモード/MIDI整理</a>において、「発音時間を基準にする」際の発音時間の計算が誤っていた不具合を修正しました。
                                     </li>
                                 </ul>
                             </li>
@@ -358,7 +402,7 @@
                                 仕様変更
                                 <ul>
                                     <li>
-                                        <a href="midi_pack.html">MIDIモード/MIDI整理</a>において、発音時間の「曖昧さ」を「単位」に名称変更し、最小値を<span class="script">0</span>から<span class="script">1</span>に変更しました。
+                                        <a href="midi_pack.html">Midiモード/MIDI整理</a>において、発音時間の「曖昧さ」を「単位」に名称変更し、最小値を<span class="script">0</span>から<span class="script">1</span>に変更しました。
                                         <ul>
                                             <li>
                                                 処理上の違いはありません。意味を分かりやすくするための変更です。
@@ -379,13 +423,13 @@
                                 不具合修正
                                 <ul>
                                     <li>
-                                        <a href="midi_keySwitch.html">MIDIモード/キースイッチ</a>などのキースイッチエリアおいて、ドラッグによる自動スクロールの挙動がおかしい不具合を修正しました。
+                                        <a href="midi_keySwitch.html">Midiモード/キースイッチ</a>などのキースイッチエリアおいて、ドラッグによる自動スクロールの挙動がおかしい不具合を修正しました。
                                     </li>
                                     <li>
-                                        <a href="midi_group.html">MIDIモード/グループ機能</a>において、「トラック全体」と「選択範囲」のラジオボタンが、実際の選択状態とは逆に表示されていた不具合を修正しました。
+                                        <a href="midi_group.html">Midiモード/グループ機能</a>において、「トラック全体」と「選択範囲」のラジオボタンが、実際の選択状態とは逆に表示されていた不具合を修正しました。
                                     </li>
                                     <li>
-                                        <a href="midi_marker.html">MIDIモード/マーカー編集</a>において、分解能の指定「ノーツ境界」をクリックした際の挙動が変だった不具合を修正しました。
+                                        <a href="midi_marker.html">Midiモード/マーカー編集</a>において、分解能の指定「ノーツ境界」をクリックした際の挙動が変だった不具合を修正しました。
                                     </li>
                                 </ul>
                             </li>
@@ -393,13 +437,13 @@
                                 仕様変更
                                 <ul>
                                     <li>
-                                        <a href="midi.html">MIDIモード</a>などのトラックリストにおいて、選択中のトラックは名前の左に<img src="img/icons/HeadRight.png" class="icon16"/>を表示するようにしました。
+                                        <a href="midi.html">Midiモード</a>などのトラックリストにおいて、選択中のトラックは名前の左に<img src="img/icons/HeadRight.png" class="icon16"/>を表示するようにしました。
                                     </li>
                                     <li>
-                                        <a href="midi.html">MIDIモード</a>のイベントリストにおいて、コンテキストメニューにグループ化関連の項目を追加しました。
+                                        <a href="midi.html">Midiモード</a>のイベントリストにおいて、コンテキストメニューにグループ化関連の項目を追加しました。
                                     </li>
                                     <li>
-                                        <a href="midi_bulkEdit.html">MIDIモード/一括編集</a>において、ベロシティのクォンタイズ方式を四捨五入から切り上げに変更しました。
+                                        <a href="midi_bulkEdit.html">Midiモード/一括編集</a>において、ベロシティのクォンタイズ方式を四捨五入から切り上げに変更しました。
                                     </li>
                                 </ul>
                             </li>
@@ -407,10 +451,10 @@
                                 機能追加
                                 <ul>
                                     <li>
-                                        <a href="midi_bmsExport.html">MIDIモード/BMS出力</a>のオプションとして、「同名定義の削除」を追加しました。
+                                        <a href="midi_bmsExport.html">Midiモード/BMS出力</a>のオプションとして、「同名定義の削除」を追加しました。
                                     </li>
                                     <li>
-                                        <a href="midi_bulkEdit.html">MIDIモード/一括編集</a>のオプションとして、「重複ノートを削除」を追加しました。
+                                        <a href="midi_bulkEdit.html">Midiモード/一括編集</a>のオプションとして、「重複ノートを削除」を追加しました。
                                     </li>
                                 </ul>
                             </li>
@@ -426,7 +470,7 @@
                                 仕様変更
                                 <ul>
                                     <li>
-                                        <a href="midi_pack.html">MIDIモード/MIDI整理</a>において、「適用」のボタンを廃止し、代わりに「エクスポートして次へ」に変更しました。
+                                        <a href="midi_pack.html">Midiモード/MIDI整理</a>において、「適用」のボタンを廃止し、代わりに「エクスポートして次へ」に変更しました。
                                         <ul>
                                             <li>
                                                 「エクスポートして次へ」を押すと、整理後のMIDIを保存した後に、次のトラックのMIDI整理ウィンドウを開きます。
@@ -442,7 +486,7 @@
                                 機能追加
                                 <ul>
                                     <li>
-                                        <a href="midi_slice.html">MIDIモード/スライス</a>において、右上に「スライスして次へ」のボタンを追加しました。
+                                        <a href="midi_slice.html">Midiモード/スライス</a>において、右上に「スライスして次へ」のボタンを追加しました。
                                         <ul>
                                             <li>
                                                 サブメニューの「スライス/実行して次へ」と同じ処理を行います。
@@ -488,7 +532,7 @@
                                         <a href="bms_assemble.html">BMSモード/アセンブル</a>において、「選択範囲を全て置き換え」のサブオプションとして「許容誤差」を追加しました。
                                     </li>
                                     <li>
-                                        <a href="midi_bulkEdit.html">MIDIモード/一括編集</a>などの「クォンタイズ」において、丸め方法を「四捨五入」から「偶数丸め」に変更しました。
+                                        <a href="midi_bulkEdit.html">Midiモード/一括編集</a>などの「クォンタイズ」において、丸め方法を「四捨五入」から「偶数丸め」に変更しました。
                                     </li>
                                 </ul>
                             </li>
@@ -584,10 +628,10 @@
                                 仕様変更
                                 <ul>
                                     <li>
-                                        <a href="midi.html">MIDIモード</a>において、重複ノートの扱いを<a href="https://takabosoft.com/domino" target="_blank">Domino</a>と同様に変更しました。
+                                        <a href="midi.html">Midiモード</a>において、重複ノートの扱いを<a href="https://takabosoft.com/domino" target="_blank">Domino</a>と同様に変更しました。
                                     </li>
                                     <li>
-                                        <a href="midi_pack.html">MIDIモード/MIDI整理</a>と<a href="wave_trackMark.html">Waveモード/トラックマーク</a>において、「ノートの終端をマーク」の追加オプションとして「後方余白」を追加しました。
+                                        <a href="midi_pack.html">Midiモード/MIDI整理</a>と<a href="wave_trackMark.html">Waveモード/トラックマーク</a>において、「ノートの終端をマーク」の追加オプションとして「後方余白」を追加しました。
                                     </li>
                                 </ul>
                             </li>
@@ -603,7 +647,7 @@
                                 不具合修正
                                 <ul>
                                     <li>
-                                        <a href="midi.html">MIDIモード</a>において、Version 0.5.0 以降に保存した<span class="script">.bm3scr</span>ファイルを開こうとするとアプリが落ちる不具合を修正しました。
+                                        <a href="midi.html">Midiモード</a>において、Version 0.5.0 以降に保存した<span class="script">.bm3scr</span>ファイルを開こうとするとアプリが落ちる不具合を修正しました。
                                     </li>
                                 </ul>
                             </li>
@@ -619,10 +663,10 @@
                                 不具合修正
                                 <ul>
                                     <li>
-                                        <a href="midi.html">MIDIモード</a>のトラックリストにおいて、コンテキストメニューの「削除」が誤って「クリア」と表記されていた不具合を修正しました。
+                                        <a href="midi.html">Midiモード</a>のトラックリストにおいて、コンテキストメニューの「削除」が誤って「クリア」と表記されていた不具合を修正しました。
                                     </li>
                                     <li>
-                                        <a href="midi_bmsExport.html">MIDIモード/BMS出力</a>において、BMSファイルを作成する際に本来想定されていた初期設定が適用されていなかった不具合を修正しました。
+                                        <a href="midi_bmsExport.html">Midiモード/BMS出力</a>において、BMSファイルを作成する際に本来想定されていた初期設定が適用されていなかった不具合を修正しました。
                                         <ul>
                                             <li>
                                                 具体的には、以下の値がデフォルト値として設定されるようになります:
@@ -643,7 +687,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="midi_defaultOptions.html">MIDIモード/デフォルトオプション</a>において、「マーキング/並び替え/1st」のコンボボックスが正しく表示されない不具合を修正しました。
+                                        <a href="midi_defaultOptions.html">Midiモード/デフォルトオプション</a>において、「マーキング/並び替え/1st」のコンボボックスが正しく表示されない不具合を修正しました。
                                     </li>
                                 </ul>
                             </li>
@@ -678,7 +722,7 @@
                                 仕様変更
                                 <ul>
                                     <li>
-                                        <a href="bms.html">BMSモード</a>及び<a href="midi.html">MIDIモード</a>において、マウス右ドラッグでスクロールするようにしました。
+                                        <a href="bms.html">BMSモード</a>及び<a href="midi.html">Midiモード</a>において、マウス右ドラッグでスクロールするようにしました。
                                     </li>
                                     <li>
                                         <a href="bms.html">BMSモード</a>において、レーンスタイルを「Pop」系にした際、「名前を付けて保存」のデフォルト拡張子を<span class="script">.pms</span>に変更するようにしました。
@@ -779,7 +823,7 @@
                                         <a href="bms_assemble.html">BMSモード/アセンブル</a>において、選択範囲を合成する場合は合成後の音声に置換できるようにしました。
                                     </li>
                                     <li>
-                                        <a href="midi_bulkEdit.html">MIDIモード/一括編集</a>を追加しました。
+                                        <a href="midi_bulkEdit.html">Midiモード/一括編集</a>を追加しました。
                                     </li>
                                 </ul>
                             </li>
@@ -820,16 +864,16 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        MIDIモード
+                                        Midiモード
                                         <ul>
                                             <li>
                                                 <a href="midi_pack.html">MIDIの内容を整理してスライス用のMIDIデータを書き出す機能</a>の名前を「パック」から「MIDI整理」に変更しました。
                                             </li>
                                             <li>
-                                                <a href="midi_pack.html">MIDIモード/MIDI整理</a>において、MIDI整理オプションから「ベロシティの曖昧さ」及び「音符長さの曖昧さ」を削除しました。
+                                                <a href="midi_pack.html">Midiモード/MIDI整理</a>において、MIDI整理オプションから「ベロシティの曖昧さ」及び「音符長さの曖昧さ」を削除しました。
                                                 <ul>
                                                     <li>
-                                                        従来の「曖昧さ」を再現したい場合は、新たに追加された<a href="midi_bulkEdit.html">MIDIモード/一括編集</a>から「クォンタイズ」を行ってください。
+                                                        従来の「曖昧さ」を再現したい場合は、新たに追加された<a href="midi_bulkEdit.html">Midiモード/一括編集</a>から「クォンタイズ」を行ってください。
                                                     </li>
                                                     <li>
                                                         <b>テンポ変化を考慮</b>した発音長さについての「曖昧さ」は引き続き維持されます。

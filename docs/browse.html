@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>Browseモード</h1>
+                <p>
+                    フォルダを開き、そのフォルダ内の複数のファイルに対して分析や一括操作などを行うためのウィンドウです。
+                </p>
+                <ul>
+                    <li>
+                        Version 0.7 時点では<b>ほとんどの機能が未実装</b>となっています。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明セクションに飛びます。
+                <div class="image-map" src="img/window_browse.png" style="max-width: 640px;" maps="
+                      1, 31,944, 29, #top, link;
+                      1, 60,690,456, #list, link;
+                    695, 60,250,456, #operation, link;
+                "></div>
+            </div>
+            <div class="stack" id="top">
+                要素をクリックすると説明が表示されます。
+                <div style="display: grid; row-gap: 12px;">
+                    <div class="image-map" src="img/window_browse_top.png" maps="
+                          1,  2, 24, 29, browse/back.html;
+                         30,  2, 37, 29, browse/open.html;
+                         67,  2,257, 29, browse/address.html;
+                        329,  2, 39, 29, browse/terminal.html;
+                    "></div>
+                    ターミナルメニュー:
+                    <div class="image-map" src="img/window_browse_terminal.png" maps="
+                          1,  1, 62, 46, common/show_terminal.html;
+                         63,  1,222, 23, terminal/hide.html;
+                         63, 24,222, 23, terminal/show.html;
+                        290,  1, 85, 46, terminal/console.html;
+                        380,  1,119, 46, terminal/language.html;
+                        504,  1, 86, 46, terminal/manual.html;
+                        590,  1,101, 46, terminal/update.html;
+                   "></div>
+                </div>
+            </div>
+            <div class="stack" id="list">
+                <h2>ファイルリスト</h2>
+                <ul>
+                    <li>
+                        開いているフォルダの内容を表示するエリアです。
+                    </li>
+                    <li>
+                        ファイルの追加や削除、名前の変更はリアルタイムで反映されます。
+                    </li>
+                </ul>
+                <img src="img/window_browse_list.png"/>
+                <div>
+                    <h3>リストの操作</h3>
+                    <ul>
+                        <div class="common" src="common/list_selection.html"></div>
+                        <li>
+                            リストのヘッダ(「種類」などが書いてある部分)をクリックすると、その項目を基準としてソートします。
+                        </li>
+                        <li>
+                            リスト項目を右クリックするとコンテキストメニューを開きます。
+                            <div class="left-panel">
+                                <img src="img/window_browse_list_menu.png">
+                                <ul>
+                                    <li>
+                                        <img src="img/icons/Open.png" class="icon16"><b>開く</b>: このファイルを開きます。
+                                        <ul>
+                                            <li>
+                                                BmsMaker3に対応している形式の場合は、対応するモードのウィンドウを開きます(「種類」欄のアイコンで判別できます)。
+                                            </li>
+                                            <li>
+                                                BmsMaker3が対応していない形式の場合、Windows標準の「開く」動作になります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <img src="img/icons/Letter_A.png" class="icon16"><b>名前の変更</b>: <b style="color:#f44">未実装</b>
+                                    </li>
+                                    <li>
+                                        <img src="img/icons/Delete.png" class="icon16"><b>削除</b>: この項目を含む、選択中の全ての項目を削除します。
+                                        <ul>
+                                            <li>
+                                                削除は「ゴミ箱へ送る」という処理です。ゴミ箱から元に戻すことはできます。
+                                            </li>
+                                            <li>
+                                                削除処理は<b>BmsMaker3からはキャンセルできない</b>ためご注意ください。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="stack" id="operation">
+                <h2>操作パネル</h2>
+                <ul>
+                    <li>
+                        フォルダ内の各ファイルに対する分析や一括操作を行うためのパネルです。
+                    </li>
+                    <li>
+                        詳細はそれぞれの説明ページを参照してください。
+                        <ul>
+                            <li>
+                                <a href="browse_bms.html">BMS操作パネル</a>
+                            </li>
+                            <li>
+                                <a href="browse_audio.html">Audio操作パネル</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
