@@ -11,6 +11,60 @@
             <ul>
                 <li>
                     <details open>
+                        <summary class="a-like">Version 0.7.4 (2025/04/25)</summary>
+                        <ul>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <a href="midi_slice.html">Midiモード/スライス</a>など音声をスライスする機能において、以下の修正を行いました。
+                                        <ul>
+                                            <li>
+                                                スライスの際、出力されるファイルに拡張子<span class="script">.wav</span>が付与されていなかった不具合を修正しました。
+                                            </li>
+                                            <li>
+                                                始端/終端処理の「余白」の処理が誤っていたのを修正しました。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms_slice.html">BMSモード/スライス</a>において、読み込んだ音声データのマーカー情報が正しく反映されていなかった不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        各モードにおいて、「開く」または「保存」に失敗した際、特定の種類のエラーに対してはその原因をわかりやすく表示するようにしました。
+                                        <ul>
+                                            <li>
+                                                また、その際のエラーをコンソールにも表示するようにしたため、不具合報告の際に「ログをコピー」から簡単に内容をメモできます。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、以下のように変更しました。
+                                        <ul>
+                                            <li>
+                                                <span class="script">UTF-8</span>エンコーディングされたBMSファイルも正しく読み込めるようにしました。
+                                            </li>
+                                            <li>
+                                                保存の際、<span class="script">Shift-JIS</span>でエンコード不能な文字(例:😄)が含まれている場合は、<span class="script">UTF-8</span>で書き出すようにしました。
+                                            </li>
+                                            <li>
+                                                LR2などの古いプレイヤーでは<b style="color:#f44"><span class="script">UTF-8</span>テキストは読み込めない</b>ため、ご注意ください。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
+                    <details open>
                         <summary class="a-like">Version 0.7.3 (2025/04/25)</summary>
                         <ul>
                             <li>
@@ -59,7 +113,7 @@
                     </details>
                 </li>
                 <li>
-                    <details open>
+                    <details>
                         <summary class="a-like">Version 0.7.2 (2025/04/22)</summary>
                         <ul>
                             <li>
