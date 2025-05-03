@@ -2,8 +2,11 @@
     時間位置は<span class="script">#BBB:bbbb</span>という形式で表記します。
 </li>
 <li>
-    <span class="script">BBB</span>は<b>小節番号</b>です。
+    <span class="script">#BBB</span>は<b>小節番号</b>です。
     <ul>
+        <li>
+            <span class="script">#</span>は省略可能です。
+        </li>
         <li>
             先頭に<span class="script">0</span>を詰める必要はありません。
         </li>
@@ -13,11 +16,22 @@
     </ul>
 </li>
 <li>
-    <span class="script">bbbb</span>は小節内の位置です。
+    <span class="script">:bbbb</span>は<b>小節内の位置</b>です。
     <ul>
+        <li>
+            省略した場合は<span class="script">0</span>とみなされます。
+        </li>
         <li>
             その小節の長さ以上の値は指定できません。
         </li>
         <div class="common" src="common/length_unit.html"></div>
+    </ul>
+</li>
+<li>
+    時間位置は、代わりに<span class="script">bbbb</span>形式でも指定できます。
+    <ul>
+        <li>
+            <span class="script">bbbb</span>は<b>楽曲先頭からの累計拍数</b>(全音符 = 1)です。
+        </li>
     </ul>
 </li>
