@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>テーマ設定</h1>
+                <p>
+                    譜面表示エリアのスタイルを編集するウィンドウです。
+                </p>
+                <ul>
+                    <li>
+                        <span class="script">Escape</span>または「閉じる」ボタンでウィンドウを閉じると、編集結果がエディタの譜面表示エリアに適用されます。
+                    </li>
+                    <li>
+                        <b>このウィンドウを開いたままエディタ自体を閉じる</b>と、編集結果は保存されません。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_theme.png" maps="
+                      1,  1, 24, 24, bms/theme_undo.html;
+                     25,  1, 24, 24, common/redo.html;
+                     54,  1, 24, 24, bms/theme_new.html;
+                     78,  1, 24, 24, bms/theme_open.html;
+                    102,  1, 24, 24, common/file_save.html;
+                    126,  1, 24, 24, common/file_saveAs.html;
+                     10, 57,262,434, bms/theme_commonColor.html, center;
+                    271, 54,262, 50, bms/theme_bgm.html;
+                    271,104,136, 26, bms/theme_separatorWidth.html;
+                    538, 27,538,473, bms/theme_preview.html, center;
+                    ">
+                </div>
+            </div>
+            <div class="stack">
+                <h2>指揮者レーン</h2>
+                <ul>
+                    <li>
+                        楽曲の時間制御に関するレーンです。 
+                    </li>
+                    <li>
+                        このレーンに存在するノートは<b>水平方向の移動ができず</b>、<b>他のレーンからノートを持ってくることもできません</b>。
+                    </li>
+                    <li>
+                        このレーンにノートを追加する場合、その値を入力するためのウィンドウが表示されます。
+                    </li>
+                </ul>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_theme_conductor.png" maps="
+                      7, 32,166,166, bms/theme_style_list.html, center;
+                     22,198, 24, 24, common/list_add.html;
+                     48,198, 24, 24, common/list_duplicate.html;
+                     77,198, 24, 24, common/list_moveUp.html;
+                    104,198, 24, 24, common/list_moveDown.html;
+                    134,198, 24, 24, common/list_delete.html;
+                    180, 34,170, 29, bms/theme_style_name.html;
+                    333, 61, 24, 22, bms/theme_lane_edit.html;
+                    359, 61, 24, 22, common/list_add.html;
+                    385, 61, 24, 22, bms/theme_lane_add_separator.html;
+                    411, 61, 24, 22, common/list_duplicate.html;
+                    441, 61, 24, 22, common/list_moveUp.html;
+                    467, 61, 24, 22, common/list_moveDown.html;
+                    497, 61, 24, 22, common/list_delete.html;
+                    181, 84,341,138, bms/theme_style_lanes.html, center;
+                    ">
+                </div>
+            </div>
+            <div class="stack">
+                <h2>メタレーン</h2>
+                <ul>
+                    <li>
+                        BGA(背景画像/映像)に関するノートなど、メタノートが配置されるレーンです。
+                    </li>
+                    <li>
+                        このレーンに存在するノートは演奏レーンやBGMレーンに移動ができ、逆も可能です。
+                    </li>
+                    <li>
+                        このレーンにノートを追加する場合、定義タイプのレーンであれば対応する定義リストの番号が適用され、それ以外の場合はその値を入力するためのウィンドウが表示されます。
+                        <ul>
+                            <li>
+                                <span class="script">#BMP</span>以外の定義タイプのレーンは<a href="bms_exDef.html">拡張定義</a>を参照してください。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_theme_meta.png" maps="
+                      7, 32,166,166, bms/theme_style_list.html, center;
+                     22,198, 24, 24, common/list_add.html;
+                     48,198, 24, 24, common/list_duplicate.html;
+                     77,198, 24, 24, common/list_moveUp.html;
+                    104,198, 24, 24, common/list_moveDown.html;
+                    134,198, 24, 24, common/list_delete.html;
+                    180, 34,170, 29, bms/theme_style_name.html;
+                    333, 61, 24, 22, bms/theme_lane_edit.html;
+                    359, 61, 24, 22, common/list_add.html;
+                    385, 61, 24, 22, bms/theme_lane_add_separator.html;
+                    411, 61, 24, 22, common/list_duplicate.html;
+                    441, 61, 24, 22, common/list_moveUp.html;
+                    467, 61, 24, 22, common/list_moveDown.html;
+                    497, 61, 24, 22, common/list_delete.html;
+                    181, 84,341,138, bms/theme_style_lanes.html, center;
+                    ">
+                </div>
+            </div>
+            <div class="stack">
+                <h2>演奏レーン</h2>
+                <ul>
+                    <li>
+                        実際のゲームにおいてプレイヤーが演奏するべきノートが配置されるレーンです。
+                    </li>
+                    <li>
+                        このレーンに存在するノートはBGAレーンやメタレーンに移動ができ、逆も可能です。
+                    </li>
+                    <li>
+                        このレーンに存在するノートをクリックした際、「クリックで再生」が有効で実際に音声ファイルが定義されていれば、その音声の再生と波形表示が行われます。
+                    </li>
+                    <li>
+                        このレーンにノートを追加する場合、定義リストの<span class="script">#WAV</span>で選択されている定義番号が適用されます。
+                    </li>
+                </ul>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_theme_key.png" maps="
+                      7, 32,166,166, bms/theme_style_list.html, center;
+                     22,198, 24, 24, common/list_add.html;
+                     48,198, 24, 24, common/list_duplicate.html;
+                     77,198, 24, 24, common/list_moveUp.html;
+                    104,198, 24, 24, common/list_moveDown.html;
+                    134,198, 24, 24, common/list_delete.html;
+                    180, 34,170, 29, bms/theme_style_name.html;
+                    354, 34,170, 29, bms/theme_key_type.html;
+                    181, 68,341, 51, bms/theme_key_scratch.html;
+                    333,119, 24, 22, bms/theme_lane_edit.html;
+                    359,119, 24, 22, common/list_add.html;
+                    385,119, 24, 22, bms/theme_lane_add_separator.html;
+                    411,119, 24, 22, common/list_duplicate.html;
+                    441,119, 24, 22, common/list_moveUp.html;
+                    467,119, 24, 22, common/list_moveDown.html;
+                    497,119, 24, 22, common/list_delete.html;
+                    181,141,341,169, bms/theme_key_lanes.html, center;
+                    ">
+                </div>
+            </div>
+            <div class="stack">
+                <h2>レーン情報編集ウィンドウ</h2>
+                要素をクリックすると説明が表示されます。
+                <div style="display: grid;
+                            grid-template-columns: repeat(2, max-content);
+                            column-gap: 12px;">
+                    <span style="text-align: center; font-weight: bold;">演奏レーン以外</span>
+                    <span style="text-align: center; font-weight: bold;">演奏レーン</span>
+                    <div class="image-map" src="img/bms_theme_lane.png" maps="
+                          2,  2,188, 28, bms/theme_lane_name.html;
+                          2, 35,188, 59, bms/theme_lane_channel.html;
+                          2, 94,188, 30, bms/theme_lane_width.html;
+                          2,129,188, 28, bms/theme_lane_back.html;
+                          2,157,188, 28, bms/theme_lane_note.html;
+                         49,192, 56, 25, common/sub_decide.html;
+                        107,192, 82, 25, common/sub_cancel.html;
+                        ">
+                    </div>
+                    <div class="image-map" src="img/bms_theme_lane_key.png" maps="
+                          2,  2,192, 28, bms/theme_lane_name.html;
+                          2, 35,192, 29, bms/theme_lane_lane.html;
+                          2, 64,192, 29, bms/theme_lane_width.html;
+                          2, 98,192, 28, bms/theme_lane_back.html;
+                          2,126,192, 28, bms/theme_lane_note.html;
+                          2,154,192, 28, bms/theme_lane_long.html;
+                          2,188,192, 28, bms/theme_lane_key.html;
+                         53,223, 56, 25, common/sub_decide.html;
+                        111,223, 82, 25, common/sub_cancel.html;
+                        ">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

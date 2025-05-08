@@ -102,6 +102,8 @@
                          71, 22, 83, 45, common/file_open.html;
                         154, 22, 96, 45, common/file_save.html;
                         250, 22,137, 45, common/file_saveAs.html;
+                        392, 22,112, 45, bms/preview_setting.html;
+                        504, 22, 96, 45, bms/theme_setting.html;
                     "></div>
                     <div class="image-map" src="img/window_bms_tab_edit.png" maps="
                           1,  0, 25, 21, common/undo.html;
@@ -122,16 +124,16 @@
                           1,  0, 25, 21, common/undo.html;
                          26,  0, 25, 21, common/redo.html;
                           1, 22,108, 45, bms/playByClick.html;
-                        114, 22, 91, 45, bms/style.html;
-                        205, 22,121, 45, bms/scratchPosition.html;
-                        331, 22, 96, 23, bms/lane_conductor.html;
-                        331, 45, 96, 22, bms/lane_bga.html;
-                        427, 22,172, 45, bms/lane_bgm.html;
-                        604, 22, 92, 45, bms/grid_quantize.html;
-                        696, 22, 73, 45, bms/grid_small.html;
-                        769, 22, 73, 45, bms/grid_large.html;
-                        847, 22,122, 45, bms/scale_y.html;
-                        969, 22,106, 45, bms/scale_x.html;
+                        114, 22,129, 23, bms/lane_conductor.html;
+                        114, 45,129, 22, bms/lane_bga.html;
+                        243, 22,137, 23, bms/lane_key.html;
+                        243, 45,137, 22, bms/lane_scratch.html;
+                        380, 22,102, 45, bms/lane_bgm.html;
+                        487, 22, 92, 45, bms/grid_quantize.html;
+                        579, 22, 73, 45, bms/grid_small.html;
+                        652, 22, 73, 45, bms/grid_large.html;
+                        730, 22,122, 45, bms/scale_y.html;
+                        852, 22,106, 45, bms/scale_x.html;
                     "></div>
                     <div class="image-map" src="img/window_bms_tab_function.png" maps="
                           1,  0, 25, 21, common/undo.html;
@@ -159,7 +161,7 @@
                 <div class="image-map" src="img/window_bms_main.png" maps="
                       0,  0, 963, 14, bms/area_header.html;
                       7, 14, 167,226, bms/area_conductor.html, center;
-                    181, 14,  83,226, bms/area_bga.html, center;
+                    181, 14,  83,226, bms/area_meta.html, center;
                     271, 14, 223,226, bms/area_key.html, center;
                     501, 14, 447,226, bms/area_bgm.html, center;
                 "></div>
@@ -306,6 +308,24 @@
                                     </div>
                                 </li>
                             </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="quick_place">
+                    <h3>クイック配置</h3>
+                    <details>
+                        <summary>動画による説明</summary>
+                        <iframe style="width: 560px; height: 315px;" src="https://www.youtube.com/embed/zjxbJinmsOI?si=C83uWr96TTpGUuvb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </details>
+                    <ul>
+                        <li>
+                            <b>画面内に</b>選択中の<b>BGMノート</b>がある状態で、演奏レーンに対応するキーを押すと、選択中のBGMノートが順にそのレーンに配置されます。
+                        </li>
+                        <li>
+                            この機能を利用するには、<a href="bms_theme.html">BMSモード/テーマ設定</a>で<b>演奏レーンに対応キーを設定する</b>必要があります。
+                        </li>
+                        <li>
+                            Version 0.7.6 時点では、ゲームパッド(専用コントローラー)やMIDIキーボードには対応していません。要望が多ければ検討する可能性があります。
                         </li>
                     </ul>
                 </div>

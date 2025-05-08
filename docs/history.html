@@ -11,6 +11,109 @@
             <ul>
                 <li>
                     <details open>
+                        <summary class="a-like">Version 0.7.6 (2025/05/08)</summary>
+                        <ul>
+                            <li>
+                                機能追加
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、<b>クイック配置</b>機能を追加しました。
+                                        <ul>
+                                            <li>
+                                                <b>画面内に</b>選択中の<b>BGMノート</b>がある状態で、演奏レーンに対応するキーを押すと、選択中のBGMノートが順にそのレーンに配置されます。
+                                            </li>
+                                            <li>
+                                                この機能を利用するには、<a href="bms_theme.html">BMSモード/テーマ設定</a>で<b>演奏レーンに対応キーを設定する</b>必要があります。
+                                                <ul>
+                                                    <li>
+                                                        デフォルトのテーマを使っている場合は「新規」または「開く-&gt;<span class="script">default.json</span>」でテーマ設定をリロードすることで、デフォルトのキー配置を設定できます。
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                Version 0.7.6 時点では、ゲームパッド(専用コントローラー)やMIDIキーボードには対応していません。要望が多ければ検討する可能性があります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        UIに表示されるショートカットキーの一部表記を変更しました。
+                                        <ul>
+                                            <li>
+                                                例
+                                                <ul>
+                                                    <li>
+                                                        <span class="script">Return</span>→<span class="script">Enter</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="script">D1</span>→<span class="script">1</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="script">Oem Plus</span>→<span class="script">;</span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                日本語キーボードを基準として設定したため、環境によっては実際のキーとは異なる文字が表示される場合があります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms_theme.html">BMSモード/テーマ設定</a>において、ウィンドウ右上のボタンから「確定」を削除し、「キャンセル」を「閉じる」に変更しました。
+                                        <ul>
+                                            <li>
+                                                この変更により、テーマ設定ウィンドウを<span class="script">Escape</span>で閉じた場合も、編集内容がエディタに反映されます。
+                                            </li>
+                                            <li>
+                                                同時にテーマ設定の変更を「元に戻す/やり直し」できるようにしたので、変更を取り消したい場合は「元に戻す」をしてください。
+                                            </li>
+                                            <li>
+                                                実装上の都合により、Version 0.7.6 時点では以下の項目の編集は「元に戻す」が出来ないため、ご注意ください。
+                                                <ul>
+                                                    <li>
+                                                        「共通カラー」の各項目
+                                                    </li>
+                                                    <li>
+                                                        セパレーター幅
+                                                    </li>
+                                                    <li>
+                                                        スタイルの名前
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <a href="wave.html">Waveモード</a>などの音声エンコード機能において、正しくエンコードされていなかった不具合を修正しました。
+                                        <ul>
+                                            <li>
+                                                修正前は、処理の不備により1秒ごとに「プチプチ」というクリップノイズが発生していました。
+                                            </li>
+                                            <li>
+                                                <a href="browse_audio.html">Browseモード/一括エンコード</a>などを使っていた場合、<b style="color: #f44;">同じフォルダに対して改めて実行してください。</b>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、<span class="script">.wav</span>以外のファイルを再生した後、同じファイルを再び再生しようとすると再生されない不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
+                    <details open>
                         <summary class="a-like">Version 0.7.5 (2025/05/04)</summary>
                         <ul>
                             <li>
@@ -53,7 +156,7 @@
                     </details>
                 </li>
                 <li>
-                    <details open>
+                    <details>
                         <summary class="a-like">Version 0.7.4 (2025/04/25)</summary>
                         <ul>
                             <li>
