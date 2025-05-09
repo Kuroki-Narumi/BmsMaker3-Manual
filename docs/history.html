@@ -11,6 +11,49 @@
             <ul>
                 <li>
                     <details open>
+                        <summary class="a-like">Version 0.7.7 (2025/05/09)</summary>
+                        <ul>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、音声ファイルの波形を表示する際、音声のピーク値を基準に波形を拡大するようにしました。
+                                        <ul>
+                                            <li>
+                                                この変更により、音量の小さな音声の波形がより見やすくなります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>の音声プレビューにおいて、再生終了時(手動での停止/プレビュー対象の変更を含む)に、そのファイルの束縛を開放するようにしました。
+                                        <ul>
+                                            <li>
+                                                Version 0.7.5 では、例えば<span class="script">a.wav</span>を再生したあとに<span class="script">b.wav</span>を再生した場合、しばらく経たないと<span class="script">a.wav</span>の束縛が開放されない(名前の変更などが出来ない)ようになっていました。
+                                            </li>
+                                            <li>
+                                                この変更後も、再生中は対象ファイルを束縛します。再生中に名前の変更などを行いたい場合は手動で停止してください。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、<span class="script">.wav</span>ファイルの音声を再生した際、末尾部分がループ再生される不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms_assemble.html">BMSモード/アセンブル</a>において、<span class="script">.ogg</span>ファイルを含むアセンブルが失敗する不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
+                    <details open>
                         <summary class="a-like">Version 0.7.6 (2025/05/08)</summary>
                         <ul>
                             <li>
@@ -113,7 +156,7 @@
                     </details>
                 </li>
                 <li>
-                    <details open>
+                    <details>
                         <summary class="a-like">Version 0.7.5 (2025/05/04)</summary>
                         <ul>
                             <li>
