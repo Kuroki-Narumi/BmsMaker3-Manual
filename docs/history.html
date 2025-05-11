@@ -11,6 +11,91 @@
             <ul>
                 <li>
                     <details open>
+                        <summary class="a-like">Version 0.7.8 (2025/05/11)</summary>
+                        <ul>
+                            <li>
+                                機能追加
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、ファイルを<span class="script">.bmson</span>として保存できるようにしました。
+                                        <ul>
+                                            <li>
+                                                可能なのは<span class="script">.bms</span>系から<span class="script">.bmson</span>への変換のみで、逆はできません。
+                                            </li>
+                                            <li>
+                                                Version 0.7.8 時点で、BmsMaker3 では<span class="script">.bmson</span>ファイルの閲覧及び編集はサポートされません。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms_assemble.html">BMSモード/アセンブル</a>に「プレビュー」モードを追加しました。
+                                        <ul>
+                                            <li>
+                                                楽曲の試聴に使われる、短めのプレビュー音声を作成するためのモードです。
+                                            </li>
+                                            <li>
+                                                開始位置と長さ、フェードイン及びフェードアウトを指定し、試聴に最適な状態の音声データを作成します。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        <a href="midi_slice.html">Midiモード/スライス</a>など音声をスライスする機能において、以下のように変更しました。
+                                        <ul>
+                                            <li>
+                                                「クロスフェード」の設定を追加しました。
+                                            </li>
+                                            <li>
+                                                トラックマークにおいて「開始位置の同期」が有効な場合、マーカーごとに音声の開始位置を調整するようにしました。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="wave.html">Waveモード</a>などの範囲選択テキストボックスにおいて、マウスホイールで値を変更できるようにしました。
+                                    </li>
+                                    <li>
+                                        <a href="bms_selection.html">BMSモード/選択機能</a>を開く際、常に親ウィンドウの左上に表示するようにしました。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <a href="midi_slice.html">Midiモード/スライス</a>において、シークバーが機能していなかった不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="wave.html">Waveモード</a>及び<a href="midi_slice.html">Midiモード/スライス</a>の波形表示エリアにおいて、スクロール位置が一定値を超えると表示がおかしくなる不具合を一部修正しました。
+                                        <ul>
+                                            <li>
+                                                WPF(GUIエンジン)の設計上、要素の座標が<span class="script">16777216</span>を超えた場合、表示に不具合が出るようです。
+                                            </li>
+                                            <li>
+                                                応急措置として、波形表示エリアの拡大率が最大(<span class="script">1pixel = 1sample</span>)の場合、16777216サンプル以上(44100Hzで約6分20.4秒)の位置にカーソルを移動すると、カーソルが太く表示されるようになりました。
+                                            </li>
+                                            <li>
+                                                この問題は将来的に根本的な解決を目指しますが、それにはかなり時間がかかりそうです。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="wave_tagInfo.html">Waveモード/タグ情報</a>において、<span class="script">.wav</span>ファイルの<span class="script">format</span>チャンクの情報が反映されていなかった不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="wave_trackMark.html">Waveモード/トラックマーク</a>と<a href="wave_slice.html">Waveモード/スライス</a>において、「キャンセル」した場合に設定値が保存されていなかった不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
+                    <details open>
                         <summary class="a-like">Version 0.7.7 (2025/05/09)</summary>
                         <ul>
                             <li>
@@ -53,7 +138,7 @@
                     </details>
                 </li>
                 <li>
-                    <details open>
+                    <details>
                         <summary class="a-like">Version 0.7.6 (2025/05/08)</summary>
                         <ul>
                             <li>
