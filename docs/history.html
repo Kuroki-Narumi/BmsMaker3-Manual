@@ -11,6 +11,45 @@
             <ul>
                 <li>
                     <details open>
+                        <summary class="a-like">Version 0.7.9 (2025/05/15)</summary>
+                        <ul>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        音声ファイルの読み込み速度を改善しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms_reduct.html">BMSモード/定義の削減</a>において、解析処理の速度を改善しました。
+                                    </li>
+                                    <li>
+                                        この変更に伴い、新たな不具合が発生している可能性があります。不具合を発見した場合はご報告いただければ幸いです。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        24bit<span class="script">.wav</span>の読み込みに失敗する不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、一部の<span class="script">.wav</span>ファイルを再生した際に末尾部分がループする不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms_assemble.html">BMSモード/アセンブル</a>において、ビット深度を「default」にした状態で保存しようとするとエラーになる不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="wave.html">Waveモード</a>において、<span class="script">.ogg</span>ファイルを<span class="script">.wav</span>として保存しようとした際、拡張子が強制的に<span class="script">.ogg</span>になってしまう不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
+                    <details open>
                         <summary class="a-like">Version 0.7.8 (2025/05/11)</summary>
                         <ul>
                             <li>
@@ -66,7 +105,7 @@
                                 不具合修正
                                 <ul>
                                     <li>
-                                        <a href="midi_slice.html">Midiモード/スライス</a>において、シークバーが機能していなかった不具合を修正しました。
+                                        <a href="midi_slice.html">Midiモード/スライス</a>において、シークバーが機能していない不具合を修正しました。
                                     </li>
                                     <li>
                                         <a href="wave.html">Waveモード</a>及び<a href="midi_slice.html">Midiモード/スライス</a>の波形表示エリアにおいて、スクロール位置が一定値を超えると表示がおかしくなる不具合を一部修正しました。
@@ -83,10 +122,10 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="wave_tagInfo.html">Waveモード/タグ情報</a>において、<span class="script">.wav</span>ファイルの<span class="script">format</span>チャンクの情報が反映されていなかった不具合を修正しました。
+                                        <a href="wave_tagInfo.html">Waveモード/タグ情報</a>において、<span class="script">.wav</span>ファイルの<span class="script">format</span>チャンクの情報が反映されない不具合を修正しました。
                                     </li>
                                     <li>
-                                        <a href="wave_trackMark.html">Waveモード/トラックマーク</a>と<a href="wave_slice.html">Waveモード/スライス</a>において、「キャンセル」した場合に設定値が保存されていなかった不具合を修正しました。
+                                        <a href="wave_trackMark.html">Waveモード/トラックマーク</a>と<a href="wave_slice.html">Waveモード/スライス</a>において、「キャンセル」した場合に設定値が保存されない不具合を修正しました。
                                     </li>
                                 </ul>
                             </li>
@@ -95,7 +134,7 @@
                     </details>
                 </li>
                 <li>
-                    <details open>
+                    <details>
                         <summary class="a-like">Version 0.7.7 (2025/05/09)</summary>
                         <ul>
                             <li>
@@ -221,7 +260,7 @@
                                 不具合修正
                                 <ul>
                                     <li>
-                                        <a href="wave.html">Waveモード</a>などの音声エンコード機能において、正しくエンコードされていなかった不具合を修正しました。
+                                        <a href="wave.html">Waveモード</a>などの音声エンコード機能において、正しくエンコードされない不具合を修正しました。
                                         <ul>
                                             <li>
                                                 修正前は、処理の不備により1秒ごとに「プチプチ」というクリップノイズが発生していました。
@@ -294,7 +333,7 @@
                                         <a href="midi_slice.html">Midiモード/スライス</a>など音声をスライスする機能において、以下の修正を行いました。
                                         <ul>
                                             <li>
-                                                スライスの際、出力されるファイルに拡張子<span class="script">.wav</span>が付与されていなかった不具合を修正しました。
+                                                スライスの際、出力されるファイルに拡張子<span class="script">.wav</span>が付与されない不具合を修正しました。
                                             </li>
                                             <li>
                                                 始端/終端処理の「余白」の処理が誤っていたのを修正しました。
@@ -302,7 +341,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="bms_slice.html">BMSモード/スライス</a>において、読み込んだ音声データのマーカー情報が正しく反映されていなかった不具合を修正しました。
+                                        <a href="bms_slice.html">BMSモード/スライス</a>において、読み込んだ音声データのマーカー情報が正しく反映されない不具合を修正しました。
                                     </li>
                                 </ul>
                             </li>
@@ -909,7 +948,7 @@
                                 不具合修正
                                 <ul>
                                     <li>
-                                        <a href="bms_slice.html">BMSモード/スライス</a>及び<a href="wave_slice.html">Waveモード/スライス</a>において、「基本名」に<span class="script">&lt;filename&gt;</span>が含まれる場合に、ファイル名への変換が行われていなかった不具合を修正しました。
+                                        <a href="bms_slice.html">BMSモード/スライス</a>及び<a href="wave_slice.html">Waveモード/スライス</a>において、「基本名」に<span class="script">&lt;filename&gt;</span>が含まれる場合に、ファイル名への変換が行われない不具合を修正しました。
                                     </li>
                                 </ul>
                             </li>
@@ -1003,7 +1042,7 @@
                                         <a href="midi.html">Midiモード</a>のトラックリストにおいて、コンテキストメニューの「削除」が誤って「クリア」と表記されていた不具合を修正しました。
                                     </li>
                                     <li>
-                                        <a href="midi_bmsExport.html">Midiモード/BMS出力</a>において、BMSファイルを作成する際に本来想定されていた初期設定が適用されていなかった不具合を修正しました。
+                                        <a href="midi_bmsExport.html">Midiモード/BMS出力</a>において、BMSファイルを作成する際に本来想定されていた初期設定が適用されない不具合を修正しました。
                                         <ul>
                                             <li>
                                                 具体的には、以下の値がデフォルト値として設定されるようになります:
@@ -1116,7 +1155,7 @@
                                 不具合修正
                                 <ul>
                                     <li>
-                                        <a href="bms_slice.html">BMSモード/スライス</a>など、WAVファイルをスライスする機能において、正常にスライスできていなかった不具合を修正しました。
+                                        <a href="bms_slice.html">BMSモード/スライス</a>など、WAVファイルをスライスする機能において、正常にスライスできない不具合を修正しました。
                                     </li>
                                     <li>
                                         <a href="wave.html">Waveモード</a>において、長さが0のファイルを読み込むとエラーになる不具合を修正しました。
