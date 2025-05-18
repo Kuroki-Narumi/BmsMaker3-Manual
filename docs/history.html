@@ -11,6 +11,90 @@
             <ul>
                 <li>
                     <details open>
+                        <summary class="a-like">Version 0.7.10 (2025/05/18)</summary>
+                        <ul>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        Midiモードの<a href="midi_keySwitch.html">キースイッチ</a>及び<a href="midi_ksPreset.html">KSプリセット</a>において、以下のように変更しました。
+                                        <ul>
+                                            <li>
+                                                キースイッチビューでグループIDを確認できるようにしました。
+                                                <ul>
+                                                    <li>
+                                                        左からグループIDに応じた長さの区間が、異なる色で塗りつぶされるようになっています。
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                キーボード入力でグループIDとモードを切り替えられるようにしました。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、以下のように変更しました。
+                                        <ul>
+                                            <li>
+                                                グリッドスプリッターの位置を記憶するようにしました。
+                                            </li>
+                                            <li>
+                                                グリッドスプリッターをダブルクリックすると、位置を初期化するようにしました。
+                                            </li>
+                                            <li>
+                                                譜面表示エリア/ヘッダーエリア間のグリッドスプリッターの色を<span style="color: #f84;">オレンジ色</span>に変更しました。
+                                            </li>
+                                            <li>
+                                                <b>分割ビュー</b>を追加しました。<span style="color: #48f;">水色</span>のグリッドスプリッターで表示領域を変更できます。
+                                                <ul>
+                                                    <li>
+                                                        譜面の表示状態がメインの譜面表示エリアと常に同期され、別の位置や画面外の選択範囲を確認できます。
+                                                    </li>
+                                                    <li>
+                                                        Version0.7.10時点では試験的な実装です。<b>スクロール及び拡大率の変更のみ</b>操作を受け付けます。
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        各モードのスクロールビューワーにおいて、ホイールのクリック及びドラッグでスクロールできるようにしました。
+                                        <ul>
+                                            <li>
+                                                <a href="bms.html">BMSモード</a>において、「追加」編集モードで<a href="bms_sequential.html">連続配置ウィンドウ</a>を開く操作を、<span class="script">ホイールクリック</span>から<span class="script">Shift+ホイールクリック</span>に変更しました。
+                                            </li>
+                                            <li>
+                                                <a href="wave.html">Waveモード</a>において、縦スケールの変更を<span class="script">ホイールクリック</span>から<span class="script">Shift+ホイールクリック</span>に変更しました。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="wave.html">Waveモード</a>において、再生中にもスクロール位置を変更できるようにしました。
+                                        <ul>
+                                            <li>
+                                                マウスボタンによるスクロールのみ有効です。
+                                            </li>
+                                            <li>
+                                                再生中の場合、ボタンを離すとカーソルが中心となるように自動でスクロールします。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <a href="midi_ksPreset.html">Midiモード/KSプリセット</a>において、プリセットの変更が正常に反映されない不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
+                    <details open>
                         <summary class="a-like">Version 0.7.9 (2025/05/15)</summary>
                         <ul>
                             <li>
@@ -49,7 +133,7 @@
                     </details>
                 </li>
                 <li>
-                    <details open>
+                    <details>
                         <summary class="a-like">Version 0.7.8 (2025/05/11)</summary>
                         <ul>
                             <li>
