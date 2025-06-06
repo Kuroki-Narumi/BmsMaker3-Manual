@@ -18,9 +18,9 @@
                 <h2>説明</h2>
                 要素をクリックすると説明が表示されます。
                 <div class="image-map" src="img/bms_info.png" maps="
-                      2,  4,191,175, bms/info_statistics.html, center;
-                    195,  4,110,175, bms/info_def.html, center;
-                      1,182,305,320, bms/info_notes.html, center;
+                      1,  1,200,322, bms/info_statistics.html, center;
+                    201,  1, 96,322, bms/info_def.html, center;
+                    297,  1,305,322, bms/info_notes.html, center;
                     ">
                 </div>
                 <ul>
@@ -29,6 +29,74 @@
                     </li>
                     <li>
                         <span class="script">ESC</span>キーを押すとウィンドウを閉じます。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h3>「統計」の各項目について</h3>
+                <ul>
+                    <li>
+                        <b>長さ</b>: この譜面の最初(<span class="script">#000:0</span>)から<b>最後のノートの位置</b>までの間隔です。
+                        <ul>
+                            <li>
+                                <span class="script">全音符 = 1</span>とした<b>帯分数</b>で表記されます。
+                            </li>
+                            <li>
+                                曲全体を通して<span class="script">4/4</span>拍子であれば、整数部分は小節数に等しくなります。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>演奏時間</b>: 上記「長さ」の値にテンポ変化を加えた実際の演奏時間です。
+                        <ul>
+                            <li>
+                                <b>最後のノート</b>(指揮者やBGMを含む)<b>までの時間</b>を表します。
+                            </li>
+                            <li>
+                                「最後の音が終わるまで」<b>ではない</b>ことにご注意ください。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>最初の演奏ノート</b>: <b>演奏レーン</b>(<span class="script">1-71</span>)に配置された<b>最初の通常ノート</b>の位置です。
+                        <ul>
+                            <li>
+                                BGMなどその他のレーン、及び通常以外(ロング終端、不可視、地雷)のノートは除外されます。
+                            </li>
+                            <li>
+                                「スタイル」によって非表示となっている演奏レーンのノートを<b>含みます</b>。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>最後の演奏ノート</b>: <b>演奏レーン</b>(<span class="script">1-71</span>)に配置された<b>最後の通常ノート</b>の位置です。
+                        <ul>
+                            <li>
+                                <b>ロング終端を含みます</b>。地雷と不可視は除外されます。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>実演奏時間</b>: 「最初の演奏ノート」から「最後の演奏ノート」までの実際の演奏時間です。
+                    </li>
+                    <li>
+                        <b>譜面タイプ</b>: ファイル拡張子と実際のノート配置から推測された、この譜面のタイプです。
+                        <ul>
+                            <li>
+                                <span class="script">beat-7k</span><span class="script">popn-9k</span>などの形式で表示されます。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>要求分解能</b>: この譜面を正しく解釈するのに必要な、全音符1個あたりの分解能です。
+                        <ul>
+                            <li>
+                                この値がエディタの最大分解能(例:<a href="http://ucn.tokonats.net/software/bmse/" target="_blank">BMSE</a>は<span class="script">192</span>)より大きい場合、この譜面をそのエディタで<b>開いてそのまま保存するだけで曲が崩壊する可能性</b>があります。
+                            </li>
+                            <li>
+                                この値がおよそ<span class="script">900京</span>を超えた場合、表記は<span class="script">-1</span>となり、BmsMaker3が<b>この譜面を正しく解釈できていない可能性</b>があります。
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

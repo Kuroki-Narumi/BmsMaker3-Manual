@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>多重定義</h1>
+                <p>
+                    <span class="script">#WAV</span>定義の多重化を行う機能です。
+                </p>
+                <ul>
+                    <li>
+                        単純な譜面上の配置間隔ではなく、<b>実際の秒数</b>及び<b>音声波形</b>に基づいた判定を行います。
+                    </li>
+                    <li>
+                        同じ音声が連続して鳴らされる場合に発生するクリップノイズを低減あるいは解消する効果があります。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_multiDef.png" maps="
+                      1, 25,178, 32, bms/reduct_id.html;
+                      1, 57,178, 29, bms/multiDef_interval.html;
+                      1, 86,178, 29, bms/multiDef_threshold.html;
+                      1,115,178, 29, bms/multiDef_maxCount.html;
+                      1,143,178, 27, bms/multiDef_insert.html;
+                     29,174, 56, 40, bms/multiDef_execute.html;
+                     93,174, 82, 40, common/cancel_restore.html;">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
