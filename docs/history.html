@@ -11,6 +11,38 @@
             <ul>
                 <li>
                     <details open>
+                        <summary class="a-like">Version 0.7.12 (2025/06/22)</summary>
+                        <ul>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <a href="bms_multiDef.html">BMSモード/多重定義</a>において、定義数の上限付近(<span class="script">ZZ</span>など)が使用済みの状態で多重定義化を行った場合、その定義番号が上限を超えた値となって編集不能になる不具合を修正しました。
+                                        <ul>
+                                            <li>
+                                                この修正に合わせて、多重定義化により定義数が上限を超えた場合は警告のメッセージを表示するようにしました。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms_assemble.html">BMSモード/アセンブル</a>において、選択範囲の先頭がロングノート終端の状態で置換を有効にした場合、音声のタイミングがズレる不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                機能追加
+                                <ul>
+                                    <li>
+                                        <a href="terminal.html">ターミナル</a>に定義番号の基数変換器を追加しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
+                    <details open>
                         <summary class="a-like">Version 0.7.11 (2025/06/07)</summary>
                         <ul>
                             <li>
