@@ -11,6 +11,43 @@
             <ul>
                 <li>
                     <details open>
+                        <summary class="a-like">Version 0.7.14 (2025/07/07)</summary>
+                        <ul>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        <a href="bms.html#quick_place">BMSモードのクイック配置</a>において、以下のように変更しました。
+                                        <ul>
+                                            <li>
+                                                数字キーの<span class="script">1</span>から<span class="script">0</span>を押した場合、それが演奏レーンで指定されていなければ、<b>選択中の演奏レーンのノート</b>が順に対応する<b>BGMレーン</b>に配置されるようにしました。
+                                            </li>
+                                            <li>
+                                                <span class="script">Shift</span>キーを押している場合、<b>選択中の全てのノート</b>を対応するレーンに移動するようにしました。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <span class="script">id3 </span>チャンクを含む<span class="script">.wav</span>ファイルを開こうとするとエラーが発生する不具合を抑制しました。
+                                        <ul>
+                                            <li>
+                                                ID3タグの読み込み処理が正しく実装できていなかったことが原因ですが、ID3タグの仕様が複雑怪奇なため、修正ではなくID3タグそのものを解釈しないように変更しました。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
+                    <details open>
                         <summary class="a-like">Version 0.7.13 (2025/07/06)</summary>
                         <ul>
                             <li>
@@ -29,7 +66,7 @@
                     </details>
                 </li>
                 <li>
-                    <details open>
+                    <details>
                         <summary class="a-like">Version 0.7.12 (2025/06/22)</summary>
                         <ul>
                             <li>
