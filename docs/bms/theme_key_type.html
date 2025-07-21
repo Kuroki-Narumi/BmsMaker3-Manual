@@ -4,10 +4,40 @@
         このスタイルが表す譜面のタイプです。
     </li>
     <li>
-        エディタの「演奏レーン」でタイプが「Popn」のスタイルを選択している場合、<br>
-        「名前を付けて保存」のデフォルト拡張子が<span class="script">.pms</span>になります。
+        左側
+        <ul>
+            <li>
+                ファイルの<b>拡張子</b>に影響する譜面タイプ。
+            </li>
+            <li>
+                タイプが「Popn」のスタイルを選択している場合、<br>
+                「名前を付けて保存」のデフォルト拡張子が<span class="script">.pms</span>になります。
+                <ul>
+                    <li>
+                        「上書き保存」の場合は拡張子は変更されません。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="script">.pms</span>ファイルを開いた場合、<br>
+                タイプが「Popn」となっているスタイルに自動的に切り替わります。
+            </li>
+        </ul>
     </li>
     <li>
-        「上書き保存」の場合は拡張子は変更されません。
+        右側
+        <ul>
+            <li>
+                <span class="script">#PLAYER</span>ヘッダーに影響するプレイヤー数。
+            </li>
+            <li>
+                タイプが「Single」または「Double」のスタイルを選択している場合、<br>
+                BMSの<span class="script">#PLAYER</span>ヘッダーがその値になります。
+            </li>
+            <li>
+                ファイルを開く際には<b>実際の使用レーン数のみを参照</b>し、<br>
+                <span class="script">#PLAYER</span>によってスタイルが切り替わることはありません。
+            </li>
+        </ul>
     </li>
 </ul>
