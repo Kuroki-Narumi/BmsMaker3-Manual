@@ -10,6 +10,41 @@
         <div class="content">
             <ul>
                 <li>
+                    <details id="0_7_18">
+                        <summary class="a-like">Version 0.7.18 (2025/07/26)</summary>
+                        <ul>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        <a href="midi_pack.html">Midiモード/MIDI整理</a>のオプションに「長さクォンタイズ」と「ベロシティクォンタイズ」を追加しました。
+                                        <ul>
+                                            <li>
+                                                以前のバージョンに存在した「長さの曖昧さ」「ベロシティの曖昧さ」と同様の処理です。
+                                            </li>
+                                            <li>
+                                                例えばベロシティの曖昧さを<span class="script">5</span>とした場合、元々<span class="script">vel = 96-100</span>だったノートがいずれも<span class="script">vel = 100</span>に矯正され、同じ音の強さであるとみなされるようになります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        ディスプレイの拡大率が100%でない場合にモーダルウィンドウ(<a href="bms_noteEdit.html">BMSモード/ノート編集</a>など)が想定より遠くに表示される不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <span class="script">8bit 1ch</span>の<span class="script">.wav</span>ファイルを開こうとするとエラーになることがある不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
                     <details id="0_7_17">
                         <summary class="a-like">Version 0.7.17 (2025/07/22)</summary>
                         <ul>
