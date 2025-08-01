@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>統合</h1>
+                <p>
+                    別のBMSファイルを読み込んで、編集中のBMSデータに定義リストとノーツ配置を追加します。
+                </p>
+                <ul>
+                    <li>
+                        ヘッダー、小節超定義、ランダム分岐はコピーされません。
+                    </li>
+                    <li>
+                        コピー元とコピー先で定義番号が衝突する場合、それを避けてコピーすることもできます。
+                    </li>
+                    <li>
+                        <a href="midi_bmsExport.html">Midiモード/BMS出力</a>の「既存に追加」とは異なり、<b style="color: #f44;">レーンの衝突は関知しません</b>。
+                        <ul>
+                            <li>
+                                統合後は該当ノートが選択された状態になるため、必要に応じて横にずらしてください。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_merge.png" maps="
+                      1, 27,324, 57, bms/merge_target.html;
+                      8, 84,138, 29, bms/merge_avoid.html;
+                    168, 84,154, 29, bms/merge_defStart.html;
+                    175,136, 56, 40, bms/merge_execute.html;
+                    239,136, 82, 40, common/cancel_restore.html;">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
