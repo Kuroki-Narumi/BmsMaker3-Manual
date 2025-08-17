@@ -119,4 +119,63 @@
             </li>
         </ul>
     </div>
+    <div class="stack">
+        <h3>「傾斜」の影響</h3>
+        <img src="img/wave_slice_fade_factor.png"/>傾斜ごとのフェードアウト曲線のイメージ(フェードインの場合は左右が反転する)
+        <ul>
+            <li>
+                「傾斜」はフェード関数の指数を指定するオプションです。
+            </li>
+            <li>
+                フェードインの場合、大まかにいうと:
+                <ul>
+                    <li>
+                        数値が大きいと、<b>前半はゆるやかに増大</b>し、<b>後半になるほど増大は急激</b>になります。
+                    </li>
+                    <li>
+                        数値が小さいと、<b>前半は急速に増大</b>し、<b>後半になるほど増大はゆるやか</b>になります。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                フェードアウトの場合、大まかにいうと:
+                <ul>
+                    <li>
+                        数値が大きいと、<b>前半で急速に減衰</b>し、<b>後半になるほど減衰はゆるやか</b>になります。
+                    </li>
+                    <li>
+                        数値が小さいと、<b>前半はゆるやかに減衰</b>し、<b>後半になるほど減衰は急激</b>になります。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                フェード関数は以下のように表されます。<br>
+                <div class="script">
+                    fadein: fi(x) = f(x) * x^k<br>
+                    fadeout: fo(x) = f(x) * (1-x)^k
+                </div>
+                ここで各表現の意味は:
+                <ul>
+                    <li>
+                        <span class="script">f(x)</span>: 元々の波形
+                    </li>
+                    <li>
+                        <span class="script">x</span>: フェードを処理する位置(<span class="script">0</span>以上<span class="script">1</span>以下の相対位置)
+                    </li>
+                    <li>
+                        <span class="script">k</span>: 「傾斜」の値
+                    </li>
+                    <li>
+                        <span class="script">a*b</span>: <span class="script">a</span>と<span class="script">b</span>の積
+                    </li>
+                    <li>
+                        <span class="script">a^b</span>: <span class="script">a</span>の<span class="script">b</span>乗
+                    </li>
+                </ul>
+            </li>
+            <li>
+                傾斜の値を<span class="script">n</span>倍すると、その傾斜のフェードを<b><span class="script">n</span>回重ねがけした</b>のと同じ状態になります。
+            </li>
+        </ul>
+    </div>
 </div>
