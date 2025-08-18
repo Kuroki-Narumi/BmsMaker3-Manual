@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            details.faq>summary{
+                font-weight: bold;
+                font-size: 150%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>よくある質問</h1>
+                <ul id="list">
+                </ul>
+            </div>
+            <details class="faq">
+                <summary>ロングノートはどうやって配置する？</summary>
+                <ul>
+                    <li>
+                        <a href="bms.html">BMSモード</a>において、配置モード(<span class="script">F3</span>)にした状態で<span class="script">Ctrl</span>キーを押している間、配置されるノートが<b>ロング終端</b>になります。
+                    </li>
+                    <li>
+                        押すキーとノートタイプの変化の関係は下記の通りです。
+                        <div class="common" src="bms/edit_add_variant.html"></div>
+                    </li>
+                </ul>
+                <br>
+            </details>
+            <details class="faq">
+                <summary>譜面表示エリアが2つあるんだけど何？</summary>
+                <img src="img/faq_bms_area.png" style="width: 400px;"/>
+                <ul>
+                    <li>
+                        <b>2つ目の譜面表示エリアは「譜面ミラーエリア」です。</b>
+                        <ul>
+                            <li>
+                                <a href="bms.html">BMSモード</a>において、メインのUI部分は「譜面表示エリア」「譜面ミラーエリア」「情報ペイン」の3つに分かれています。
+                            </li>
+                            <li>
+                                「譜面ミラーエリア」は「譜面表示エリア」と全く同じ内容を表示しますが、異なる位置へスクロールできます。
+                                <ul>
+                                    <li>
+                                        前半での譜面配置を後半でも再現したい場合などに、該当部分をミラーエリアで確認しながら編集できます。
+                                    </li>
+                                    <li>
+                                        ただしVersion0.7時点では未完成の機能であり、<b>ミラーエリア側はスクロールと拡大率変更以外に一切の操作を受け付けません</b>。
+                                    </li>
+                                        </ul>
+                                    </li>
+                            <li>
+                                譜面エリアの境界(よく見ると<span style="color: #48f;">水色</span>のグリッドスプリッターがある)をドラッグして表示範囲を変更できます。
+                                <ul>
+                                    <li>
+                                        スプリッターを<b>ダブルクリック</b>すると表示領域をリセットできます。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+            </details>
+            <details class="faq">
+                <summary>和音のまとめかたがよく分からない</summary>
+                <ul>
+                    <li>
+                        <b><a href="midi_group.html">グループ機能</a>の「グループ数指定」または「個数指定」を使ってください。</b><br>
+                        <img src="img/midi_group.png" style="width: 250px; height: 180px; object-fit: none; object-position: 0px -90px;"/>
+                        <ul>
+                            <li>
+                                これらのオプションは、異なるタイミングで鳴るノートをそれぞれ異なるグループに分けます。
+                            </li>
+                            <li>
+                                「全てグループ化」は<b>ぶつ切りを行うトラック</b>に対して使うオプションで、<b style="color: #f44;">和音をまとめる際に使うオプションではない</b>ためご注意ください。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+            </details>
+            <details class="faq">
+                <summary>BMS出力したら音の高さと左右の関係がグチャグチャになる</summary>
+                <ul>
+                    <li>
+                        <b><a href="midi_pack.html">MIDI整理オプション</a>の「並び替えを行う」にチェックしてください。</b><br>
+                        <img src="img/midi_pack_options.png" style="width: 192px; height: 126px; object-fit: none; object-position: -220px -110px;"/>
+                        <ul>
+                            <li>
+                                <a href="midi_bmsExport.html">Midiモード/BMS出力</a>及び<a href="bms_keySort.html">BMSモード/キーの整列</a>では、複数のノートが同時に配置される場合、定義リストでの記述順に従って左から配置されます。
+                            </li>
+                            <li>
+                                <a href="midi_pack.html">Midiモード/MIDI整理</a>において、「並び替えを行う」をチェック<b>しなかった</b>場合、定義リストは<b>ノートの出現順</b>に並びます。
+                                <div class="grid_9">
+                                    <div style="grid-area: left;">
+                                        <img src="img/midi_note_order1.png"/>
+                                        <img src="img/midi_note_order2.png"/>
+                                    </div>
+                                    <ul style="grid-area: content;">
+                                        <li>
+                                            同時に複数のノートが鳴る場合、<b>音の低いもの</b>が定義リストの<b>上方</b>になります。
+                                        </li>
+                                        <li>
+                                            左図の場合、定義リストには上から<span class="script">A → 1 → 2 → B → 3 → 4 →...</span>という順に並びます。
+                                        </li>
+                                        <li>
+                                            ここで<span class="script">5</span>は<span class="script">3</span>と同じノートなので<span class="script">3</span>と同じ番号に定義されます。
+                                            <ul>
+                                                <li>
+                                                    <span class="script">4</span>に対する<span class="script">6</span>や<span class="script">B</span>に対する<span class="script">D</span>も同様です。
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            BMS出力の際、同時に鳴る音は定義リストの順に左から配置されます。
+                                        </li>
+                                        <li>
+                                            <span class="script">A+1</span>や<span class="script">B+3</span>は<b>偶然にも</b>定義番号の大小関係と音の高低関係が一致していますが、<span class="script">C+5</span>では<span class="script">5</span>の定義番号(<span class="script">3</span>と同じ)が<span class="script">C</span>より若いため、<span class="script">5</span>に相当するノートのほうが左側に配置されています。
+                                        </li>
+                                        <li>
+                                            これは一貫したルールによる合理的な配置の結果ですが、人間から見ると順序が入り乱れているように思えます。
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                「並び替えを行う」にチェックし、1stを「NN 1,2,3...」にすると、定義リストの並び順が<span class="script">B(D) → C → A → 1 → ...</span>となります。
+                                <ul>
+                                    <li>
+                                        この場合、定義番号の大小関係と音の高低関係が常に一致するようになるため、常に低いほうの音が左側へ配置されるようになります。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+            </details>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript">
+            (() => {
+                const list = document.querySelector("ul#list");
+                document.querySelectorAll("details.faq").forEach((element) => {
+                    element.open = true;
+                    const head = element.querySelector("summary");
+                    if (head){
+                        const title = head.textContent;
+                        element.id = title;
+                        const li = document.createElement("li");
+                        const a = document.createElement("a");
+                        a.href = "#" + title;
+                        a.textContent = title;
+                        li.appendChild(a);
+                        list.appendChild(li);
+                    }
+                });
+            })();
+        </script>
+    </body>
+</html>
