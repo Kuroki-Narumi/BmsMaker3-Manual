@@ -20,10 +20,34 @@
                 </ul>
             </div>
             <details class="faq">
+                <summary>#PLAYERが編集できない</summary>
+                <ul>
+                    <li>
+                        <b>演奏レーンのスタイルを切り替えると自動で変更されます。</b><br>
+                        <img src="img/window_bms_tab_view.png" style="width: 320px; height: 68px; object-fit: none; object-position: -80px 0px;"/>
+                        <ul>
+                            <li>
+                                現在主流のBMSプレイヤー(LR2、beatoraja、mBMplay)において<span class="script">#PLAYER</span>は参照されておらず、このヘッダーはもはや不要です。
+                            </li>
+                            <li>
+                                BmsMaker3においてもこのタグは一切参照されず、ゆえに非推奨扱いで「その他」タブに置かれています。
+                            </li>
+                            <li>
+                                しかしBMSEなど<span class="script">#PLAYER</span>を参照する古いソフトとの互換性を考え、譜面表示エリアのスタイルによって<b>その値が自動的に変更</b>されるようになっています。
+                            </li>
+                            <li>
+                                スタイルごとの<span class="script">#PLAYER</span>の指定値は<a href="bms_theme.html">テーマ設定</a>で確認/変更できます。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+            </details>
+            <details class="faq">
                 <summary>ロングノートはどうやって配置する？</summary>
                 <ul>
                     <li>
-                        <a href="bms.html">BMSモード</a>において、配置モード(<span class="script">F3</span>)にした状態で<span class="script">Ctrl</span>キーを押している間、配置されるノートが<b>ロング終端</b>になります。
+                        <a href="bms.html">BMSモード</a>において、追加モード(<span class="script">F3</span>)で<span class="script">Ctrl</span>キーを押している間、配置されるノートが<b>ロング終端</b>になります。
                     </li>
                     <li>
                         押すキーとノートタイプの変化の関係は下記の通りです。
@@ -78,6 +102,60 @@
                             </li>
                             <li>
                                 「全てグループ化」は<b>ぶつ切りを行うトラック</b>に対して使うオプションで、<b style="color: #f44;">和音をまとめる際に使うオプションではない</b>ためご注意ください。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+            </details>
+            <details class="faq">
+                <summary>音切り用の音声が無音になる</summary>
+                <ul>
+                    <li>
+                        一概には言えませんが、<b>MIDIチャンネルが合っていない可能性が高いです。</b>
+                        <ul>
+                            <li>
+                                <b>Kontakt</b>や<b>HALion</b>など、MIDIチャンネルによって異なる音源を充てるマルチ音源においては、MIDIチャンネルが変更されることで「音が鳴らなくなる」場合があります。
+                            </li>
+                            <li>
+                                特に<b>FL Studio</b>はMIDIファイルとの連携機能に難があり、<span class="script">TOOLS > Macros > Prepare for MIDI export</span>を実行すると<b>ピアノロールにおける元々の色(チャンネル)を無視してトラックの上から順にチャンネルが振り直されます</b>。
+                                <ul>
+                                    <li>
+                                        <span class="script">FILE > Export > MIDI file</span>でプロジェクト全体を1個のMIDIとして出力する場合、この「チャンネルの振り直し」は不可避であると思われます。
+                                    </li>
+                                    <li>
+                                        BmsMaker3では<a href="midi_trackOptions.html">トラックオプション</a>からMIDIチャンネルを変更できるので、音源が対象とするチャンネルを確認し、必要に応じてチャンネルを修正してください。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+            </details>
+            <details class="faq">
+                <summary>スライスしようと思ったらマーカーの位置がめちゃくちゃズレる</summary>
+                <img src="img/faq_midi_slice.png"/>
+                <ul>
+                    <li>
+                        <b>DAWのテンポ設定と書き出し用MIDIのテンポの不一致が原因です。</b>
+                        <ul>
+                            <li>
+                                <a href="midi_slice.html">Midiモード/スライス</a>及び<a href="wave_slice.html">Waveモード/スライス</a>における「トラックマーク」は、先頭合わせ以外では音声の波形をチェックせず、時間に基づいてのみマーカーを配置します。
+                            </li>
+                            <li>
+                                <a href="midi_pack.html">MIDI整理</a>によって書き出された<span class="script">.mid</span>ファイルにはその楽曲のテンポ情報が含まれていますが、DAWの仕様によっては、その<span class="script">.mid</span>を読み込む際にテンポ情報が反映されない場合があります。
+                            </li>
+                            <li>
+                                そのような状態で書き出された音切り用音声では、テンポが異なるために、各ノートの発音タイミングがBmsMaker3が想定するものとは大きくズレることになります。
+                            </li>
+                            <li>
+                                特に<b>FL Studio</b>はMIDIファイルとの連携機能に難があり、<b>ピアノロールに直接MIDIをインポート(<span class="script">Ctrl+M</span>)した場合、テンポが反映されません</b>。
+                                <ul>
+                                    <li>
+                                        テンポ変化を含む楽曲をFL Studioで音切りする場合、ピアノロールからのMIDIインポートではなく、<span class="script">FILE > Import > MIDI file</span>を使う必要があります。
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
