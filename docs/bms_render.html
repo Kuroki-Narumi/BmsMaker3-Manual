@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>画像作成</h1>
+                <p>
+                    編集中の譜面を画像としてコピー/保存する機能です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_render.png" maps="
+                      1, 33,264, 30, bms/render_range.html;
+                    265, 33,136, 30, bms/render_padding.html;
+                    401, 33,159, 30, bms/render_noteHeight.html;
+                    560, 33,159, 30, bms/render_heightLimit.html;
+                    723, 28, 56, 40, bms/render_render.html;
+                    787, 28, 61, 40, bms/render_copy.html;
+                    856, 28,139, 40, bms/render_save.html;
+                      1, 72,999,293, bms/render_preview.html, center;
+                     11, 96, 75, 27, bms/render_size.html;">
+                </div>
+                <ul>
+                    <li>
+                        <span class="script">ESC</span>キーを押すとウィンドウを閉じます。
+                    </li>
+                    <li>
+                        このウィンドウで指定できない視覚要素(グリッドやスタイルなど)は、全て<a href="bms.html#tab">譜面表示エリアの設定</a>に従います。
+                    </li>
+                    <li>
+                        指揮者レーンは、描画範囲内に該当レーンのオブジェが存在する場合にのみ描画されます。
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
