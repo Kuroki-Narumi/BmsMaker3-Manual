@@ -12,20 +12,59 @@
                 <h1>BMS操作パネル</h1>
                 <p>
                     フォルダ内のBMSファイルに対する分析や一括操作を行うパネルです。
-                    <ul>
-                        <li>
-                            Version 0.7 時点では、まだ何も用意されていません。
-                        </li>
-                    </ul>
                 </p>
             </div>
-            <div class="stack" style="display: none;">
+            <div class="stack">
                 <h2>説明</h2>
                 要素をクリックすると説明が表示されます。
-                <div class="image-map" src="img/midi_bulkEdit.png" maps="
-                      1,  1,233,294, midi/bulkEdit_track.html, center;
-                    602,251, 82, 40, common/cancel_restore.html;">
+                <div class="image-map" src="img/browse_bms.png" maps="
+                      8, 52,221, 47, browse/usedFile_target.html;
+                    165,103, 56, 25, browse/usedFile_execute.html;
+                    ">
                 </div>
+            </div>
+            <div class="stack" id="usedFile">
+                <h2>参照の調査　結果ウィンドウ</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/browse_usedFile.png" maps="
+                    103,  1, 72, 27, browse/usedFile_delete.html;
+                      8, 30,118,179, browse/usedFile_name.html, center;
+                    126, 30, 46,179, browse/usedFile_refCount.html, center;
+                    172, 30, 32,179, browse/usedFile_check.html, center;
+                    ">
+                </div>
+                <ul>
+                    <li>
+                        リストの<b>ヘッダー部分</b>をクリックすると、その項目で並べ替えます。
+                    </li>
+                    <li>
+                        処理の詳細
+                        <ul>
+                            <li>
+                                「フォルダ内のBMS」とは、現在のフォルダの直下に存在する<span class="script">.bms .bme .bml .pms .pme .b</span>のいずれかの拡張子を持つファイルです。
+                            </li>
+                            <li>
+                                「参照」とは、そのBMS内の<span class="script">#WAVxx #BMPxx #STAGEFILE #BANNER #BACKBMP #PREVIEW</span>のいずれかに記述されているファイル名のことです。
+                                <ul>
+                                    <li>
+                                        特殊形式の定義(<span class="script">#EXWAVxx</span>)からの参照はチェックしないためご注意ください。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                拡張子は自動で補完され、「対象」に含まれる互換可能な拡張子を持つファイルは全て「参照されている」とみなされます。
+                                <ul>
+                                    <li>
+                                        例えば<span class="script">#WAV01 hoge.wav</span>と記述されている場合、<span class="script">hoge.wav</span>に加えて、<span class="script">hoge.ogg</span>や<span class="script">hoge.mp3</span>などの音声ファイルも「参照されている」とみなされます。
+                                    </li>
+                                    <li>
+                                        <span class="script">#STAGEFILE</span>など画像を指定するに相違ない定義については、画像ファイル(<span class="script">.png</span>など)と動画ファイル(<span class="script">.mpg</span>など)が互換可能とみなされます。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
         <script type="text/javascript" src="script.js"></script>
