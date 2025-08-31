@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>同梱テキスト編集</h1>
+                <p>
+                    編集中のBMSと同じフォルダにあるテキストファイル(<span class="script">.txt</span>)を検出し、その内容を閲覧および編集する機能です。
+                </p>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                要素をクリックすると説明が表示されます。
+                <div class="image-map" src="img/bms_readme.png" maps="
+                      1,  1,  24, 24, common/undo.html;
+                     25,  1,  24, 24, common/redo.html;
+                     54,  1,  37, 24, bms/readme_open.html;
+                     91,  1, 171, 25, bms/readme_name.html;
+                    262,  1,  24, 24, bms/readme_save.html;
+                    286,  1,  24, 24, bms/readme_delete.html;
+                      5, 30, 357,152, bms/readme_text.html, center;">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
