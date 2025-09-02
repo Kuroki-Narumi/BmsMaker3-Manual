@@ -19,35 +19,36 @@
                 要素をクリックすると説明が表示されます。
                 <div class="left-panel" style="grid-template-columns: auto auto auto 1fr;">
                     <div class="image-map" src="img/bms_header.png" maps="
-                        1, 56,276, 29, bms/header_genre.html;
-                        1, 85,276, 58, bms/header_title.html;
-                        1,143,276, 58, bms/header_artist.html;
-                        1,210,276, 29, bms/header_bpm.html;
-                        1,239,276, 29, bms/header_playlevel.html;
-                        1,268,276, 58, bms/header_difficulty.html;
-                        1,326,276, 29, bms/header_total.html;
-                        1,355,276, 29, bms/header_rank.html;
-                        1,393,276, 29, bms/header_lnobj.html;
-                        1,422,276, 29, bms/header_lnmode.html;">
+                        1, 56,267, 29, bms/header_genre.html;
+                        1, 85,267, 58, bms/header_title.html;
+                        1,143,267, 58, bms/header_artist.html;
+                        1,210,267, 29, bms/header_bpm.html;
+                        1,239,267, 29, bms/header_playlevel.html;
+                        1,268,267, 58, bms/header_difficulty.html;
+                        1,326,184, 29, bms/header_total.html;
+                      184,326, 83, 29, bms/header_totalAuto.html;
+                        1,355,267, 29, bms/header_rank.html;
+                        1,393,267, 29, bms/header_lnobj.html;
+                        1,422,267, 29, bms/header_lnmode.html;">
                     </div>
                     <div class="image-map" src="img/bms_header_2.png" maps="
-                        1, 56,276, 29, bms/header_preview.html;
-                        1, 94,276,115, bms/header_stagefile.html;
-                        1,218,276,114, bms/header_banner.html;
-                        1,341,276,114, bms/header_backbmp.html;">
+                        1, 56,267, 29, bms/header_preview.html;
+                        1, 94,267,115, bms/header_stagefile.html;
+                        1,218,267,114, bms/header_banner.html;
+                        1,341,267,114, bms/header_backbmp.html;">
                     </div>
                     <div class="image-map" src="img/bms_header_3.png" maps="
-                          1, 56,276, 29, bms/header_player.html;
-                          1, 83,276, 29, bms/header_base.html;
-                          1,110,276, 29, bms/header_comment.html;
-                          1,139,276, 29, bms/header_defexrank.html;
-                          1,175,276,258, bms/header_other.html, center;
-                         49,433, 26, 22, bms/header_other_add.html;
-                         75,433, 26, 22, bms/header_other_edit.html;
-                        101,433, 26, 22, common/list_duplicate.html;
-                        151,433, 26, 22, common/list_moveUp.html;
-                        177,433, 26, 22, common/list_moveDown.html;
-                        203,433, 26, 22, common/list_delete.html;">
+                          1, 56,267, 29, bms/header_player.html;
+                          1, 85,267, 29, bms/header_base.html;
+                          1,114,267, 29, bms/header_comment.html;
+                          1,143,267, 29, bms/header_defexrank.html;
+                          1,179,267,254, bms/header_other.html, center;
+                         53,433, 26, 22, bms/header_other_add.html;
+                         79,433, 26, 22, bms/header_other_edit.html;
+                        105,433, 26, 22, common/list_duplicate.html;
+                        135,433, 26, 22, common/list_moveUp.html;
+                        161,433, 26, 22, common/list_moveDown.html;
+                        191,433, 26, 22, common/list_delete.html;">
                     </div>
                 </div>
                 <ul>
@@ -77,6 +78,36 @@
                     </li>
                     <li>
                         コンボボックスで指定するヘッダー(<span class="script">#RANK</span>など)は、コンボボックスの上で<b>マウスホイールを回す</b>ことでも変更できます。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack" id="expression">
+                <h3><span class="script">#TOTAL</span>自動入力の数式の詳細</h3>
+                <ul>
+                    <li>
+                        文字列や記号列はスペースで区切ります。
+                    </li>
+                    <li>
+                        式には以下の文字列や記号列が使用可能です。
+                        <ul>
+                            <div class="common" src="common/expression.html"></div>
+                            <li>
+                                変数記号
+                                <ul>
+                                    <li>
+                                        以下の文字は計算時に、それぞれ右側で示された値に置き換わります。
+                                        <ul>
+                                            <li>
+                                                <b>大文字と小文字は区別されます</b>。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="script">n</span>: 演奏レーンにある通常ノートの総数
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

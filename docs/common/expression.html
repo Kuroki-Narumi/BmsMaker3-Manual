@@ -1,0 +1,77 @@
+<li>
+    定数値(整数、小数)
+</li>
+<li>
+    四則演算子(<span class="script">+</span><span class="script">-</span><span class="script">*</span><span class="script">/</span><span class="script">%</span>)
+</li>
+<li>
+    条件演算子
+    <ul>
+        <li>
+            以下の表現は計算時に、それぞれ右側で示された値に置き換わります。
+        </li>
+        <li>
+            <span class="script">x & y</span>: (論理積)<span class="script">x</span>が<span class="script">0</span>なら<span class="script">0</span>、そうでなければ<span class="script">y</span>
+        </li>
+        <li>
+            <span class="script">x | y</span>: (論理和)<span class="script">x</span>が<span class="script">0</span>なら<span class="script">y</span>、そうでなければ<span class="script">x</span>
+        </li>
+        <li>
+            <span class="script">x ^ y</span>: (排他的論理和)<span class="script">x</span>が<span class="script">0</span>なら<span class="script">y</span>、<span class="script">y</span>が<span class="script">0</span>なら<span class="script">x</span>、それ以外の場合は<span class="script">0</span>
+        </li>
+        <li>
+            <span class="script">[条件] ? x : y</span>: (条件分岐)<span class="script">[条件]</span>が<span class="script">0</span>以外なら<span class="script">x</span>、そうでなければ<span class="script">y</span>
+        </li>
+        <li>
+            <span class="script">x = y</span>: <span class="script">x</span>と<span class="script">y</span>が等しい (等しければ<span class="script">1</span>、そうでなければ<span class="script">0</span>)
+        </li>
+        <li>
+            <span class="script">x != y</span>: <span class="script">x</span>と<span class="script">y</span>が等しくない
+        </li>
+        <li>
+            <span class="script">x &lt;= y</span>: <span class="script">x</span>が<span class="script">y</span>以下
+            <ul>
+                <li>
+                    <span class="script">x &lt; y</span><span class="script">x &gt;= y</span><span class="script">x &gt; y</span>も同様。
+                </li>
+            </ul>
+        </li>
+    </ul>
+</li>
+<li>
+    関数
+    <ul>
+        <li>
+            以下の表現は計算時に、それぞれ右側で示された値に置き換わります。
+            <ul>
+                <li>
+                    <b>大文字と小文字は区別されます</b>。下記の関数は<b>全て小文字</b>で記述する必要があります。
+                </li>
+                <li>
+                    <b>括弧も含めて</b>記述する必要があります。
+                </li>
+                <li>
+                    括弧内の要素(引数)は<span class="script">,</span>で区切り、その数(<span class="script">max()</span>なら<b>2個</b>)は関数ごとに正確に一致しなければなりません。
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span class="script">max(x, y)</span>: <span class="script">x</span>と<span class="script">y</span>の大きい方
+        </li>
+        <li>
+            <span class="script">min(x, y)</span>: <span class="script">x</span>と<span class="script">y</span>の小さい方
+        </li>
+        <li>
+            <span class="script">floor(x)</span>: <span class="script">x</span>以下の最大の整数
+        </li>
+        <li>
+            <span class="script">ceil(x)</span>: <span class="script">x</span>以上の最小の整数
+        </li>
+        <li>
+            <span class="script">trunc(x)</span>: <span class="script">x</span>の整数部分
+        </li>
+        <li>
+            <span class="script">round(x, y)</span>: <span class="script">x</span>を小数点以下<span class="script">y</span>桁で丸めたもの
+        </li>
+    </ul>
+</li>

@@ -1,0 +1,44 @@
+<h3>#TOTALの自動入力</h3>
+<ul>
+    <li>
+        譜面のノート数を使い、計算式に基づいて<span class="script">#TOTAL</span>の値を自動入力します。
+    </li>
+    <li>
+        <img class="icon16" src="img/icons/Config.png"/>を押すと計算式を確認/編集できます。<br>
+        <img src="img/bms_header_total.png"/>
+        <ul>
+            <li>
+                詳細は下記「<span class="script">#TOTAL</span>自動入力の数式の詳細」を確認してください。
+            </li>
+            <li>
+                テキストボックスの入力内容はアプリ設定に記憶され、<br>
+                起動するたびに前回の入力内容が復元されます。
+            </li>
+            <li>
+                テキストボックスの下のボタンを押すとプリセットが入力されます。
+                <ul>
+                    <li>
+                        Beat: <span class="script">floor(max(260, 760.5 * n / (n + 650)))</span>
+                    </li>
+                    <li>
+                        Popn: <span class="script">floor(n &lt;= 0 ? 0 : n * floor(3072 / n) / 10.24)</span>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <img class="icon16" src="img/icons/Plus.png"/>を押すと入力中の数式をプリセットとして保存します。
+            </li>
+            <li>
+                保存済みのプリセットは下に一覧表示されます。
+                <ul>
+                    <li>
+                        <img class="icon16" src="img/icons/Upload.png"/>を押すとそのプリセットを適用します。
+                    </li>
+                    <li>
+                        <img class="icon16" src="img/icons/Delete.png"/>を押すとそのプリセットを削除します。
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

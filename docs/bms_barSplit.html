@@ -38,24 +38,42 @@
                 <h3>「式」の詳細</h3>
                 <ul>
                     <li>
-                        式には以下の記号が使用可能です。
+                        文字列や記号列はスペースで区切ります。
+                    </li>
+                    <li>
+                        式には以下の文字列や記号列が使用可能です。
                         <ul>
+                            <div class="common" src="common/expression.html"></div>
                             <li>
-                                定数値(整数、小数、分数)
-                            </li>
-                            <li>
-                                四則演算記号(<span class="script">+ - * / %</span>)
-                            </li>
-                            <li>
-                                変数記号(6種類)
-                                <div class="script">
-                                    l - 元々の小節長<br>
-                                    f - 「1本目の位置」の値<br>
-                                    m - 「最大分割数」の値<br>
-                                    i - 現在の小節線番号(※下記参照)<br>
-                                    p - 1つ前の小節線の位置(初期値は f と同じ)<br>
-                                    q - 2つ前の小節線の位置(初期値は 0)<br>
-                                </div>
+                                変数記号
+                                <ul>
+                                    <li>
+                                        以下の文字は計算時に、それぞれ右側で示された値に置き換わります。
+                                        <ul>
+                                            <li>
+                                                <b>大文字と小文字は区別されます</b>。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="script">l</span>: 元々の小節長
+                                    </li>
+                                    <li>
+                                        <span class="script">f</span>: 「1本目の位置」の値
+                                    </li>
+                                    <li>
+                                        <span class="script">m</span>: 「最大分割数」の値
+                                    </li>
+                                    <li>
+                                        <span class="script">i</span>: 現在の小節線番号(※下記参照)
+                                    </li>
+                                    <li>
+                                        <span class="script">p</span>: 1つ前の小節線の位置(初期値は f と同じ)
+                                    </li>
+                                    <li>
+                                        <span class="script">q</span>: 2つ前の小節線の位置(初期値は 0)
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
