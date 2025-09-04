@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            details.faq>summary{
+                font-weight: bold;
+                font-size: 150%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>既知の不具合</h1>
+                <ul id="list">
+                </ul>
+            </div>
+            <hr>
+            <details class="faq">
+                <summary><a href="browse_audio.html">Browseモード</a>などでエンコードした<span class="script">.ogg</span>が<a href="https://bmsoffighters.net/lr2/" target="_blank">LR2</a>で再生できない</summary>
+                <ul>
+                    <li>
+                        恐らく<b>LR2が古すぎる</b>のが原因です。
+                        <ul>
+                            <li>
+                                BmsMaker3は<a href="https://ffmpeg.org/" target="_blank">ffmpeg 7.1.1</a>を使って<span class="script">.ogg</span>などのエンコードを行います。
+                            </li>
+                            <li>
+                                この<b>ffmpeg</b>が内部で使用しているVorbisエンコーダーは<b>現代的な最適化処理を施している</b>可能性があり、その影響で古いデコーダーでは再生できない<span class="script">.ogg</span>が生成されることがあります。
+                            </li>
+                            <li>
+                                現時点では対応の目処が立っていません。
+                            </li>
+                            <li>
+                                お手数をおかけしますが、当面は従来のエンコードツール(<a href="https://www.rarewares.org/ogg-oggdropxpd.php" target="_blank">oggdropXPd</a>や<a href="https://www.vector.co.jp/soft/winnt/art/se445019.html" target="_blank">えこでこツール</a>など)をご利用いただくようにお願いします。
+                            </li>
+                            <li>
+                                なおBmsMaker3から出力される<span class="script">.ogg</span>そのものは正常なファイルであり、<a href="https://mistyblue.info/mbmplay.html" target="_blank">mBMplay</a>のようなモダンなアプリでは全て正常に再生可能です。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+            </details>
+            <details class="faq">
+                <summary><a href="bms_flow.html">分岐へ降下中</a>にプレビューするとバグる</summary>
+                <ul>
+                    <li>
+                        <b>ビューワーが<span class="script">#SETRANDOM</span>に対応していない</b>のが原因です。
+                        <ul>
+                            <li>
+                                BmsMaker3では分岐への降下中にプレビューする際、内容が確定している<span class="script">#RANDOM</span>を<span class="script">#SETRANDOM</span>に変換することで分岐の固定を試みています。
+                            </li>
+                            <li>
+                                しかし<a href="https://mistyblue.info/mbmplay.html" target="_blank">mBMplay</a>などは<span class="script">#SETRANDOM</span>に対応しておらず、<span class="script">#SETRANDOM</span>で囲まれた区間を分岐ではなくトップレベルに記述されていると解釈し、結果として<b>全ての分岐の内容が反映されてしまいます</b>。
+                            </li>
+                            <li>
+                                ROKINAが確認した限り、<a href="https://bmsoffighters.net/lr2/" target="_blank">LR2</a>や<a href="https://mocha-repository.info/download.php" target="_blank">beatoraja</a>も同様に<span class="script">#SETRANDOM</span>に対応しておらず、実質的にこの分岐固定は機能していません。
+                            </li>
+                            <li>
+                                解決策を模索中ですが、その対応には時間を要するため、当面は「分岐への降下中のプレビューはバグる」ことを前提としてプレビューを行ってください。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+            </details>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript">
+            (() => {
+                const list = document.querySelector("ul#list");
+                document.querySelectorAll("details.faq").forEach((element) => {
+                    element.open = true;
+                    const head = element.querySelector("summary");
+                    if (head){
+                        const title = head.textContent;
+                        element.id = title;
+                        const li = document.createElement("li");
+                        const a = document.createElement("a");
+                        a.href = "#" + title;
+                        a.textContent = title;
+                        li.appendChild(a);
+                        list.appendChild(li);
+                    }
+                });
+            })();
+        </script>
+    </body>
+</html>
