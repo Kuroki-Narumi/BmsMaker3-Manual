@@ -325,34 +325,62 @@
                     </ul>
                 </div>
                 <div id="quick_place">
-                    <h3>クイック配置</h3>
-                    <details>
-                        <summary>動画による説明</summary>
-                        <iframe style="width: 560px; height: 315px;" src="https://www.youtube.com/embed/zjxbJinmsOI?si=C83uWr96TTpGUuvb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </details>
+                    <h3>キーボードによる操作</h3>
                     <ul>
                         <li>
-                            <b>画面内に</b>選択中の<b>BGMノート</b>がある状態で、演奏レーンに対応するキーを押すと、選択中のBGMノートが順にそのレーンに配置されます。
-                        </li>
-                        <li>
-                            この機能を利用するには、<a href="bms_theme.html">BMSモード/テーマ設定</a>で<b>演奏レーンに対応キーを設定する</b>必要があります。
-                        </li>
-                        <li>
-                            数字キーの<span class="script">1</span>から<span class="script">0</span>を押した場合、それが演奏レーンで指定されていなければ、<b>選択中の演奏レーンのノート</b>が順に対応する<b>BGMレーン</b>に配置されます。
-                        </li>
-                        <li>
-                            <span class="script">Shift</span>キーを押している場合、<b>選択中の全てのノート</b>を対応するレーンに移動します。
+                            カーソルキー<span class="script">←↓↑→</span>を押すと、スクロールまたはノートの移動ができます。
                             <ul>
                                 <li>
-                                    この場合のみ<b>画面外のノートもまとめて移動されます</b>ので、意図せぬ移動にご注意ください。
+                                    <span class="script">Shift</span>を押している場合は選択中のノートを移動します。
+                                    <ul>
+                                        <li>
+                                            <span class="script">Ctrl</span>を押している間、上下の移動は<b>大グリッド</b>単位になります。
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    同じタイミングのノートが複数ある場合(同時押し)は<b>全てのノートが重なった状態になる</b>ためご注意ください。
+                                    <span class="script">Shift</span>を<b>押していない</b>場合はスクロールします。
+                                    <ul>
+                                        <li>
+                                            <span class="script">Ctrl</span>を押している間、上下の移動は<b>1小節</b>単位になります。
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    いずれの場合も、左右の移動は<b>レーン単位</b>で行われます。
+                                </li>
+                                <li>
+                                    いずれの場合も、<span class="script">Ctrl</span>を<b>押していない</b>場合、上下の移動は<b>小グリッド</b>単位になります。
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            Version 0.7.6 時点では、ゲームパッド(専用コントローラー)やMIDIキーボードには対応していません。要望が多ければ検討する可能性があります。
+                            それ以外のキーを押すと、設定に応じて<b>クイック配置</b>を行います。 (<a href="https://www.youtube.com/watch?v=zjxbJinmsOI" target="_blank">動画による説明</a>)
+                            <ul>
+                                <li>
+                                    <b>画面内に</b>選択中の<b>BGMノート</b>がある状態で、演奏レーンに対応するキーを押すと、選択中のBGMノートが順にそのレーンに配置されます。
+                                </li>
+                                <li>
+                                    この機能を利用するには、<a href="bms_theme.html">BMSモード/テーマ設定</a>で<b>演奏レーンに対応キーを設定する</b>必要があります。
+                                </li>
+                                <li>
+                                    数字キーの<span class="script">1</span>から<span class="script">0</span>を押した場合、それが演奏レーンで指定されていなければ、<b>選択中の演奏レーンのノート</b>が順に対応する<b>BGMレーン</b>に配置されます。
+                                </li>
+                                <li>
+                                    <span class="script">Shift</span>キーを押している場合、<b>選択中の全てのノート</b>を対応するレーンに移動します。
+                                    <ul>
+                                        <li>
+                                            この場合は<b>画面外のノートもまとめて移動されます</b>ので、意図せぬ移動にご注意ください。
+                                        </li>
+                                        <li>
+                                            同じタイミングのノートが複数ある場合(同時押し)は<b>全てのノートが重なった状態になる</b>ためご注意ください。
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Version 0.7.6 時点では、ゲームパッド(専用コントローラー)やMIDIキーボードには対応していません。要望が多ければ検討する可能性があります。
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

@@ -10,6 +10,96 @@
         <div class="content">
             <ul>
                 <li>
+                    <details id="0_7_30">
+                        <summary class="a-like">Version 0.7.30 (2025/09/04)</summary>
+                        <ul>
+                            <li>
+                                機能追加
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、カーソルキー<span class="script">←↓↑→</span>でスクロール及びノートの移動ができるようにしました。
+                                        <ul>
+                                            <li>
+                                                <span class="script">Shift</span>を押している場合は選択中のノートを移動します。
+                                                <ul>
+                                                    <li>
+                                                        <span class="script">Ctrl</span>を押している間、上下の移動は<b>大グリッド</b>単位になります。
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span class="script">Shift</span>を<b>押していない</b>場合はスクロールします。
+                                                <ul>
+                                                    <li>
+                                                        <span class="script">Ctrl</span>を押している間、上下の移動は<b>1小節</b>単位になります。
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                いずれの場合も、左右の移動は<b>レーン単位</b>で行われます。
+                                            </li>
+                                            <li>
+                                                いずれの場合も、<span class="script">Ctrl</span>を<b>押していない</b>場合、上下の移動は<b>小グリッド</b>単位になります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、譜面を<span class="script">.bmson</span>として保存する際、その<span class="script">header.mode_hint</span>に記載する内容を<a href="bms_theme.html#key">テーマの演奏レーンスタイル</a>で指定するように変更しました。
+                                        <ul>
+                                            <li>
+                                                デフォルトのテーマを使っている場合は「新規」または「開く-&gt;<span class="script">default.json</span>」でテーマ設定をリロードすることで、デフォルトのmode_hint指定を適用できます。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、演奏レーンのタイプが「Generic」の場合の「名前を付けて保存」のデフォルト拡張子を<span class="script">.bmg</span>に変更しました。
+                                        <ul>
+                                            <li>
+                                                これは主に24鍵のBMSのような変種譜面を<span class="script">.bms</span>とは異なる形式として保存しておくために追加された拡張子です。
+                                            </li>
+                                            <li>
+                                                24鍵BMSを正式にサポートするプレイヤーはまだ存在しないため、<b>現時点では</b>この拡張子を使用することに大きな意味はありません。
+                                            </li>
+                                            <li>
+                                                BmsMaker3を使って24鍵<span class="script">.bmson</span>を作成する場合、BmsMaker3では<span class="script">.bmson</span>を直接開けないため、一時的な保存用としてこの拡張子をご利用ください。
+                                            </li>
+                                            <li>
+                                                注: <span class="script">.bmson</span>を除いて、拡張子はBMSの内部構造に一切影響しません。拡張子は純粋に演奏レーンのスタイルを推定するためだけに利用されます。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms_selection.html">BMSモード/選択機能</a>において、<b style="color: #f44;">IDを指定した場合は非ID型オブジェクトが対象外となる</b>ように変更しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms_merge.html">BMSモード/統合</a>において、統合する際の時間位置を絶対時刻に変更できるようにしました。
+                                    </li>
+                                    <li>
+                                        <a href="browse.html">Browseモード</a>において、ファイルを削除する場合は<b style="color: #f44;">ゴミ箱へ送らず直接削除する</b>ようにしました。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、分解能とグリッドの設定がアプリ設定に保存されない不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、テンポ変化が複雑な譜面を開いている際に、ノートの波形が正しく表示されない場合がある不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
                     <details id="0_7_29">
                         <summary class="a-like">Version 0.7.29 (2025/09/02)</summary>
                         <ul>
