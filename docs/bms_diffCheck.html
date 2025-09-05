@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html" charset="UTF-8" http-equiv="content-type">
+        <title>BmsMaker3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="stack">
+                <h1>差分チェック</h1>
+                <p>
+                    <b>選んだファイルを変更前</b>、<b>編集中のデータを変更後</b>とみなして、内容がどれくらい変更されているのかを確認する機能です。
+                </p>
+                <ul>
+                    <li>
+                        複数の難易度差分を作る際に、時間方向のズレや抜け、意図しないノートの追加が発生していないかを確認できます。
+                    </li>
+                    <li>
+                        <span class="script">#RANDOM</span>による分岐の内容も<b>トップレベルに限り</b>変更を調べます。
+                    </li>
+                    <li>
+                        このウィンドウは<b>ノンモーダル</b>です。すなわち、このウィンドウを開いた状態で、他の作業を行うことができます。
+                    </li>
+                </ul>
+            </div>
+            <div class="stack">
+                <h2>説明</h2>
+                <img src="img/bms_diffCheck.png"/>
+                <ul>
+                    <li>
+                        <img class="icon16" src="img/icons/Copy.png"/>を押すと、テキストボックスの内容をクリップボードにコピーします。
+                    </li>
+                    <li>
+                        各行の先頭の文字が、その変更の種類を表します。
+                        <ul>
+                            <li>
+                                <b style="color: #f88;">-で始まる行</b>は、その内容が変更後では削除されていることを表します。
+                            </li>
+                            <li>
+                                <b style="color: #4f4;">+で始まる行</b>は、その内容が変更後で新たに追加されていることを表します。
+                            </li>
+                            <li>
+                                <b style="color: #88f;">@で始まる行</b>は、両方のデータに存在はするが、その内容が変更されていることを表します。
+                            </li>
+                            <li>
+                                それ以外の行はコメントです。フィールドの区切りを表します。
+                            </li>
+                            <li>
+                                <b>音声レーンにおけるレーンの違いは無視されます。</b>
+                                <ul>
+                                    <li>
+                                        例えば変更前では<span class="script">#WAV01</span>のノートが<b>BGMレーン</b>に存在し、変更後では同じ時刻/同じ定義番号のノートが<b>演奏レーン</b>に存在する場合、これらは同一であって<b>変更されていない</b>とみなされ、この一覧には表示されません。
+                                    </li>
+                                    <li>
+                                        逆に、各データで同じ時刻/同じレーンにノートが存在する場合でも、それらの<b>定義番号</b>が異なれば、前者の削除と後者の追加がこの一覧で通知されます。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                その他のレーンに関しては、レーンが異なる場合も変更があったとみなされます。
+                                <ul>
+                                    <li>
+                                        例えば変更前では<span class="script">Bga_Base</span>のレーンにノートが存在し、変更後では同じ時刻/同じ定義番号のノートが<span class="script">Bga_Layer</span>に存在する場合、前者の削除と後者の追加がこの一覧で通知されます。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <u>下線付きのリンク</u>はクリックできます。
+                        <ul>
+                            <li>
+                                小節番号(<span class="script">#001</span>など)をクリックすると、その小節が画面に収まるようにスクロールします。
+                            </li>
+                            <li>
+                                分岐枝の名前(<span class="script">#IF 1</span>など)をクリックすると、その分岐へ<a href="bms_flow.html">降下</a>します。
+                            </li>
+                            <li>
+                                分岐内の小節番号をクリックすると、その分岐へ降下しつつ、その小節が画面に収まるようにスクロールします。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
