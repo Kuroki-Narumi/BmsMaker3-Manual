@@ -24,19 +24,60 @@
                 <summary><a href="browse_audio.html">Browseモード</a>などでエンコードした<span class="script">.ogg</span>が<a href="https://bmsoffighters.net/lr2/" target="_blank">LR2</a>で再生できない</summary>
                 <ul>
                     <li>
-                        恐らく<b>LR2が古すぎる</b>のが原因です。
+                        <s>恐らく<b>LR2が古すぎる</b>のが原因です。</s><b>LR2が利用する<span class="script">fmodex.dll</span>の特定のバージョンに起因するバグです。</b>
                         <ul>
                             <li>
-                                BmsMaker3は<a href="https://ffmpeg.org/" target="_blank">ffmpeg 7.1.1</a>を使って<span class="script">.ogg</span>などのエンコードを行います。
+                                <a href="https://x.com/twinkle_haha/status/1963967002462335127" target="_blank">参考ポスト</a>
                             </li>
                             <li>
-                                この<b>ffmpeg</b>が内部で使用しているVorbisエンコーダーは<b>現代的な最適化処理を施している</b>可能性があり、その影響で古いデコーダーでは再生できない<span class="script">.ogg</span>が生成されることがあります。
+                                LR2に同梱されているFMOD Ex(0.4.13.4)が内部で使用しているVorbisデコーダーには、特定の構造(詳細不明)を持つファイルを再生できないバグがあります。
                             </li>
                             <li>
-                                現時点では対応の目処が立っていません。
+                                このバグはFMOD Exの後のバージョンで修正されていますが、<b style="color: #f44;">新しいバージョンではAPIの仕様変更があり、LR2はそれに対応していないため落ちます</b>。
                             </li>
                             <li>
-                                お手数をおかけしますが、当面は従来のエンコードツール(<a href="https://www.rarewares.org/ogg-oggdropxpd.php" target="_blank">oggdropXPd</a>や<a href="https://www.vector.co.jp/soft/winnt/art/se445019.html" target="_blank">えこでこツール</a>など)をご利用いただくようにお願いします。
+                                この問題へのLR2側での対処法は以下の通りです。
+                                <ol>
+                                    <li>
+                                        同梱されている<span class="script">fmodex.dll</span>を<b>古すぎず新しすぎないバージョン</b>に差し替える。
+                                        <ul>
+                                            <li>
+                                                <a href="https://jp.dll-files.com/fmodex.dll.html" target="_blank">DLL-FILES.COM</a>から入手可能なFMOD Exの<b class="script">Versoin 0.4.33.7</b>が、LR2<span class="script">beta3 100201</span>では利用可能であり、問題の音声ファイルも正常に再生できることを確認しています。
+                                            </li>
+                                            <li>
+                                                <b style="color: #f44;">上記サイトからのdllファイルのダウンロードは自己責任で行ってください。</b>
+                                            </li>
+                                            <li>
+                                                このサイトで入手可能な一つ前のバージョン(0.4.26.2)ではバグは解消されておらず、一つ後のバージョン(0.4.38.7)はLR2では利用できない(落ちる)ため、このバージョンを選ぶ必要があります。
+                                            </li>
+                                            <li>
+                                                ただし<a href="http://www.yamajet.com/bmssp/index.html" target="_blank">BMS Starter Pack 2009</a>に同梱されている<span class="script">beta3 090607</span>では、<b style="color: #f44;">0.4.33.7のFMOD Exも利用できない(楽曲読み込み時に落ちる)</b>ようです。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        LR2のオプション(SYSTEMタブ)で「FMOD Exを使用しない」にチェックする
+                                        <ul>
+                                            <li>
+                                                音声の再生にFMOD Exを使用しなくなるため、前述のバグを回避できます。
+                                            </li>
+                                            <li>
+                                                この方法であれば<span class="script">beta3 090607</span>でも正常に音声が再生できるようになります。
+                                            </li>
+                                            <li>
+                                                ただしこのオプションにチェックした場合、FMOD Exを利用したエフェクト機能(Reverbなど)は利用できなくなります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        現時点でBmsMaker3側での対応の目処は立っていません。
+                        <ul>
+                            <li>
+                                LR2で確実に再生可能なデータを作成したい場合は、お手数をおかけしますが、当面は従来のエンコードツール(<a href="https://www.rarewares.org/ogg-oggdropxpd.php" target="_blank">oggdropXPd</a>や<a href="https://www.vector.co.jp/soft/winnt/art/se445019.html" target="_blank">えこでこツール</a>など)をご利用いただくようにお願いします。
                             </li>
                             <li>
                                 なおBmsMaker3から出力される<span class="script">.ogg</span>そのものは正常なファイルであり、<a href="https://mistyblue.info/mbmplay.html" target="_blank">mBMplay</a>のようなモダンなアプリでは全て正常に再生可能です。
