@@ -13,12 +13,23 @@
                 <p>
                     <a href="midi_pack.html">整理済みMIDIのデータ</a>と<a href="midi_slice.html">スライスされた音声データ</a>を使ってBMSファイルを作成する機能です。
                 </p>
+                <ul>
+                    <li>
+                        原則として、出力されるBMSの定義形式は<span class="script">ZZ</span>になります。総定義数が255以下でも<span class="script">FF</span>に変換されることはありません。
+                    </li>
+                    <li>
+                        総定義数が1296以上となる場合は<span class="script">zz</span>定義になり、その旨が警告として表示されます。
+                    </li>
+                    <li>
+                        総定義数が3844以上となる場合、超える分の定義は消失し、その旨が警告として表示されます。
+                    </li>
+                </ul>
             </div>
             <div class="stack">
                 <h2>説明</h2>
                 要素をクリックすると説明が表示されます。
                 <div class="image-map" src="img/midi_bmsExport.png" maps="
-                      5,  5,242,380, midi/bms_track.html, center;
+                      5,  5,242,412, midi/bms_track.html, center;
                     261, 26,220, 50, midi/bms_target.html;
                     261, 77,220, 29, midi/bms_filename.html;
                     261,106,200, 87, midi/bms_header.html;
@@ -28,9 +39,10 @@
                     409,283, 24, 24, midi/options_open.html;
                     433,283, 24, 24, midi/options_save.html;
                     457,283, 24, 24, midi/options_reset_score.html;
-                    373,315,118, 25, midi/bms_open.html;
-                    307,345, 90, 40, midi/bms_export.html;
-                    405,345, 82, 40, common/sub_cancel.html;">
+                    357,319,130, 25, midi/bms_estimate.html;
+                    373,348,118, 25, midi/bms_open.html;
+                    307,378, 90, 40, midi/bms_export.html;
+                    405,378, 82, 40, common/sub_cancel.html;">
                 </div>
             </div>
         </div>
