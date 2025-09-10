@@ -25,7 +25,7 @@
                 <ul>
                     <li>
                         <b>演奏レーンのスタイルを切り替えると自動で変更されます。</b><br>
-                        <img src="img/window_bms_tab_view.png" style="width: 320px; height: 68px; object-fit: none; object-position: -80px 0px;"/>
+                        <img src="img/bms_header_3.png" style="width: 244px; height: 29px; object-fit: none; object-position: -22px -56px;"/><img src="img/window_bms_tab_view.png" style="width: 320px; height: 68px; object-fit: none; object-position: -80px 0px;"/>
                         <ul>
                             <li>
                                 現在主流のBMSプレイヤー(LR2、beatoraja、mBMplay)において<span class="script">#PLAYER</span>は参照されておらず、このヘッダーはもはや不要です。
@@ -85,6 +85,62 @@
                                         スプリッターを<b>ダブルクリック</b>すると表示領域をリセットできます。
                                     </li>
                                 </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+            </details>
+            <details class="faq">
+                <summary>定義数は足りるはずなのにZZ定義に変換されない</summary>
+                <ul>
+                    <li>
+                        <b><span class="script">#LNOBJ</span>の指定を見直してください。</b><br>
+                        <img src="img/bms_info.png" style="width: 86px; height: 75px; object-fit: none; object-position: -206px -5px;"/><img src="img/faq_defSort_2.png"/><img src="img/faq_defSort_3.png"/>
+                        <ul>
+                            <li>
+                                <a href="bms_defSort.html">定義の整列</a>による基数(<span class="script">#BASE</span>)の変更は、以下の2つの条件が満たされる場合に適用されます。
+                                <ol>
+                                    <li>
+                                        全ての定義リストにおいて、最大の定義番号が目標とする基数での最大値(<span class="script">ZZ</span>の場合は<span class="script">1295</span>)を超えていない
+                                    </li>
+                                    <li>
+                                        <span class="script">#LNOBJ</span>の値が目標とする基数での最大定義番号を超えていない
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                「隙間を詰める」が有効な場合、<b>1.</b>の条件は自動的に満たせる場合が多いですが、<b>2.</b>に関しては<b>予め手動で<span class="script">#LNOBJ</span>を変更しておく</b>必要があります。
+                                <ul>
+                                    <li>
+                                        ここで、<b>ヘッダーエリアでの表示は現在の基数に従う</b>ことに注意してください。
+                                    </li>
+                                    <li>
+                                        例えば<span class="script">#BASE 36</span>における<span class="script">#LNOBJ FF</span>は<b>255番ではなく555番です</b>。
+                                        <ul>
+                                            <li>
+                                                </b>見た目は<span class="script">#BASE 16</span>(=<span class="script">FF</span>定義)に即しているように思えますが、この状態では「基数の変更」が適用されません。
+                                            </li>
+                                            <li>
+                                                基数の変更<b>適用後</b>に<span class="script">#LNOBJ FF</span>としたい場合、「定義の整列」の実行前の時点では<span class="script">#LNOBJ 73</span>(36進表記における255番)にしておく必要があります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        同様に<span class="script">#BASE 62</span>における<span class="script">#LNOBJ ZZ</span>は<b>1295番ではなく2205番です</b>。
+                                        <ul>
+                                            <li>
+                                                基数の変更<b>適用後</b>に<span class="script">#LNOBJ ZZ</span>としたい場合、「定義の整列」の実行前の時点では<span class="script">#LNOBJ Kt</span>(62進表記における1295番)にしておく必要があります。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        基数の変換前後で定義番号の表記がどう変わるかは、<a href="terminal.html">ターミナル裏面</a>の基数変換器を使って確かめてください。
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                後で定義数を最適化する前提で<span class="script">#BASE 62</span>を利用する場合は、この手間を省くために<span class="script">#LNOBJ 01</span>にしておくことをおすすめします。
                             </li>
                         </ul>
                     </li>
