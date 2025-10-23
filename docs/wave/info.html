@@ -1,7 +1,51 @@
 <h3>基本情報</h3>
 <ul>
     <li>
-        開いている音声データの基本情報<br>
-        (サンプリング周波数、チャンネル数、サンプル長、実時間)を表示します。
+        開いている音声データの基本情報を表示します。
+        <ul>
+            <li>
+                表示内容は左から「サンプリング周波数 / チャンネル数 / サンプル長(実時間)」です。
+            </li>
+        </ul>
+    </li>
+    <li>
+        クリックすると表示を裏面に切り替えます。<br>
+        <img src="img/window_wave_tab_general_ura.png"/>
+        <ul>
+            <li>
+                <b>Peak</b>: サンプル単位での絶対値の最大値
+                <ul>
+                    <li>
+                        この値が<span class="script">0dB</span>を超えている場合、再生環境によっては音割れが発生します。
+                    </li>
+                    <li>
+                        一般に、マスタリング前の2mixと呼ばれる音源では、この値が<span class="script">0dB</span>を下回るように全体音量を下げる必要があります。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>RMS</b>: チャンネルごとの<a href="https://ja.wikipedia.org/wiki/%E4%BA%8C%E4%B9%97%E5%B9%B3%E5%9D%87%E5%B9%B3%E6%96%B9%E6%A0%B9" target="_blank">二乗平均平方根</a>の平均
+                <ul>
+                    <li>
+                        この音声の平均音量を示します。
+                    </li>
+                    <li>
+                        機械的に平均を取るため、前後の無音が多い音源ではこの値は小さめになります。<br>
+                        「聴覚的なうるささ」の指標には後述のLUFSを参照してください。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>LUFS</b>: <a href="https://en.wikipedia.org/wiki/LUFS">Loudness units relative to full scale</a>
+                <ul>
+                    <li>
+                        RMSを人間の聴覚特性に合わせて加工した値で、概ね「聴覚的なうるささ」の指標になります。
+                    </li>
+                    <li>
+                        目指すべき値を一つ決めておくと楽曲の音量感を統一できます。具体的な値は条件次第で変わります。
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </li>
 </ul>
