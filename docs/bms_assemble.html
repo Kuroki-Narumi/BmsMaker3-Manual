@@ -16,6 +16,11 @@
                 <ul>
                     <li>
                         全てのノートを統合すれば、そのBMSの<b>完全な音源</b>を作成できます。
+                        <ul>
+                            <li>
+                                アセンブル完了後には<a href="#result">音量の目安が表示される</a>ため、BMSの音量チェックにも利用できます。
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         一部のノートを統合し、いわば<b>グループ化</b>した新たなキー音を作ることもできます。
@@ -41,14 +46,13 @@
                       2, 52,135,109, bms/assemble_target.html;
                       2,164,135, 57, bms/assemble_start.html;
                       2,224,135,137, bms/assemble_flow.html;
-                    139, 51,168, 61, bms/assemble_gain.html;
-                    224, 76, 74, 25, bms/assemble_normalize.html;
-                    148,137,150, 25, bms/assemble_overlap.html;
-                    148,163,150, 25, bms/assemble_marker.html;
-                    148,189,150, 27, wave/bytes.html;
-                    148,221,150, 25, bms/assemble_view.html;
-                    205,270, 99, 40, bms/assemble_export.html;
-                    205,318, 99, 40, common/cancel_restore.html;
+                    138, 53,170,112, bms/assemble_normalize.html;
+                    148,189,150, 25, bms/assemble_overlap.html;
+                    148,215,150, 25, bms/assemble_marker.html;
+                    148,241,150, 27, wave/bytes.html;
+                    148,273,150, 25, bms/assemble_view.html;
+                    205,313, 99, 40, bms/assemble_export.html;
+                    205,361, 99, 40, common/cancel_restore.html;
                     ">
                 </div>
             </div>
@@ -57,14 +61,13 @@
                 <div class="image-map" src="img/bms_assemble_selection.png" maps="
                      49, 26,233, 22, bms/assemble_mode.html;
                       2, 52,156,138, bms/assemble_replace.html;
-                    160, 51,168, 61, bms/assemble_gain.html;
-                    245, 76, 74, 25, bms/assemble_normalize.html;
-                    169,137,150, 25, bms/assemble_overlap.html;
-                    169,163,150, 25, bms/assemble_marker.html;
-                    169,189,150, 27, wave/bytes.html;
-                    169,221,150, 25, bms/assemble_view.html;
-                    226,261, 99, 40, bms/assemble_export2.html;
-                    226,309, 99, 40, common/cancel_restore.html;
+                    159, 53,170,112, bms/assemble_normalize.html;
+                    169,189,150, 25, bms/assemble_overlap.html;
+                    169,215,150, 25, bms/assemble_marker.html;
+                    169,241,150, 27, wave/bytes.html;
+                    169,273,150, 25, bms/assemble_view.html;
+                    226,313, 99, 40, bms/assemble_export.html;
+                    226,361, 99, 40, common/cancel_restore.html;
                     ">
                 </div>
             </div>
@@ -76,18 +79,39 @@
                      11,103,131, 87, bms/assemble_preview_length.html;
                      11,195,131, 25, bms/assemble_preview_set.html;
                       2,233,149,137, bms/assemble_flow.html;
-                    153, 51,168, 61, bms/assemble_gain.html;
-                    238, 76, 74, 25, bms/assemble_normalize.html;
-                    162,137,150, 25, bms/assemble_overlap.html;
-                    162,163,150, 25, bms/assemble_marker.html;
-                    162,189,150, 27, wave/bytes.html;
-                    162,221,150, 25, bms/assemble_view.html;
-                    219,279, 99, 40, bms/assemble_export.html;
-                    219,327, 99, 40, common/cancel_restore.html;
+                    152, 53,170,112, bms/assemble_normalize.html;
+                    162,189,150, 25, bms/assemble_overlap.html;
+                    162,215,150, 25, bms/assemble_marker.html;
+                    162,241,150, 27, wave/bytes.html;
+                    162,273,150, 25, bms/assemble_view.html;
+                    219,313, 99, 40, bms/assemble_export.html;
+                    219,361, 99, 40, common/cancel_restore.html;
                     ">
                 </div>
             </div>
-            <div class="stack" id="#tolerance">
+            <div class="stack" id="result">
+                <h3>音量情報</h3>
+                アセンブルの完了後、「ファイルを保存」ダイアログが表示される際に、ウィンドウ中央には<b>その音声の音量情報</b>が表示されます。<br>
+                <img src="img/bms_assemble_result.png"/>
+                <ul>
+                    <li>
+                        <b>Gain</b>: 実際に適用された音量変化
+                        <ul>
+                            <li>
+                                この表示は「正規化モード」が「None」以外の場合に意味を持ちます。
+                            </li>
+                            <li>
+                                上の画像では「LUFSを<span class="script">-6dB</span>にするには<span class="script">+0.75dB</span>のゲインが必要」という情報が読み取れます。
+                            </li>
+                            <li>
+                                <a href="browse_audio.html">Browseモード/Audio</a>でこの値を指定して「一括音量変更」を実行すれば、BMSを再生した際のLUFSをこの値に近づけることができます。
+                            </li>
+                        </ul>
+                    </li>
+                    <div class="common" src="wave/info_common.html"></div>
+                </ul>
+            </div>
+            <div class="stack" id="tolerance">
                 <h3>相対時刻の許容誤差</h3>
                 <ul>
                     <li>
