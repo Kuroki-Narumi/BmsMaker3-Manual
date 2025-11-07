@@ -110,32 +110,6 @@
                 </ul>
                 <br>
             </details>
-            <details class="faq">
-                <summary><a href="bms.html"><span class="script">F6</span>でプレビュー</a>すると「mBMplay」がエラーを吐く</summary>
-                <ul>
-                    <li>
-                        <b>開始位置の引数に不正な値を渡している</b>ことが原因の、BmsMaker3側の不具合です。
-                        <ul>
-                            <li>
-                                BMSモードで<span class="script">F6</span>(現在位置から再生)を行うと、BM3は「現在の小節位置の1つ前」を引数として各種ビューワーを起動します。
-                            </li>
-                            <li>
-                                詳細は割愛しますが、現在(v0.7.41)のBM3には<b>スクロールバーが下端にある場合、この引数が<span class="script">-1</span>になる</b>という不具合があります。
-                            </li>
-                            <li>
-                                <a href="https://mistyblue.info/mbmplay.html" target="_blank">mBMplay</a>は負の小節番号を許していないため、この引数によってエラーが発生します。
-                            </li>
-                            <li>
-                                この不具合の解消は簡単ですが、緊急性が低いため、他の修正要素があった場合に次のアップデートでまとめて対応します。
-                            </li>
-                            <li>
-                                当面の間、<b>スクロールバーが下端にある場合</b>は<span class="script">F6</span>ではなく<span class="script">F5</span>でプレビューするようにしてください。
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <br>
-            </details>
         </div>
         <script type="text/javascript" src="script.js"></script>
         <script type="text/javascript">

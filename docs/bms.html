@@ -89,9 +89,9 @@
                 <h2>説明</h2>
                 要素をクリックすると説明セクションに飛びます。
                 <div class="image-map" src="img/window_bms.png" style="max-width: 640px;" maps="
-                       1, 31,1079,  67, #tab, link;
-                       1, 99, 799, 664, #main, link;
-                     800, 99, 280, 664, #rightPane, link;
+                       1, 31,1009,  67, #tab, link;
+                       1, 99, 804, 662, #main, link;
+                     809, 99, 202, 662, #rightPane, link;
                 "></div>
             </div>
             <div class="stack" id="tab">
@@ -121,10 +121,12 @@
                         316, 22, 66, 45, bms/copy.html;
                         382, 22, 79, 45, bms/paste.html;
                         461, 22, 60, 45, bms/delete.html;
-                        526, 22,154, 45, bms/preview_select.html;
-                        680, 22, 81, 45, bms/preview_all.html;
-                        761, 22,105, 45, bms/preview_resume.html;
-                        866, 22,112, 45, bms/preview_setting.html;
+                        526, 22, 86, 45, bms/mirror.html;
+                        612, 22, 97, 45, bms/place_copy.html;
+                        714, 22,154, 45, bms/preview_select.html;
+                        868, 22, 81, 45, bms/preview_all.html;
+                        949, 22,105, 45, bms/preview_resume.html;
+                        1054, 22,112, 45, bms/preview_setting.html;
                     "></div>
                     <div class="image-map" src="img/window_bms_tab_view.png" maps="
                           1,  0, 25, 21, common/undo.html;
@@ -140,6 +142,7 @@
                         652, 22, 73, 45, bms/grid_large.html;
                         730, 22,122, 45, bms/scale_y.html;
                         852, 22,106, 45, bms/scale_x.html;
+                        963, 22, 92, 45, bms/scrollbar.html;
                     "></div>
                     <div class="image-map" src="img/window_bms_tab_function.png" maps="
                           1,  0, 25, 21, common/undo.html;
@@ -168,10 +171,12 @@
                 要素をクリックすると説明が表示されます。
                 <div class="image-map" src="img/window_bms_main.png" maps="
                       0,  0, 963, 14, bms/area_header.html;
-                      7, 14, 167,226, bms/area_conductor.html, center;
-                    181, 14,  83,226, bms/area_meta.html, center;
-                    271, 14, 223,226, bms/area_key.html, center;
-                    501, 14, 447,226, bms/area_bgm.html, center;
+                      6, 14, 145,226, bms/area_conductor.html, center;
+                    156, 14,  73,226, bms/area_meta.html, center;
+                    234, 14, 193,226, bms/area_key.html, center;
+                    432, 14, 266,226, bms/area_bgm.html, center;
+                    698,  0,  17,240, bms/area_scrollbar.html, center;
+                    715, 14, 246,226, bms/area_mirror.html, center;
                 "></div>
                 <div>
                     <h3>マウスによる操作</h3>
@@ -301,12 +306,10 @@
                                                 <img src="img/icons/Selection.png" class="icon16"><b>選択機能</b>: <a href="bms_selection.html">選択機能ウィンドウ</a>を開きます。
                                             </li>
                                             <li>
-                                                <img src="img/icons/Update_Mono.png" class="icon16"><b>左右反転</b>: 選択範囲に含まれる音声レーン(演奏レーン+BGMレーン)のノートの配置を左右反転します。
-                                                <ul>
-                                                    <li>
-                                                        「選択中ノートがある左端のレーン」と「選択中ノートがある右端のレーン」の間が左右反転します。
-                                                    </li>
-                                                </ul>
+                                                <img src="img/icons/RightLeft.png" class="icon16"><b>左右反転</b>: 選択範囲に含まれる音声レーン(演奏レーン+BGMレーン)のノートの配置を左右反転します。
+                                            </li>
+                                            <li>
+                                                <img src="img/icons/Paste_Mono.png" class="icon16"><b>配置のコピー</b>: 選択範囲に含まれる音声レーンのノートを、<b>クリップボード上のノート配置</b>に合わせて移動します。
                                             </li>
                                             <li>
                                                 <img src="img/icons/Wave.png" class="icon16"><b>アセンブル</b>: <a href="bms_assemble.html">アセンブルウィンドウ</a>を開きます。
@@ -319,6 +322,11 @@
                                             </li>
                                             <li>
                                                 <img src="img/icons/Paste.png" class="icon16"><b>貼り付け</b>: クリップボードにコピーされているノーツを譜面に追加します。
+                                                <ul>
+                                                    <li>
+                                                        貼り付ける際、縦方向の位置は譜面上の位置に基づきますが、<span class="script">Ctrl+Alt+V</span>で貼り付けた場合は<b>秒数基準</b>になります。
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
                                                 <img src="img/icons/Copy.png" class="icon16"><b>複製</b>: 選択中のノートをクリップボードにコピー<b>せず</b>、直接その場に追加します。
