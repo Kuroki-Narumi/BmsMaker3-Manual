@@ -10,6 +10,55 @@
         <div class="content">
             <ul>
                 <li>
+                    <details id="0_7_46">
+                        <summary class="a-like">Version 0.7.46 (2026/05/11)</summary>
+                        <ul>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、以下のように変更しました。
+                                        <ul>
+                                            <li>
+                                                ヘッダー及びノート上に描画される文字のフォントを変更しました。
+                                            </li>
+                                            <li>
+                                                ノート上に描画される文字の色を<a href="bms_theme.html">テーマ設定</a>から変更できるようにしました。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <a href="wave.html">Waveモード</a>及び<a href="midi_slice.html">Midiモード/スライス</a>において、長い音声を読み込もうとすると<span class="script">OutOfMemory</span>によって失敗する不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms_viewer.html">BMSモード/ビューワー設定</a>において、アプリ初期状態で用意されている設定のうち、<span class="script">LR2</span>と<span class="script">beatoraja</span>で引数の内容が逆になっていた不具合を修正しました。
+                                        <ul>
+                                            <li>
+                                                この修正は<b>今までにアプリを一度も起動していない場合にのみ</b>有効です。
+                                            </li>
+                                            <li>
+                                                すでにアプリを起動したことがある場合はアプリ設定に保存されてしまっているため、お手数ですが手作業で修正してください。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>の追加モード(<span class="script">F3</span>)において、配置予定のノートに対して「文字サイズ」の指定が反映されない不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、<a href="bms_theme.html">テーマ設定</a>の画面を開く度に譜面表示エリアのスタイルがリセットされる不具合を修正しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
                     <details id="0_7_45">
                         <summary class="a-like">Version 0.7.45 (2026/04/20)</summary>
                         <ul>
