@@ -2,6 +2,8 @@
 # LivreNoir Be Music Score (.lbm)
 JSON形式で記述される汎用譜面フォーマット
 
+# 注:この草案は破棄されました。https://github.com/Kuroki-Narumi/BmsMaker3-Manual/blob/main/bmst_spec.md を参照してください。
+
 ## 前提
 - この文書では、この種のファイルを解釈するプログラムを「解釈器」と呼ぶ。
 - ファイルの記述は[JSON](https://ja.wikipedia.org/wiki/JSON)形式に倣う。従って、解釈器はJSON文字列をパースする機能を持つ必要がある。
