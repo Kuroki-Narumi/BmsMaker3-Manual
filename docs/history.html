@@ -10,6 +10,65 @@
         <div class="content">
             <ul>
                 <li>
+                    <details id="0_7_47">
+                        <summary class="a-like">Version 0.7.47 (2026/07/06)</summary>
+                        <ul>
+                            <li>
+                                仕様変更
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、以下のように変更しました。
+                                        <ul>
+                                            <li>
+                                                デフォルトのテーマ(<a href="bms_theme.html">テーマ設定</a>の「新規」及び同梱の<span class="script">Themes/Bms/default.json</span>で確認可能)において、指揮者レーンとメタレーンに対してレーンを一つも表示しないスタイルを追加しました。
+                                            </li>
+                                            <li>
+                                                BGMレーンの右端<b>4つ</b>が常に空白となるように変更しました。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                機能追加
+                                <ul>
+                                    <li>
+                                        <a href="bms_sequential.html">BMSモード/連続配置</a>に「番号置換」オプションを追加しました。
+                                        <ul>
+                                            <li>
+                                                チェックすると、新たにノートを配置するのではなく、<b>選択中のノートの定義番号を指定された順番で置き換える</b>という動作になります。
+                                            </li>
+                                            <li>
+                                                「開始位置」「レーン」「配置間隔」の設定は全て無視され、指揮者レーン以外にある全ての選択中ノートに対して無差別に適用されます。
+                                            </li>
+                                            <li>
+                                                シーケンスリストの要素数が足りない場合はループして適用されます。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                不具合修正
+                                <ul>
+                                    <li>
+                                        <a href="bms.html">BMSモード</a>において、ファイルの保存時に<span class="script">#SWITCH</span>の分岐内容が無視される不具合を修正しました。
+                                    </li>
+                                    <li>
+                                        <a href="bms_noteEdit.html">BMSモード/ノート編集</a>などのダイアログにおいて、画面の右方や下方で開くと画面からはみ出て操作できない不具合を<b>部分的に</b>修正しました。
+                                        <ul>
+                                            <li>
+                                                ディスプレイの拡大率が100%ではない環境では解消していない可能性があるためご注意ください。
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                    </details>
+                </li>
+                <li>
                     <details id="0_7_46">
                         <summary class="a-like">Version 0.7.46 (2026/05/11)</summary>
                         <ul>
